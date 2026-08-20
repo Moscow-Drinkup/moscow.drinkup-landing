@@ -6,7 +6,7 @@ import TeamBlock from './components/TeamBlock';
 import EventsBlock from './components/EventsBlock';
 import {EventPage} from './components/EventPage';
 import {TopNav} from './components/TopNav';
-import {contentHome, contentPartners, contentVenues} from './content';
+import {contentEvents, contentHome, contentPartners, contentVenues} from './content';
 import {events} from './generated-events';
 import type {PageContent} from '@gravity-ui/page-constructor';
 
@@ -47,6 +47,14 @@ export function App() {
               element={
                 <SubPage>
                   <Page content={contentPartners} />
+                </SubPage>
+              }
+            />
+            <Route
+              path="/events"
+              element={
+                <SubPage>
+                  <Page content={contentEvents} />
                 </SubPage>
               }
             />

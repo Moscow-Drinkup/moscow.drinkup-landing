@@ -26,13 +26,14 @@ export const formatEventDate = (start: string | null): string => {
 
 export type EventsBlockProps = {
   items: EventItem[];
+  title?: string;
 };
 
-const EventsBlock = ({items}: EventsBlockProps) => {
+const EventsBlock = ({items, title = 'Последние мероприятия'}: EventsBlockProps) => {
   if (!items.length) return null;
   return (
     <div className="drinkup-events-section">
-      <h2 className="drinkup-events-title">Последние мероприятия</h2>
+      <h2 className="drinkup-events-title">{title}</h2>
       <div className="drinkup-events">
         {items.map((e) => (
           <Card key={e.id} className="drinkup-event-card" view="outlined" type="container" size="m">

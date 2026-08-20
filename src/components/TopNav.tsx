@@ -3,6 +3,7 @@ import './nav.css';
 
 const NAV_LINKS = [
   {to: '/', label: 'Главная'},
+  {to: '/events', label: 'Мероприятия'},
   {to: '/venues', label: 'Площадкам'},
   {to: '/partners', label: 'Партнёрам'},
 ];
