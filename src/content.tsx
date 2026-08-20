@@ -1,4 +1,4 @@
-import {BlockType} from '@gravity-ui/page-constructor';
+import {BlockType, SubBlockType} from '@gravity-ui/page-constructor';
 import type {PageContent} from '@gravity-ui/page-constructor';
 
 const TG_TARGET = {target: '_blank', rel: 'noopener'} as const;
@@ -169,34 +169,52 @@ export const content: PageContent = {
       title: 'Что говорят площадки и партнёры',
       children: [
         {
-          type: 'basic-card',
-          title: 'Бар Freedom',
+          type: SubBlockType.Quote,
           text: '«Ни разу не прогадали! Прикольная тусовка, даже для тех, кто далёк от мира компьютерных технологий. Весёлые ребята под пивко выступали с докладами. Бар остался в хорошем плюсе.»',
+          logo: asset('img/logos/freedom.png'),
+          image: asset('img/gallery/meetup7-1.jpg'),
+          author: {firstName: 'Евгений', description: 'бар Freedom на флаконе'},
+          theme: 'dark',
         },
         {
-          type: 'basic-card',
-          title: 'The Backyard Pub',
+          type: SubBlockType.Quote,
           text: '«Если вы думаете, что айтишники скучные и душные, вы можете изменить своё мнение здесь. Доклады подавались в наполовину шуточном формате под пиво.»',
+          logo: asset('img/logos/backyard.png'),
+          image: asset('img/gallery/meetup7-2.jpg'),
+          author: {firstName: 'The Backyard Pub', description: 'Китай-город'},
+          theme: 'dark',
         },
         {
-          type: 'basic-card',
-          title: 'StøyCraft bar',
+          type: SubBlockType.Quote,
           text: '«Очень весёлые ребята, интересные спикеры и, конечно же... ПИВОООО! Плюс ко всему и бар не остался в минусе!»',
+          logo: asset('img/logos/stoycraft.png'),
+          image: asset('img/gallery/meetup8-1.jpg'),
+          author: {firstName: 'Камиль', description: 'StøyCraft bar, Валовой'},
+          theme: 'dark',
         },
         {
-          type: 'basic-card',
-          title: 'Axiom pub',
+          type: SubBlockType.Quote,
           text: '«Третьего дня в аксиом пабе на Бауманской в цепкие лапы попало ПИИИИВО! Чудесные докладчицы, чудесные пацаны-девчонки, пиво и приколы. Супер круто, делаем дальше!»',
+          logo: asset('img/logos/axiom.png'),
+          image: asset('img/gallery/meetup10-1.jpg'),
+          author: {firstName: 'Axiom pub', description: 'Бауманская'},
+          theme: 'dark',
         },
         {
-          type: 'basic-card',
-          title: 'Джуниор су-шеф',
+          type: SubBlockType.Quote,
           text: '«Лучший IT дринк-ап в Москве, уникальное сообщество и отличная организация. Мы были рады угостить участников мероприятия и планируем делать это регулярно.»',
+          logo: asset('img/logos/junior.png'),
+          image: asset('img/gallery/meetup8-2.jpg'),
+          author: {firstName: 'Паша', description: 'Джуниор су-шеф'},
+          theme: 'dark',
         },
         {
-          type: 'basic-card',
-          title: 'DevRel Райффайзенбанка',
+          type: SubBlockType.Quote,
           text: '«Коллеги отлично провели промо, поработали с программой и собрали классную тусовку. А мы были рады угостить гостей мероприятия.»',
+          logo: asset('img/logos/raiffeisen.png'),
+          image: asset('img/gallery/meetup10-2.jpg'),
+          author: {firstName: 'Аня', description: 'DevRel Райффайзенбанк'},
+          theme: 'dark',
         },
       ],
     },
@@ -264,7 +282,6 @@ export const content: PageContent = {
       copyright: {
         copyrightText: '© 2026 Moscow DrinkUp',
       },
-      attribution: true,
     },
   ],
 };
