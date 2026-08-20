@@ -1,0 +1,98 @@
+.drinkup-events-section {
+  padding: 56px 0;
+}
+
+.drinkup-events-title {
+  font-family: var(--g-font-family-sans);
+  font-size: clamp(1.7rem, 3.6vw, 2.6rem);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--g-color-text-primary);
+  margin: 0 0 1.2em;
+}
+
+.drinkup-events {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.drinkup-event-card {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: var(--g-color-base-float);
+  border-radius: 12px;
+  min-height: 130px;
+}
+
+.drinkup-event-num {
+  font-family: var(--g-font-family-monospace);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--g-color-text-brand);
+}
+
+.drinkup-event-date {
+  color: var(--g-color-text-secondary);
+  font-size: 0.9rem;
+}
+
+.drinkup-event-link {
+  margin-top: auto;
+  color: var(--g-color-text-brand);
+  font-weight: 600;
+  text-decoration: none;
+}
+.drinkup-event-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 1000px) {
+  .drinkup-events {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 620px) {
+  .drinkup-events {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- страница мероприятия ---------- */
+.drinkup-event-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+.drinkup-event-back {
+  color: var(--g-color-text-secondary);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+.drinkup-event-back:hover {
+  color: var(--g-color-text-primary);
+}
+
+.drinkup-event-title {
+  font-family: var(--g-font-family-sans);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--g-color-text-primary);
+  margin: 24px 0 8px;
+}
+
+.drinkup-event-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 28px 0;
+}
+
+.drinkup-event-note {
+  color: var(--g-color-text-secondary);
+  max-width: 560px;
+}

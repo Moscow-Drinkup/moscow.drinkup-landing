@@ -1,6 +1,7 @@
 import {BlockType, SubBlockType} from '@gravity-ui/page-constructor';
 import type {PageContent} from '@gravity-ui/page-constructor';
 import {NextEventInline} from './components/NextEventInline';
+import {events} from './generated-events';
 
 const TG_TARGET = {target: '_blank', rel: 'noopener'} as const;
 
@@ -79,24 +80,24 @@ const partnerQuotes = [
 ];
 
 /* ---------- команда ---------- */
-const teamCards = [
+const teamMembers = [
   {
-    type: 'basic-card',
-    title: 'Паша Коршиков',
-    text: 'Руководитель команды разработки, эксперт на конференциях, организатор сообществ и мероприятий MoscowJS, TechMeetup и других.',
-    links: [{text: '@SayPoj', url: 'https://t.me/SayPoj', ...TG_TARGET}],
+    name: 'Паша Коршиков',
+    role: 'Руководитель команды разработки, эксперт на конференциях, организатор сообществ и мероприятий MoscowJS, TechMeetup и других.',
+    tg: '@SayPoj',
+    photo: asset('img/team/pasha.png'),
   },
   {
-    type: 'basic-card',
-    title: 'Василий Корянов',
-    text: 'Руководитель команды разработки, фронтенд-разработчик, организатор митапов MSK Vue JS, член программного комитета HolyJS, спикер.',
-    links: [{text: '@grindpride', url: 'https://t.me/grindpride', ...TG_TARGET}],
+    name: 'Василий Корянов',
+    role: 'Руководитель команды разработки, фронтенд-разработчик, организатор митапов MSK Vue JS, член программного комитета HolyJS, спикер.',
+    tg: '@grindpride',
+    photo: asset('img/team/vasily.png'),
   },
   {
-    type: 'basic-card',
-    title: 'Евгений Кучерявый',
-    text: 'CEO Larana.tech, фулстек-разработчик, спикер, автор статей.',
-    links: [{text: '@e_kucheriavyi', url: 'https://t.me/e_kucheriavyi', ...TG_TARGET}],
+    name: 'Евгений Кучерявый',
+    role: 'CEO Larana.tech, фулстек-разработчик, спикер, автор статей.',
+    tg: '@e_kucheriavyi',
+    photo: asset('img/team/evgeny.png'),
   },
 ];
 
@@ -212,6 +213,10 @@ export const contentHome: PageContent = {
       images: galleryImages,
     },
     {
+      type: 'events',
+      items: events,
+    },
+    {
       type: BlockType.CardLayoutBlock,
       title: 'Отзывы площадок',
       children: venueQuotes,
@@ -222,9 +227,9 @@ export const contentHome: PageContent = {
       children: partnerQuotes,
     },
     {
-      type: BlockType.CardLayoutBlock,
+      type: 'team',
       title: 'Организаторы',
-      children: teamCards,
+      members: teamMembers,
     },
     footerBlock,
   ],

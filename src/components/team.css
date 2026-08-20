@@ -1,0 +1,66 @@
+.drinkup-team-section {
+  padding: 56px 0;
+}
+
+.drinkup-team-title {
+  font-family: var(--g-font-family-sans);
+  font-size: clamp(1.7rem, 3.6vw, 2.6rem);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--g-color-text-primary);
+  margin: 0 0 1.2em;
+}
+
+.drinkup-team {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.drinkup-team-card {
+  padding: 30px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  background: var(--g-color-base-float);
+  border-radius: 12px;
+}
+
+.drinkup-team-photo {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 16px;
+  border: 2px solid rgba(240, 144, 24, 0.45);
+}
+
+.drinkup-team-name {
+  font-family: var(--g-font-family-sans);
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--g-color-text-primary);
+}
+
+.drinkup-team-role {
+  color: var(--g-color-text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 14px;
+}
+
+.drinkup-team-tg {
+  color: var(--g-color-text-brand);
+  font-family: var(--g-font-family-monospace);
+  font-weight: 700;
+  text-decoration: none;
+}
+.drinkup-team-tg:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 860px) {
+  .drinkup-team {
+    grid-template-columns: 1fr;
+  }
+}

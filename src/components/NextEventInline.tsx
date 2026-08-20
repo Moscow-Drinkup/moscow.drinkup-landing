@@ -1,4 +1,4 @@
-import {nextEvent} from '../generated-event';
+import {nextEvent} from '../generated-events';
 import './next-event.css';
 
 const MONTHS = [
