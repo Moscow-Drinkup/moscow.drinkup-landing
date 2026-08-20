@@ -16,19 +16,6 @@
   background: #181309;
 }
 
-.drinkup-gallery-item:nth-child(1),
-.drinkup-gallery-item:nth-child(5),
-.drinkup-gallery-item:nth-child(8),
-.drinkup-gallery-item:nth-child(12) {
-  grid-row: span 2;
-}
-
-.drinkup-gallery-item:nth-child(3),
-.drinkup-gallery-item:nth-child(9),
-.drinkup-gallery-item:nth-child(13) {
-  grid-column: span 2;
-}
-
 .drinkup-gallery-img {
   width: 100%;
   height: 100%;

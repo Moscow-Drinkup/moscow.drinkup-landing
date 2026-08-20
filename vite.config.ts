@@ -4,7 +4,7 @@ import {fileURLToPath, URL} from 'node:url';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/Moscow-Drinkup-landing/',
+  base: './',
   resolve: {
     alias: {
       '~@gravity-ui/uikit': '@gravity-ui/uikit',

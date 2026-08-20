@@ -8,19 +8,16 @@ const base = import.meta.env.BASE_URL;
 const asset = (p: string) => `${base}${p.replace(/^\//, '')}`;
 
 const galleryImages = [
-  {src: asset('img/gallery/people-1.jpg'), alt: 'Участники дринкапа в баре'},
-  {src: asset('img/gallery/bar-warm-1.jpg'), alt: 'Атмосфера бара на дринкапе'},
-  {src: asset('img/gallery/meetup-wide.jpg'), alt: 'Общий план митапа'},
-  {src: asset('img/gallery/stage-1.jpg'), alt: 'Выступление спикера'},
-  {src: asset('img/gallery/people-2.jpg'), alt: 'Гости дринкапа'},
-  {src: asset('img/gallery/bar-crowd.jpg'), alt: 'Зал бара во время дринкапа'},
-  {src: asset('img/gallery/bar-amber.jpg'), alt: 'Барная стойка'},
-  {src: asset('img/gallery/people-3.jpg'), alt: 'Разговоры за кружкой пива'},
-  {src: asset('img/gallery/bar-warm-2.jpg'), alt: 'Вечер в баре'},
-  {src: asset('img/gallery/people-4.jpg'), alt: 'Участники общаются'},
-  {src: asset('img/gallery/people-5.jpg'), alt: 'Портрет гостя'},
-  {src: asset('img/gallery/brand-1.jpg'), alt: 'Брендированный артефакт дринкапа'},
-  {src: asset('img/gallery/cyan-1.jpg'), alt: 'Кадр с дринкапа'},
+  {src: asset('img/gallery/meetup7-1.jpg'), alt: 'Дринкап №7: участники в баре'},
+  {src: asset('img/gallery/meetup7-2.jpg'), alt: 'Дринкап №7: общение за кружкой пива'},
+  {src: asset('img/gallery/meetup8-1.jpg'), alt: 'Дринкап №8: гости мероприятия'},
+  {src: asset('img/gallery/meetup10-1.jpg'), alt: 'Дринкап №10: зал бара'},
+  {src: asset('img/gallery/meetup7-3.jpg'), alt: 'Дринкап №7: разговоры'},
+  {src: asset('img/gallery/meetup8-2.jpg'), alt: 'Дринкап №8: участники общаются'},
+  {src: asset('img/gallery/meetup10-2.jpg'), alt: 'Дринкап №10: гости слушают доклад'},
+  {src: asset('img/gallery/meetup7-4.jpg'), alt: 'Дринкап №7: атмосфера вечера'},
+  {src: asset('img/gallery/meetup8-3.jpg'), alt: 'Дринкап №8: выступление спикера'},
+  {src: asset('img/gallery/meetup10-3.jpg'), alt: 'Дринкап №10: фото на память'},
 ];
 
 export const content: PageContent = {
@@ -50,10 +47,7 @@ export const content: PageContent = {
       ],
       additionalInfo:
         'Ближайший дринкап — 27 августа, четверг. Участие бесплатное, нужна регистрация: локацию сообщаем только подтверждённым участникам.',
-      background: {
-        color: '#0b0907',
-        image: {src: asset('img/gallery/bar-crowd.jpg'), disableCompress: true},
-      },
+      background: {color: '#0b0907'},
       theme: 'dark',
       verticalOffset: 'l',
     },
