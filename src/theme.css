@@ -1,0 +1,72 @@
+/* ============================================================
+   Брендовые токены поверх дизайн-системы Gravity UI (uikit)
+   Палитра из Figma (BeerJS): чёрный фон + оранжевый #f09018
+   Типографика: JetBrains Sans / JetBrains Mono
+   ============================================================ */
+
+html,
+body {
+  margin: 0;
+  background: #0b0907;
+}
+
+/* Стандартный reset для приложений на Gravity UI (page-constructor ожидает border-box) */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.g-root_theme_dark {
+  /* фон */
+  --g-color-base-background: #0b0907;
+  --g-color-base-background-hover: #100d09;
+  --g-color-base-generic: #120e0a;
+  --g-color-base-generic-hover: #171309;
+  --g-color-base-generic-accent: #171309;
+  --g-color-base-float: #120e0a;
+  --g-color-base-float-hover: #171309;
+  --g-color-line-generic: rgba(240, 240, 240, 0.12);
+  --g-color-line-generic-hover: rgba(240, 240, 240, 0.2);
+
+  /* бренд (акцент) */
+  --g-color-base-brand: #f09018;
+  --g-color-base-brand-hover: #f2a53a;
+  --g-color-base-brand-active: #d9820e;
+  --g-color-line-brand: rgba(240, 144, 24, 0.6);
+  --g-color-text-brand: #f09018;
+  --g-color-text-brand-heavy: #f2a53a;
+  --g-color-text-brand-contrast: #1a1000;
+
+  /* типографика */
+  --g-font-family-sans: 'JetBrains Sans', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --g-font-family-monospace: 'JetBrains Mono', 'JetBrains Sans', monospace;
+}
+
+/* Hero: затемнение фонового фото */
+.pc-hero-block__background::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(11, 9, 7, 0.88) 0%,
+    rgba(11, 9, 7, 0.55) 45%,
+    rgba(11, 9, 7, 0.95) 100%
+  );
+}
+
+/* Акцент «DrinkUp» в заголовке hero (custom span в Title) */
+.pc-title-item__custom {
+  color: var(--g-color-text-brand);
+  font-family: var(--g-font-family-monospace);
+  font-weight: 800;
+}
+
+/* Overtitle hero — моноширинный лейбл */
+.pc-hero-block__content-overtitle {
+  font-family: var(--g-font-family-monospace);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
