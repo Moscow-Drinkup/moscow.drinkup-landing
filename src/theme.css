@@ -64,9 +64,14 @@ body {
   font-weight: 800;
 }
 
-/* Overtitle hero — моноширинный лейбл */
+/* Оvertitle hero — моноширинный лейбл */
 .pc-hero-block__content-overtitle {
   font-family: var(--g-font-family-monospace);
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+/* Под-страницы (Площадкам / Партнёрам): отступ под фиксированной навигацией */
+.drinkup-page--sub {
+  padding-top: 64px;
 }

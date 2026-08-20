@@ -1,0 +1,33 @@
+.drinkup-next-event {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 18px;
+  border: 1px solid rgba(240, 144, 24, 0.45);
+  border-radius: 12px;
+  background: rgba(240, 144, 24, 0.08);
+  color: var(--g-color-text-primary);
+  text-decoration: none;
+  min-height: 48px;
+  justify-content: center;
+  transition: border-color 0.15s, background 0.15s;
+}
+.drinkup-next-event:hover {
+  border-color: var(--g-color-text-brand);
+  background: rgba(240, 144, 24, 0.14);
+  color: var(--g-color-text-primary);
+}
+
+.drinkup-next-event-label {
+  font-family: var(--g-font-family-monospace);
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--g-color-text-brand);
+}
+
+.drinkup-next-event-when {
+  font-size: 0.95rem;
+  color: var(--g-color-text-secondary);
+}

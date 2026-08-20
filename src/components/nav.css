@@ -1,0 +1,63 @@
+.drinkup-nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 200;
+  background: rgba(11, 9, 7, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--g-color-line-generic);
+}
+
+.drinkup-nav-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.drinkup-nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--g-color-text-primary);
+  font-family: var(--g-font-family-monospace);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+.drinkup-nav-logo img {
+  border-radius: 8px;
+  border: 1px solid var(--g-color-line-generic);
+}
+
+.drinkup-nav-links {
+  display: flex;
+  gap: 6px;
+}
+
+.drinkup-nav-link {
+  color: var(--g-color-text-secondary);
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: color 0.15s, background 0.15s;
+}
+.drinkup-nav-link:hover {
+  color: var(--g-color-text-primary);
+  background: rgba(240, 240, 240, 0.07);
+}
+.drinkup-nav-link[aria-current='page'] {
+  color: var(--g-color-text-brand);
+}
+
+@media (max-width: 620px) {
+  .drinkup-nav-links a {
+    padding: 8px 8px;
+    font-size: 0.85rem;
+  }
+}
