@@ -1,0 +1,48 @@
+.gc-desktop-gallery-header {
+  padding: var(--g-spacing-2) var(--g-spacing-3) var(--g-spacing-2) var(--g-spacing-5);
+}
+.gc-desktop-gallery-header > * {
+  flex: 1;
+  min-width: 0;
+}
+.gc-desktop-gallery-header__active-item-info {
+  align-self: stretch;
+  align-items: center;
+  display: flex;
+  flex: 1;
+}
+.gc-desktop-gallery-header__navigation {
+  display: flex;
+  gap: var(--g-spacing-2);
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  white-space: nowrap;
+}
+.gc-desktop-gallery-header__actions {
+  display: flex;
+  gap: var(--g-spacing-1);
+  align-items: stretch;
+  justify-content: flex-end;
+  flex: 1;
+}
+.gc-desktop-gallery-header_full-screen {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline: 0;
+  z-index: 3;
+  opacity: 0;
+}
+.gc-desktop-gallery-header_full-screen:hover {
+  opacity: 1;
+}
+
+.g-root_theme_light .gc-desktop-gallery-header_full-screen,
+.g-root_theme_light-hc .gc-desktop-gallery-header_full-screen {
+  background-color: rgba(255, 255, 255, 0.45);
+}
+
+.g-root_theme_dark .gc-desktop-gallery-header_full-screen,
+.g-root_theme_dark-hc .gc-desktop-gallery-header_full-screen {
+  background-color: rgba(0, 0, 0, 0.45);
+}

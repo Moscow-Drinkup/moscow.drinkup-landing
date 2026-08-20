@@ -1,0 +1,401 @@
+/* use this for style redefinitions to awoid problems with
+unpredictable css rules order in build */
+.pc-hubspot-form {
+  --g-color-line-focus: var(--pc-color-line-focus-light);
+}
+.pc-hubspot-form .submitted-message {
+  padding-left: 10px;
+}
+.pc-hubspot-form .hs-form-field {
+  margin-bottom: 16px;
+  padding-left: 10px;
+}
+.pc-hubspot-form .hs-form-field > label {
+  color: var(--g-color-text-primary);
+  font-size: var(--g-text-body-2-font-size);
+  line-height: var(--g-text-body-2-line-height);
+  display: flex;
+  width: 200px;
+  max-width: 100%;
+  padding: 5px 0 0;
+  position: relative;
+}
+.pc-hubspot-form .hs-form-field:only-child > label {
+  width: 100%;
+}
+.pc-hubspot-form .hs-form-field .input {
+  box-sizing: border-box;
+  display: inline-block;
+  position: relative;
+  width: 100%;
+}
+.pc-hubspot-form .hs-form-field .input input[type=text],
+.pc-hubspot-form .hs-form-field .input input[type=number],
+.pc-hubspot-form .hs-form-field .input input[type=tel],
+.pc-hubspot-form .hs-form-field .input input[type=email],
+.pc-hubspot-form .hs-form-field .input textarea,
+.pc-hubspot-form .hs-form-field .input select {
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  margin: 0;
+  padding: 10px 13px;
+  width: 100%;
+  height: 36px;
+  font-size: 15px;
+  line-height: 16px;
+  font-weight: normal;
+  font-family: var(--g-text-body-font-family);
+  color: var(--g-color-text-primary);
+  background-color: transparent;
+  border: 1px solid var(--g-color-line-generic);
+  border-radius: var(--g-border-radius-l);
+}
+.pc-hubspot-form .hs-form-field .input input[type=text]:hover,
+.pc-hubspot-form .hs-form-field .input input[type=number]:hover,
+.pc-hubspot-form .hs-form-field .input input[type=tel]:hover,
+.pc-hubspot-form .hs-form-field .input input[type=email]:hover,
+.pc-hubspot-form .hs-form-field .input textarea:hover,
+.pc-hubspot-form .hs-form-field .input select:hover {
+  border: 1px solid var(--g-color-line-generic-hover);
+}
+.pc-hubspot-form .hs-form-field .input input[type=text]::placeholder,
+.pc-hubspot-form .hs-form-field .input input[type=number]::placeholder,
+.pc-hubspot-form .hs-form-field .input input[type=tel]::placeholder,
+.pc-hubspot-form .hs-form-field .input input[type=email]::placeholder,
+.pc-hubspot-form .hs-form-field .input textarea::placeholder,
+.pc-hubspot-form .hs-form-field .input select::placeholder {
+  color: var(--g-color-text-hint);
+}
+.pc-hubspot-form .hs-form-field .input input[type=text]:focus,
+.pc-hubspot-form .hs-form-field .input input[type=number]:focus,
+.pc-hubspot-form .hs-form-field .input input[type=tel]:focus,
+.pc-hubspot-form .hs-form-field .input input[type=email]:focus,
+.pc-hubspot-form .hs-form-field .input textarea:focus,
+.pc-hubspot-form .hs-form-field .input select:focus {
+  outline: none;
+}
+.pc-hubspot-form .hs-form-field .input input[type=text]:focus,
+.pc-hubspot-form .hs-form-field .input input[type=number]:focus,
+.pc-hubspot-form .hs-form-field .input input[type=tel]:focus,
+.pc-hubspot-form .hs-form-field .input input[type=email]:focus,
+.pc-hubspot-form .hs-form-field .input textarea:focus {
+  border: 2px solid var(--g-color-line-focus);
+  outline: none;
+}
+.pc-hubspot-form .hs-form-field .input textarea {
+  margin: 10px 0 0 0;
+}
+.pc-hubspot-form .hs-form-field .input textarea {
+  height: 110px;
+  min-width: 100%;
+  resize: none;
+  padding-right: 30px;
+}
+.pc-hubspot-form .hs-form-field .input select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMSIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgMTEgNiIgZmlsbD0ibm9uZSI+CiAgICA8cGF0aCBkPSJNMTAuMDggMEw1LjUgNC4zNi45MSAwIDAgLjg2bDUuNSA1LjI1TDExIC44NnoiIGZpbGw9ImN1cnJlbnRDb2xvciIvPgo8L3N2Zz4K");
+  background-repeat: no-repeat;
+  background-position: right 12px top 50%;
+  padding-right: 30px;
+}
+.pc-hubspot-form .hs-form-field .input select:focus {
+  border: 1px solid var(--g-color-line-focus);
+}
+.pc-hubspot-form .hs-form-field .input .hs-fieldtype-intl-phone.hs-input .hs-input {
+  float: none;
+  /* stylelint-disable-next-line declaration-no-important */
+  width: 100% !important;
+}
+.pc-hubspot-form .hs-form-field .input .hs-fieldtype-intl-phone.hs-input .hs-input + .hs-input {
+  margin-top: 10px;
+}
+.pc-hubspot-form .hs-form-field:not(.hs-fieldtype-textarea):not(.hs-fieldtype-booleancheckbox) {
+  display: flex;
+  flex-wrap: wrap;
+}
+.pc-hubspot-form .hs-form-field:not(.hs-fieldtype-textarea):not(.hs-fieldtype-booleancheckbox) .input {
+  width: calc(100% - 200px);
+}
+.pc-hubspot-form .hs-form-field:not(.hs-fieldtype-textarea):not(.hs-fieldtype-booleancheckbox) .hs-error-msg,
+.pc-hubspot-form .hs-form-field:not(.hs-fieldtype-textarea):not(.hs-fieldtype-booleancheckbox) .hs-field-desc {
+  margin-left: 200px;
+}
+.pc-hubspot-form .hs-form-field .hs-form-checkbox-display,
+.pc-hubspot-form .hs-form-field .hs-form-booleancheckbox-display,
+.pc-hubspot-form .hs-form-field .hs-form-radio-display {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+}
+.pc-hubspot-form .hs-form-field .hs-form-checkbox-display input,
+.pc-hubspot-form .hs-form-field .hs-form-booleancheckbox-display input,
+.pc-hubspot-form .hs-form-field .hs-form-radio-display input {
+  width: 17px;
+  height: 17px;
+  margin: 0;
+  opacity: 0;
+  flex-shrink: 0;
+}
+.pc-hubspot-form .hs-form-field .hs-form-checkbox-display span:not(.hs-form-required),
+.pc-hubspot-form .hs-form-field .hs-form-booleancheckbox-display span:not(.hs-form-required),
+.pc-hubspot-form .hs-form-field .hs-form-radio-display span:not(.hs-form-required) {
+  color: var(--g-color-text-primary);
+  font-size: var(--g-text-body-2-font-size);
+  line-height: var(--g-text-body-2-line-height);
+  padding-left: 7px;
+  margin: 0;
+  flex-grow: 1;
+}
+.pc-hubspot-form .hs-form-field .hs-form-checkbox-display .hs-form-required,
+.pc-hubspot-form .hs-form-field .hs-form-booleancheckbox-display .hs-form-required,
+.pc-hubspot-form .hs-form-field .hs-form-radio-display .hs-form-required {
+  top: 0;
+}
+.pc-hubspot-form .hs-form-field .hs-form-booleancheckbox-display,
+.pc-hubspot-form .hs-form-field .hs-form-checkbox-display {
+  position: relative;
+}
+.pc-hubspot-form .hs-form-field .hs-form-booleancheckbox-display > span:not(.hs-form-required):before,
+.pc-hubspot-form .hs-form-field .hs-form-checkbox-display > span:not(.hs-form-required):before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 17px;
+  width: 17px;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid var(--g-color-line-generic-accent);
+  transition: background-color 0.1s linear;
+}
+.pc-hubspot-form .hs-form-field .hs-form-booleancheckbox-display > span:not(.hs-form-required):after,
+.pc-hubspot-form .hs-form-field .hs-form-checkbox-display > span:not(.hs-form-required):after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 2px;
+  height: 18px;
+  width: 18px;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDE4IDE4Ij4KICAgIDxwYXRoIGQ9Ik0xNS42MjMgMWwtOS4xNSAxMy4xNzQtNC4yODctNC42TDEgMTEuMDMgNi42MiAxNyAxNyAyLjI3IDE1LjYyMyAxeiIgZmlsbD0iIzAwMDAwMCIvPgo8L3N2Zz4K");
+  transition: top 0.1s linear, opacity 0.1s linear;
+  opacity: 0;
+}
+.pc-hubspot-form .hs-form-field .hs-form-booleancheckbox-display input:checked ~ span:after,
+.pc-hubspot-form .hs-form-field .hs-form-checkbox-display input:checked ~ span:after {
+  opacity: 1;
+  top: -5px;
+}
+.pc-hubspot-form .hs-form-field .hs-form-booleancheckbox-display input:checked ~ span:before,
+.pc-hubspot-form .hs-form-field .hs-form-checkbox-display input:checked ~ span:before {
+  background-color: #ffeba0;
+}
+.pc-hubspot-form .hs-form-field .hs-form-booleancheckbox-display input[type=checkbox]:focus ~ span::before,
+.pc-hubspot-form .hs-form-field .hs-form-checkbox-display input[type=checkbox]:focus ~ span::before {
+  outline: 2px solid var(--g-color-line-focus);
+}
+.pc-hubspot-form .hs-form-field .hs-form-radio-display span:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 17px;
+  width: 17px;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 1px solid var(--g-color-line-generic-accent);
+  transition: background-color 0.1s linear;
+}
+.pc-hubspot-form .hs-form-field .hs-form-radio-display span:after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  height: 7px;
+  width: 7px;
+  border-radius: 50%;
+  opacity: 0;
+  background: #000000;
+  transition: opacity 0.1s linear;
+}
+.pc-hubspot-form .hs-form-field .hs-form-radio-display input:checked ~ span:after {
+  opacity: 1;
+}
+.pc-hubspot-form .hs-form-field .hs-form-radio-display input:checked ~ span:before {
+  background-color: #ffeba0;
+}
+.pc-hubspot-form .hs-form-field .hs-form-checkbox:not(:last-child),
+.pc-hubspot-form .hs-form-field .hs-form-radio:not(:last-child) {
+  margin-bottom: 5px;
+}
+.pc-hubspot-form .hs-richtext {
+  padding-left: 10px;
+}
+.pc-hubspot-form .hs-richtext p {
+  color: var(--g-color-text-primary);
+  font-family: var(--g-text-body-font-family);
+  font-weight: var(--g-text-body-font-weight);
+  font-size: var(--g-text-body-2-font-size);
+  line-height: var(--g-text-body-2-line-height);
+  margin: 20px 0;
+}
+.pc-hubspot-form .hs_error_rollup {
+  padding-left: 10px;
+  font-family: var(--g-text-body-font-family);
+  font-weight: var(--g-text-body-font-weight);
+  font-size: var(--g-text-body-1-font-size);
+  line-height: var(--g-text-body-1-line-height);
+  color: var(--g-color-text-danger);
+}
+.pc-hubspot-form .legal-consent-container {
+  padding-top: 8px;
+}
+.pc-hubspot-form .inputs-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.pc-hubspot-form .hs-form-required {
+  color: var(--g-color-text-hint);
+  width: 10px;
+  order: 1;
+  position: absolute;
+  left: -10px;
+}
+.pc-hubspot-form .hs-field-desc {
+  order: 3;
+  padding: 0;
+  margin: 3px 0 0;
+  font-size: var(--g-text-body-1-font-size);
+  color: var(--g-color-text-complementary);
+}
+.pc-hubspot-form .hs-error-msgs {
+  width: 100%;
+  margin: 3px 0;
+  order: 4;
+}
+.pc-hubspot-form .hs-error-msg {
+  font-family: var(--g-text-body-font-family);
+  font-weight: var(--g-text-body-font-weight);
+  font-size: var(--g-text-body-1-font-size);
+  line-height: var(--g-text-body-1-line-height);
+  color: var(--g-color-text-danger);
+  display: block;
+}
+.pc-hubspot-form .actions {
+  display: flex;
+  justify-content: flex-end;
+}
+.pc-hubspot-form .hs-button.primary {
+  padding: 0;
+  font-family: var(--g-text-body-font-family);
+  font-size: inherit;
+  font-weight: var(--g-text-body-font-weight);
+  color: inherit;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  overflow: visible;
+  box-sizing: border-box;
+  height: 44px;
+  padding: 0 20px;
+  border-radius: var(--g-border-radius-xl);
+  background-color: var(--g-color-base-brand);
+  color: var(--g-color-text-brand-contrast);
+  line-height: 44px;
+  font-size: var(--g-text-body-2-font-size);
+  font-weight: normal;
+  user-select: none;
+  text-align: center;
+  white-space: nowrap;
+  appearance: none;
+}
+.pc-hubspot-form .hs-button.primary:focus {
+  outline: 2px solid var(--g-color-line-focus);
+  outline-offset: 1px;
+}
+.pc-hubspot-form .hs-button.primary:focus:not(:focus-visible) {
+  outline: 0;
+}
+.pc-hubspot-form .hs-button.primary:hover {
+  background-color: var(--g-color-base-brand-hover);
+}
+.pc-hubspot-form .hs-button.primary:focus {
+  outline: 2px solid var(--g-color-line-focus);
+  outline-offset: 1px;
+}
+.pc-hubspot-form .hs-button.primary:focus:not(:focus-visible) {
+  outline: 0;
+}
+.pc-hubspot-form .grecaptcha-badge {
+  box-shadow: none !important;
+  border: 1px solid var(--g-color-line-generic);
+}
+.pc-hubspot-form .hs_recaptcha div {
+  font-family: var(--g-text-body-font-family);
+  font-weight: var(--g-text-body-font-weight);
+  font-size: var(--g-text-body-2-font-size);
+  line-height: var(--g-text-body-2-line-height);
+}
+.pc-hubspot-form_mobile .hs-richtext,
+.pc-hubspot-form_mobile .hs-form-field,
+.pc-hubspot-form_mobile .hs_error_rollup.actions,
+.pc-hubspot-form_mobile .submitted-message {
+  padding: 0 4px;
+}
+.pc-hubspot-form_mobile .hs-form-field > label span {
+  order: 2;
+}
+.pc-hubspot-form_mobile .hs-form-field > label span.hs-form-required {
+  order: 1;
+}
+.pc-hubspot-form_mobile .hs-form-field:not(.hs-fieldtype-textarea):not(.hs-fieldtype-booleancheckbox) {
+  flex-direction: column;
+}
+.pc-hubspot-form_mobile .hs-form-field:not(.hs-fieldtype-textarea):not(.hs-fieldtype-booleancheckbox) .input {
+  width: 100%;
+}
+.pc-hubspot-form_mobile .hs-form-field:not(.hs-fieldtype-textarea):not(.hs-fieldtype-booleancheckbox) .input input[type=text],
+.pc-hubspot-form_mobile .hs-form-field:not(.hs-fieldtype-textarea):not(.hs-fieldtype-booleancheckbox) .input input[type=number],
+.pc-hubspot-form_mobile .hs-form-field:not(.hs-fieldtype-textarea):not(.hs-fieldtype-booleancheckbox) .input input[type=tel],
+.pc-hubspot-form_mobile .hs-form-field:not(.hs-fieldtype-textarea):not(.hs-fieldtype-booleancheckbox) .input input[type=email],
+.pc-hubspot-form_mobile .hs-form-field:not(.hs-fieldtype-textarea):not(.hs-fieldtype-booleancheckbox) .input select {
+  margin: 10px 0 0 0;
+}
+.pc-hubspot-form_mobile .hs-form-field:not(.hs-fieldtype-textarea):not(.hs-fieldtype-booleancheckbox) .hs-error-msg,
+.pc-hubspot-form_mobile .hs-form-field:not(.hs-fieldtype-textarea):not(.hs-fieldtype-booleancheckbox) .hs-field-desc {
+  margin-left: 0;
+}
+.pc-hubspot-form_mobile .hs-form-field .hs-form-checkbox:first-child,
+.pc-hubspot-form_mobile .hs-form-field .hs-form-radio:first-child {
+  margin-top: 10px;
+}
+.pc-hubspot-form_mobile .hs-form-required {
+  position: static;
+}
+.pc-hubspot-form_mobile .actions {
+  justify-content: center;
+}
+.pc-hubspot-form_mobile .hs-button.primary {
+  width: 80%;
+}
+.pc-hubspot-form a:focus {
+  box-shadow: 0 0 0 2px var(--g-color-line-focus);
+}
+.pc-hubspot-form a:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+.pc-hubspot-form a:focus {
+  outline: 0;
+  border-radius: var(--g-focus-border-radius);
+}
+.pc-hubspot-form_theme_dark {
+  --g-color-line-focus: var(--pc-color-line-focus-dark);
+}
+.pc-hubspot-form_theme_dark .hs-form-field .input select {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMSIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgMTEgNiIgZmlsbD0ibm9uZSI+CiAgICA8cGF0aCBkPSJNMTAuMDggMEw1LjUgNC4zNi45MSAwIDAgLjg2bDUuNSA1LjI1TDExIC44NnoiIGZpbGw9IiNmZmZmZmYiLz4KPC9zdmc+Cg==");
+}

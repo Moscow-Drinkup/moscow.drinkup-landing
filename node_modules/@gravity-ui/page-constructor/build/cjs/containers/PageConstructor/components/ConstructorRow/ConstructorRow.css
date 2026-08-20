@@ -1,0 +1,8 @@
+.pc-constructor-row:last-child {
+  margin-bottom: -64px;
+}
+@media (max-width: 577px) {
+  .pc-constructor-row:last-child {
+    margin-bottom: -32px;
+  }
+}

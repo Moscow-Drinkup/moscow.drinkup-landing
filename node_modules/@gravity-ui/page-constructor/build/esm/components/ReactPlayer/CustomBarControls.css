@@ -1,0 +1,91 @@
+.pc-CustomBarControls__button_type_with-play-pause-button {
+  box-shadow: 0px 4px 24px var(--pc-color-sfx-shadow), 0px 2px 8px var(--pc-color-sfx-shadow);
+}
+
+.pc-CustomBarControls__button_type_with-play-pause-button:hover {
+  box-shadow: 0px 4px 24px var(--g-color-sfx-shadow), 0px 2px 8px var(--g-color-sfx-shadow);
+  cursor: pointer;
+}
+
+/* use this for style redefinitions to awoid problems with
+unpredictable css rules order in build */
+.pc-CustomBarControls__wrapper {
+  position: absolute;
+  bottom: 0;
+  opacity: 0;
+  transition: opacity 300ms ease 3s;
+  z-index: 1;
+}
+.pc-CustomBarControls__wrapper_shown {
+  opacity: 1;
+  transition: opacity 0s ease 0s;
+}
+.pc-CustomBarControls__wrapper_type_with-play-pause-button {
+  gap: 8px;
+  padding: 8px;
+}
+.pc-CustomBarControls__wrapper_positioning_left, .pc-CustomBarControls__wrapper_positioning_right, .pc-CustomBarControls__wrapper_positioning_center {
+  display: flex;
+  width: 100%;
+}
+.pc-CustomBarControls__wrapper_positioning_right {
+  flex-direction: row-reverse;
+}
+.pc-CustomBarControls__wrapper_positioning_center {
+  justify-content: center;
+}
+.pc-CustomBarControls__button {
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+.pc-CustomBarControls__button_type_with-mute-button {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  width: 64px;
+  height: 64px;
+  background: var(--g-color-base-background);
+  transition: background-color 300ms;
+  margin: 12px;
+}
+.pc-CustomBarControls__button_type_with-mute-button:hover, .pc-CustomBarControls__button_type_with-mute-button:focus {
+  background: #eff2f8;
+}
+.pc-CustomBarControls__button_type_with-mute-button:focus {
+  outline: 2px solid var(--g-color-line-focus);
+  outline-offset: 0;
+}
+.pc-CustomBarControls__button_type_with-mute-button:focus:not(:focus-visible) {
+  outline: 0;
+}
+.pc-CustomBarControls__button_type_with-play-pause-button {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--g-color-base-background);
+}
+.pc-CustomBarControls__button_type_with-play-pause-button:focus {
+  outline: 2px solid var(--g-color-line-focus);
+  outline-offset: 0;
+}
+.pc-CustomBarControls__button_type_with-play-pause-button:focus:not(:focus-visible) {
+  outline: 0;
+}
+.pc-CustomBarControls__play-icon_type_with-play-pause-button {
+  height: 16px;
+  width: 16px;
+  color: var(--g-color-base-neutral-heavy);
+}
+.pc-CustomBarControls__mute-icon_type_with-mute-button {
+  height: 22px;
+  width: 32px;
+}
+.pc-CustomBarControls__mute-icon_type_with-play-pause-button {
+  height: 16px;
+  width: 16px;
+  color: var(--g-color-base-neutral-heavy);
+}

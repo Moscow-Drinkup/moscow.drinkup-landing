@@ -1,0 +1,93 @@
+.gc-stories-layout__wrap-outer {
+  height: calc(100vh - 2 * var(--g-modal-margin));
+  width: calc(100vw - 2 * var(--g-modal-margin));
+  background-color: var(--g-color-base-background);
+  display: flex;
+  border-radius: 20px;
+  max-width: 1280px;
+  max-height: 640px;
+  min-width: 800px;
+  min-height: 480px;
+}
+.gc-stories-layout__container {
+  display: flex;
+  box-shadow: 0 8px 20px var(--g-color-sfx-shadow);
+  border-radius: 20px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.gc-stories-layout__left-pane {
+  flex-basis: calc(50% - var(--g-spacing-4));
+  margin-inline: var(--g-spacing-2);
+  margin-block: var(--g-spacing-2);
+  padding: var(--g-spacing-8);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  z-index: 30;
+}
+.gc-stories-layout__left-pane_blockStyle_card {
+  background-color: var(--g-color-base-background);
+  border-radius: 14px;
+}
+.gc-stories-layout__left-pane_blockStyle_transparent {
+  background-color: transparent;
+}
+.gc-stories-layout__right-pane {
+  flex-basis: 50%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.gc-stories-layout__counter {
+  color: var(--g-color-text-secondary);
+}
+.gc-stories-layout__text-block {
+  box-sizing: border-box;
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-grow: 1;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  margin-block-start: var(--g-spacing-10);
+}
+.gc-stories-layout__action-block {
+  margin-block-start: var(--g-spacing-8);
+}
+.gc-stories-layout__text-header {
+  color: var(--g-color-text-primary);
+}
+.gc-stories-layout__text-content {
+  color: var(--g-color-text-complementary);
+  overflow-y: auto;
+}
+.gc-stories-layout__text-header + .gc-stories-layout__text-content {
+  margin-block-start: var(--g-spacing-4);
+}
+.gc-stories-layout__story-link-block {
+  margin-block-start: var(--g-spacing-4);
+}
+.gc-stories-layout__navigation-btn {
+  --g-border-radius-xl: 50%;
+  position: absolute;
+  inset-block-start: calc(50% - 22px);
+  z-index: 50;
+}
+.gc-stories-layout__navigation-btn_back {
+  inset-inline-start: -22px;
+}
+.gc-stories-layout__navigation-btn_next {
+  inset-inline-end: -22px;
+}
+.gc-stories-layout__close-btn {
+  --g-border-radius-xl: 50%;
+  position: absolute;
+  inset-block-start: var(--g-spacing-4);
+  inset-inline-end: var(--g-spacing-4);
+  z-index: 50;
+}

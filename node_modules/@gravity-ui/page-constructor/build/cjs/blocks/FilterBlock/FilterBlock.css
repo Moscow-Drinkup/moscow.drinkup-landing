@@ -1,0 +1,49 @@
+/* use this for style redefinitions to awoid problems with
+unpredictable css rules order in build */
+.pc-filter-block {
+  --pc-first-block-indent: 0;
+  --pc-first-block-mobile-indent: 0;
+}
+.pc-filter-block__title {
+  margin-bottom: 24px;
+}
+.pc-filter-block__title_centered {
+  text-align: center;
+}
+.pc-filter-block__title_centered > * {
+  margin: 0 auto;
+}
+.pc-filter-block__tabs {
+  margin-bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.pc-filter-block__tabs_centered {
+  justify-content: center;
+}
+@media (max-width: 769px) {
+  .pc-filter-block__tabs {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow: auto;
+    margin-left: -48px;
+    margin-right: -48px;
+    padding-left: 48px;
+    padding-right: 40px;
+  }
+}
+@media (max-width: 577px) {
+  .pc-filter-block__tabs {
+    margin-left: -24px;
+    margin-right: -24px;
+    padding-left: 24px;
+    padding-right: 16px;
+  }
+}
+.row .pc-filter-block__block-container.row {
+  margin: 0px;
+}
+.pc-filter-block__cards-container {
+  width: 100%;
+}

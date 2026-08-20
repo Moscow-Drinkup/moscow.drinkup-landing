@@ -1,0 +1,87 @@
+.pc-slick-origin.slick-slider {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  -webkit-touch-callout: none;
+  user-select: none;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+.pc-slick-origin.slick-slider .slick-track,
+.pc-slick-origin.slick-slider .slick-list {
+  transform: translate3d(0, 0, 0);
+}
+.pc-slick-origin .slick-list {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+.pc-slick-origin .slick-list:focus {
+  outline: none;
+}
+.pc-slick-origin .slick-list.dragging {
+  cursor: hand;
+}
+.pc-slick-origin .slick-track {
+  position: relative;
+  left: 0;
+  top: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.pc-slick-origin .slick-track::before, .pc-slick-origin .slick-track::after {
+  content: "";
+  display: table;
+}
+.pc-slick-origin .slick-track:after {
+  clear: both;
+}
+.slick-loading .pc-slick-origin .slick-track {
+  visibility: hidden;
+}
+.pc-slick-origin .slick-slide {
+  float: left;
+  height: 100%;
+  min-height: 1px;
+  display: none;
+}
+[dir=rtl] .pc-slick-origin .slick-slide {
+  float: right;
+}
+.pc-slick-origin .slick-slide img {
+  display: block;
+}
+.pc-slick-origin .slick-slide.slick-loading img {
+  display: none;
+}
+.pc-slick-origin .slick-slide.dragging img {
+  pointer-events: none;
+}
+.slick-initialized .pc-slick-origin .slick-slide {
+  display: block;
+}
+.slick-loading .pc-slick-origin .slick-slide {
+  visibility: hidden;
+}
+.slick-vertical .pc-slick-origin .slick-slide {
+  display: block;
+  height: auto;
+  border: 1px solid transparent;
+}
+.pc-slick-origin.slick-initialized .slick-slide {
+  display: block;
+}
+.pc-slick-origin.slick-loading .slick-slide {
+  visibility: hidden;
+}
+.pc-slick-origin.slick-vertical .slick-slide {
+  display: block;
+  height: auto;
+  border: 1px solid transparent;
+}
+.pc-slick-origin .slick-arrow.slick-hidden {
+  display: none;
+}

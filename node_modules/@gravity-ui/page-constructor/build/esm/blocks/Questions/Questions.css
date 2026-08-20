@@ -1,0 +1,13 @@
+/* use this for style redefinitions to awoid problems with
+unpredictable css rules order in build */
+.pc-QuestionsBlock__title {
+  top: calc(var(--header-height) + 32px);
+  position: sticky;
+  margin-bottom: 32px;
+  margin-right: 64px;
+}
+@media (max-width: 769px) {
+  .pc-QuestionsBlock__title {
+    margin-right: 0;
+  }
+}

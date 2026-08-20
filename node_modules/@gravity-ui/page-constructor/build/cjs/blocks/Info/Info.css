@@ -1,0 +1,32 @@
+/* use this for style redefinitions to awoid problems with
+unpredictable css rules order in build */
+.pc-info-block__container {
+  background-color: var(--g-color-base-brand);
+  padding: 96px 64px;
+  border-radius: var(--pc-border-radius);
+}
+.pc-info-block__left, .pc-info-block__right {
+  padding-right: 96px;
+  padding-bottom: 16px;
+}
+@media (max-width: 1081px) {
+  .pc-info-block__left, .pc-info-block__right {
+    padding-bottom: 0;
+  }
+  .pc-info-block__container {
+    padding: 96px 64px;
+  }
+}
+@media (max-width: 769px) {
+  .pc-info-block__left {
+    margin-bottom: 48px;
+  }
+  .pc-info-block__left, .pc-info-block__right {
+    padding-right: 0;
+  }
+}
+@media (max-width: 577px) {
+  .pc-info-block__container {
+    padding: 64px 32px;
+  }
+}

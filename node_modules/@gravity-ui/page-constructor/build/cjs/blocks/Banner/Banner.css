@@ -1,0 +1,15 @@
+/* use this for style redefinitions to awoid problems with
+unpredictable css rules order in build */
+@media (min-width: 769px) {
+  .pc-banner-block.pc-AnimateBlock, .pc-AnimateBlock .pc-banner-block {
+    position: relative;
+    top: 100px;
+    opacity: 0;
+  }
+  .pc-banner-block.pc-AnimateBlock.animate, .pc-AnimateBlock .pc-banner-block.animate {
+    top: 0;
+    opacity: 1;
+    transition: top 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition-delay: 0s;
+  }
+}

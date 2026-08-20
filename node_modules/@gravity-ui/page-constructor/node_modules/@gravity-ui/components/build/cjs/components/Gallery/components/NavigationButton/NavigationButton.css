@@ -1,0 +1,36 @@
+.gc-gallery-navigation-button {
+  position: absolute;
+  inset-block: 0 80px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  width: 200px;
+  max-width: 20%;
+  padding: 0;
+  margin: 0;
+  appearance: none;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  opacity: 0;
+}
+.gc-gallery-navigation-button_position_start {
+  inset-inline-start: 0;
+  padding-inline-start: var(--g-spacing-7);
+  cursor: w-resize;
+}
+.gc-gallery-navigation-button_position_end {
+  inset-inline-end: var(--g-spacing-7);
+  justify-content: end;
+  cursor: e-resize;
+}
+.gc-gallery-navigation-button_direction_rtl.gc-gallery-navigation-button_position_start {
+  cursor: e-resize;
+}
+.gc-gallery-navigation-button_direction_rtl.gc-gallery-navigation-button_position_end {
+  cursor: w-resize;
+}
+.gc-gallery-navigation-button:hover {
+  opacity: 1;
+}

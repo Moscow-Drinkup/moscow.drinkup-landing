@@ -1,0 +1,28 @@
+/* use this for style redefinitions to awoid problems with
+unpredictable css rules order in build */
+.pc-button-tabs__item.pc-button-tabs__item {
+  margin-right: 8px;
+  margin-bottom: 12px;
+  --g-button-background-color: var(--pc-tab-item-background-color);
+  --g-button-background-color-hover: var(--pc-tab-item-background-color-hover);
+}
+.pc-button-tabs__item.pc-button-tabs__item, .pc-button-tabs__item.pc-button-tabs__item:link, .pc-button-tabs__item.pc-button-tabs__item:visited, .pc-button-tabs__item.pc-button-tabs__item:active, .pc-button-tabs__item.pc-button-tabs__item:focus {
+  color: var(--pc-tab-item-color);
+}
+.pc-button-tabs__item.pc-button-tabs__item:hover {
+  color: var(--pc-tab-item-color);
+}
+.pc-button-tabs__item.pc-button-tabs__item_active {
+  pointer-events: none;
+  --g-button-background-color: var(--pc-selected-tab-item-background-color);
+  --g-button-background-color-hover: var(--pc-selected-tab-item-background-color-hover);
+}
+.pc-button-tabs__item.pc-button-tabs__item_active, .pc-button-tabs__item.pc-button-tabs__item_active:link, .pc-button-tabs__item.pc-button-tabs__item_active:visited, .pc-button-tabs__item.pc-button-tabs__item_active:active, .pc-button-tabs__item.pc-button-tabs__item_active:focus {
+  color: var(--pc-selected-tab-item-color);
+}
+.pc-button-tabs__item.pc-button-tabs__item_active:hover {
+  color: var(--pc-selected-tab-item-color);
+}
+.pc-button-tabs__item.pc-button-tabs__item_active:focus::before {
+  outline-offset: 1px;
+}

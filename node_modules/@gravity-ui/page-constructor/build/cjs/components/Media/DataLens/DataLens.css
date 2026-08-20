@@ -1,0 +1,20 @@
+/* use this for style redefinitions to awoid problems with
+unpredictable css rules order in build */
+.pc-media-component-data-lens__wrap {
+  height: 400px;
+  overflow: hidden;
+  margin: 24px;
+}
+.pc-media-component-data-lens__wrap .pc-media-component-data-lens__iframe {
+  border-radius: 0;
+}
+.pc-media-component-data-lens__iframe {
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  margin: -1px -2px 0;
+}
+@media (max-width: 577px) {
+  .pc-media-component-data-lens__wrap {
+    margin: 24px 0;
+  }
+}

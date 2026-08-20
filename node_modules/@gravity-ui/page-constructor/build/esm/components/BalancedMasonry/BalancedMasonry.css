@@ -1,0 +1,10 @@
+.pc-BalancedMasonry {
+  position: relative;
+}
+.pc-BalancedMasonry__hidden-container {
+  position: absolute;
+  visibility: hidden;
+  overflow: hidden;
+  height: 100%;
+  z-index: -1;
+}

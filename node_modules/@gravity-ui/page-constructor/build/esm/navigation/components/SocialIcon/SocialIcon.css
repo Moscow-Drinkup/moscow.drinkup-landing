@@ -1,0 +1,20 @@
+/* use this for style redefinitions to awoid problems with
+unpredictable css rules order in build */
+.pc-social-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  margin-right: 8px;
+  color: var(--g-color-base-background);
+  border-radius: 50%;
+  background-color: var(--g-color-base-generic);
+}
+.pc-social-icon:hover {
+  background-color: var(--g-color-base-generic-hover);
+}
+.pc-social-icon__icon {
+  width: 16px;
+  height: 16px;
+}

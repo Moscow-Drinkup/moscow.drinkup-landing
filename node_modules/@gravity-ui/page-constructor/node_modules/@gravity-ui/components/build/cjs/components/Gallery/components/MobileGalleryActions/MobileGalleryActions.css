@@ -1,0 +1,8 @@
+.gc-mobile-gallery-actions {
+  --g-sheet-content-padding: var(--g-spacing-1) 0;
+  --g-button-border-radius: 0;
+}
+.gc-mobile-gallery-actions__list-item {
+  justify-content: flex-start;
+  transition: background-color 0.2s ease-in-out;
+}

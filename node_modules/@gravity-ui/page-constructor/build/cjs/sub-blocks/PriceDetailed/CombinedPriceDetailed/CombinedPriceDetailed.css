@@ -1,0 +1,35 @@
+/* use this for style redefinitions to awoid problems with
+unpredictable css rules order in build */
+.pc-combined-price-detailed-block__row {
+  /* stylelint-disable declaration-no-important */
+  margin: 0 !important;
+}
+.pc-combined-price-detailed-block__row .col {
+  padding: 0;
+  margin: 12px;
+}
+.pc-combined-price-detailed-block__row > * {
+  display: flex;
+  width: 100%;
+}
+.pc-combined-price-detailed-block__row:not(:last-child) {
+  border-bottom: 1px solid var(--g-color-line-generic);
+  margin-bottom: 12px !important;
+  padding-bottom: 12px;
+}
+@media (min-width: 1081px) {
+  .pc-combined-price-detailed-block__description > * {
+    padding-top: 12px;
+  }
+  .pc-combined-price-detailed-block__description_delimiter > * {
+    border-top: 1px solid var(--g-color-line-generic);
+  }
+  .pc-combined-price-detailed-block__empty-column {
+    border-top: 0;
+  }
+}
+@media (max-width: 1080px) {
+  .pc-combined-price-detailed-block__description > * {
+    margin-top: 0 !important;
+  }
+}

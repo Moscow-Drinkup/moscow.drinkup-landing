@@ -1,0 +1,15 @@
+.pc-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.pc-layout__content {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+.pc-layout__navigation {
+  position: sticky;
+  z-index: 98;
+  top: 0;
+}

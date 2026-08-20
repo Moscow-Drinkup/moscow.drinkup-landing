@@ -1,0 +1,31 @@
+.gc-stories-video-view {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.gc-stories-video-view_style_half-size {
+  border-radius: 20px;
+}
+.gc-stories-video-view_style_half-size-with-margins {
+  width: calc(100% - 2 * var(--g-spacing-2));
+  height: calc(100% - 2 * var(--g-spacing-2));
+  border-radius: 20px;
+  margin: var(--g-spacing-2);
+}
+.gc-stories-video-view_style_full-size {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  border-radius: 20px;
+  z-index: 0;
+}
+.gc-stories-video-view__video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}

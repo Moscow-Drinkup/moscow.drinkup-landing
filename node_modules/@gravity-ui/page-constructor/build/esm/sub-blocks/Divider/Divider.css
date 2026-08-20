@@ -1,0 +1,27 @@
+.pc-divider-block_size_xxs {
+  padding-top: 12px;
+}
+.pc-divider-block_size_xs {
+  padding-top: 16px;
+}
+.pc-divider-block_size_s {
+  padding-top: 24px;
+}
+.pc-divider-block_size_m {
+  padding-top: 32px;
+}
+.pc-divider-block_size_l {
+  padding-top: 48px;
+}
+.pc-divider-block_size_xl {
+  padding-top: 64px;
+}
+.pc-divider-block_size_xxl {
+  padding-top: 96px;
+}
+.pc-divider-block_size_xxxl {
+  padding-top: 128px;
+}
+.pc-divider-block_border {
+  border-top: 1px solid var(--g-color-line-generic);
+}

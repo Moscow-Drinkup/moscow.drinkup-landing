@@ -1,0 +1,87 @@
+/* use this for style redefinitions to awoid problems with
+unpredictable css rules order in build */
+.pc-editor-form {
+  --block-name-font-size: var(--g-text-display-1-font-size);
+  --block-name-line-height: var(--g-text-display-1-line-height);
+  --property-name-font-size: var(--g-text-body-1-font-size);
+  --property-name-line-height: var(--g-text-body-1-line-height);
+  --input-min-width: 150px;
+  --property-title-width: 96px;
+  --button-height: 48px;
+  --icon-size: 28px;
+  --icon-margin: 8px;
+  --property-font-weight: 500;
+  --header-text-size: var(--block-name-font-size);
+  --header-line-height: var(--block-name-line-height);
+}
+.pc-editor-form .df-use-search .df-use-search {
+  --button-height: 28px;
+  --icon-size: 16px;
+  --icon-margin: 0px;
+  --header-text-size: var(--property-name-font-size);
+  --header-line-height: var(--property-name-line-height);
+  --property-font-weight: 400;
+}
+.pc-editor-form .df-row {
+  width: inherit;
+}
+.pc-editor-form .df-row__left {
+  width: var(--property-title-width);
+}
+.pc-editor-form .df-row__title {
+  font-weight: var(--property-font-weight);
+  white-space: nowrap;
+}
+.pc-editor-form .df-simple-vertical-accordeon textarea {
+  min-width: var(--input-min-width);
+  min-height: var(--input-min-width);
+}
+.pc-editor-form .df-simple-vertical-accordeon__header .g-button,
+.pc-editor-form .df-simple-vertical-accordeon__title {
+  font-size: var(--header-text-size);
+  line-height: var(--header-line-height);
+}
+.pc-editor-form .df-simple-vertical-accordeon__header .g-button {
+  --g-button-height: var(--button-height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pc-editor-form .df-simple-vertical-accordeon__header .g-button .g-button__icon-inner > svg {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  color: var(--g-color-text-hint);
+}
+.pc-editor-form .df-simple-vertical-accordeon__header .g-button .g-button__icon_side_right ~ .g-button__text {
+  margin-right: var(--icon-margin);
+}
+.pc-editor-form .df-simple-vertical-accordeon__body {
+  margin-top: 0px;
+  padding-top: 12px;
+}
+.pc-editor-form .df-use-search {
+  margin: 4px 0;
+}
+.pc-editor-form .df-simple-vertical-accordeon__body,
+.pc-editor-form .df-group-indent > .df-use-search {
+  margin-top: 0;
+  margin-left: 1px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 12px;
+  border-left: 1px solid var(--g-color-line-generic-accent);
+}
+.pc-editor-form .df-simple-vertical-accordeon_branch .df-simple-vertical-accordeon__body {
+  padding-left: 12px;
+}
+.pc-editor-form .g-select,
+.pc-editor-form .g-text-input {
+  min-width: var(--input-min-width);
+  width: 100%;
+}
+.pc-editor-form + .pc-editor-form {
+  margin-top: 12px;
+}
+.pc-editor-form__block-form {
+  margin-bottom: 16px;
+}

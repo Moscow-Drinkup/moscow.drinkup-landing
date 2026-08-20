@@ -1,5 +1,2 @@
-node_modules
-dist
-*.tsbuildinfo
 src/generated-events.ts
-.DS_Store
+src/generated-event.ts

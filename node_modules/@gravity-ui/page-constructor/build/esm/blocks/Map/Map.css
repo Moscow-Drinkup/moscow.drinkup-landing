@@ -1,0 +1,14 @@
+/* use this for style redefinitions to awoid problems with
+unpredictable css rules order in build */
+.pc-map-block_border_shadow {
+  box-shadow: 0 2px 8px var(--pc-color-sfx-shadow), 0 4px 24px var(--pc-color-sfx-shadow);
+  overflow-x: hidden;
+  border-radius: var(--pc-border-radius);
+}
+.pc-map-block_border_line {
+  border-radius: var(--pc-border-radius);
+  border: 1px solid var(--g-color-line-generic);
+}
+.pc-map-block_border_none {
+  border-radius: var(--pc-border-radius);
+}

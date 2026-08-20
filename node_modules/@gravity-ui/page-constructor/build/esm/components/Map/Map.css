@@ -1,0 +1,25 @@
+/* use this for style redefinitions to awoid problems with
+unpredictable css rules order in build */
+.pc-map {
+  width: 100%;
+  height: 300px;
+  border: 0;
+  overflow: hidden;
+  display: flex;
+}
+.pc-map_hidden {
+  opacity: 0;
+}
+.pc-map__spinner {
+  margin: 0 auto;
+  align-self: center;
+  position: absolute;
+}
+.pc-map__wrapper {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
