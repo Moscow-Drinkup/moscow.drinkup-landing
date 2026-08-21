@@ -49,6 +49,19 @@ export function Seo() {
     }
     if (meta) {
       document.title = meta.title;
+      // Open Graph: обновляем title/description/url для текущего маршрута
+      const setMeta = (property: string, content: string) => {
+        let el = document.querySelector(`meta[property="${property}"]`);
+        if (!el) {
+          el = document.createElement('meta');
+          el.setAttribute('property', property);
+          document.head.appendChild(el);
+        }
+        el.setAttribute('content', content);
+      };
+      setMeta('og:title', meta.title);
+      setMeta('og:description', meta.description);
+      setMeta('og:url', 'https://drinkup.moscow/');
       const desc = document.querySelector('meta[name="description"]');
       if (desc) desc.setAttribute('content', meta.description);
     }
