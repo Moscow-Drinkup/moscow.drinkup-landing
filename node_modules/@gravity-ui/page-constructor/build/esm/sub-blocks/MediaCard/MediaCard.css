@@ -1,5 +1,0 @@
-/* use this for style redefinitions to awoid problems with
-unpredictable css rules order in build */
-.pc-MediaCard__body {
-  padding: 0;
-}

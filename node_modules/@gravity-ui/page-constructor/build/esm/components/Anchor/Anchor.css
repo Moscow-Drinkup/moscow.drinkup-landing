@@ -1,8 +1,0 @@
-/* use this for style redefinitions to awoid problems with
-unpredictable css rules order in build */
-.pc-Anchor {
-  display: block;
-  position: relative;
-  top: calc(-1 * var(--header-height) - var(--anchor-offset, 0px));
-  visibility: hidden;
-}

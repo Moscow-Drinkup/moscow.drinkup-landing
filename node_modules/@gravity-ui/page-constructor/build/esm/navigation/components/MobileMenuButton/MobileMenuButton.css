@@ -1,7 +1,0 @@
-/* use this for style redefinitions to awoid problems with
-unpredictable css rules order in build */
-@media (min-width: 769px) {
-  .pc-mobile-menu-button.pc-mobile-menu-button {
-    display: none;
-  }
-}
