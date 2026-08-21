@@ -47,6 +47,15 @@ function AppFixes() {
       h2.textContent = h.textContent;
       h.replaceWith(h2);
     });
+    // Заголовок hero на главной рендерится как h2 в div — делаем h1 (единственный на странице)
+    document.querySelectorAll('.pc-hero-block__content .pc-title-item').forEach((el) => {
+      if (el.tagName !== 'H1') {
+        const h1 = document.createElement('h1');
+        h1.className = el.className;
+        h1.innerHTML = el.innerHTML;
+        el.replaceWith(h1);
+      }
+    });
   }, [loc]);
   return null;
 }
@@ -59,9 +68,6 @@ export function App() {
           <TopNav />
           <OrgAnchor />
           <AppFixes />
-          <a className="drinkup-skip-link" href="#main">
-            К содержимому
-          </a>
           <Suspense fallback={<div className="drinkup-page-loader" />}>
             <Routes>
               <Route path="/" element={<Page content={contentHome} />} />

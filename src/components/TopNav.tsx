@@ -15,9 +15,12 @@ export const TopNav = () => {
   return (
     <>
       <nav className="drinkup-nav">
+        <a className="drinkup-skip-link" href="#main">
+          К содержимому
+        </a>
         <div className="drinkup-nav-inner">
           <NavLink to="/" className="drinkup-nav-logo" onClick={close}>
-            <img src="img/logo.png" alt="Moscow DrinkUp" width="36" height="36" />
+            <img src="img/logo.png" alt="" width="36" height="36" />
             <span>Moscow DrinkUp</span>
           </NavLink>
           <div className="drinkup-nav-links">
