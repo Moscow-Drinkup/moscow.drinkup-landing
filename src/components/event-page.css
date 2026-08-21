@@ -91,6 +91,8 @@
 .drinkup-event-cover {
   display: block;
   width: 100%;
+  aspect-ratio: 3 / 1.25;
+  object-fit: cover;
   border-radius: 16px;
   border: 1px solid var(--g-color-line-generic);
   margin-top: 24px;

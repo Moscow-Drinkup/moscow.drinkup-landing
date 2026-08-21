@@ -9,15 +9,19 @@ export default function EventDetailPage() {
   if (!event) {
     return (
       <SubPage>
-        <div style={{padding: '48px 24px', textAlign: 'center'}}>
-          Страница не найдена — <a href="#/events">к списку мероприятий</a>
-        </div>
+        <main className="drinkup-event-main">
+          <div style={{padding: '48px 24px', textAlign: 'center'}}>
+            Страница не найдена — <a href="#/events">к списку мероприятий</a>
+          </div>
+        </main>
       </SubPage>
     );
   }
   return (
     <SubPage>
-      <EventPage event={event} />
+      <main className="drinkup-event-main">
+        <EventPage event={event} />
+      </main>
     </SubPage>
   );
 }

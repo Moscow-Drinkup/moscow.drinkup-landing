@@ -34,29 +34,39 @@ function OrgAnchor() {
   return null;
 }
 
-// Доступность: цель для skip-link (main), корректный порядок заголовков в футере
+// Доступность: цель для skip-link (main), корректный порядок заголовков в футере.
+// MutationObserver вместо useEffect: срабатывает мгновенно при вставке узлов,
+// независимо от момента снапшота аудита.
 function AppFixes() {
-  const loc = useLocation();
   useEffect(() => {
-    const main = document.querySelector('main');
-    if (main && !main.id) main.id = 'main';
-    // Заголовки колонок футера рендерятся как h6 — приводим к h2 (порядок заголовков)
-    document.querySelectorAll('h6.pc-footer-block__column-title').forEach((h) => {
-      const h2 = document.createElement('h2');
-      h2.className = h.className;
-      h2.textContent = h.textContent;
-      h.replaceWith(h2);
-    });
-    // Заголовок hero на главной рендерится как h2 в div — делаем h1 (единственный на странице)
-    document.querySelectorAll('.pc-hero-block__content .pc-title-item').forEach((el) => {
-      if (el.tagName !== 'H1') {
-        const h1 = document.createElement('h1');
-        h1.className = el.className;
-        h1.innerHTML = el.innerHTML;
-        el.replaceWith(h1);
+    const fix = () => {
+      const main = document.querySelector('main');
+      if (main) {
+        if (!main.id) main.id = 'main';
+        main.setAttribute('tabindex', '-1');
       }
-    });
-  }, [loc]);
+      // Заголовки колонок футера рендерятся как h6 — приводим к h2 (порядок заголовков)
+      document.querySelectorAll('h6.pc-footer-block__column-title').forEach((h) => {
+        const h2 = document.createElement('h2');
+        h2.className = h.className;
+        h2.textContent = h.textContent;
+        h.replaceWith(h2);
+      });
+      // Заголовок hero на главной рендерится как h2 в div — делаем h1 (единственный на странице)
+      document.querySelectorAll('.pc-hero-block__content .pc-title-item').forEach((el) => {
+        if (el.tagName !== 'H1') {
+          const h1 = document.createElement('h1');
+          h1.className = el.className;
+          h1.innerHTML = el.innerHTML;
+          el.replaceWith(h1);
+        }
+      });
+    };
+    fix();
+    const mo = new MutationObserver(fix);
+    mo.observe(document.body, {childList: true, subtree: true});
+    return () => mo.disconnect();
+  }, []);
   return null;
 }
 
