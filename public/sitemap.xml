@@ -2,22 +2,50 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://drinkup.moscow/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://drinkup.moscow/#/events</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://drinkup.moscow/#/venues</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://drinkup.moscow/#/partners</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-08-21</lastmod>
+  </url>
+  <url>
+    <loc>https://drinkup.moscow/#/events/6699</loc>
+    <lastmod>2026-08-27</lastmod>
+  </url>
+  <url>
+    <loc>https://drinkup.moscow/#/events/6376</loc>
+    <lastmod>2026-06-18</lastmod>
+  </url>
+  <url>
+    <loc>https://drinkup.moscow/#/events/5284</loc>
+    <lastmod>2025-08-21</lastmod>
+  </url>
+  <url>
+    <loc>https://drinkup.moscow/#/events/5125</loc>
+    <lastmod>2025-06-26</lastmod>
+  </url>
+  <url>
+    <loc>https://drinkup.moscow/#/events/4757</loc>
+    <lastmod>2025-03-06</lastmod>
+  </url>
+  <url>
+    <loc>https://drinkup.moscow/#/events/4603</loc>
+    <lastmod>2024-12-19</lastmod>
+  </url>
+  <url>
+    <loc>https://drinkup.moscow/#/events/4453</loc>
+    <lastmod>2024-10-24</lastmod>
+  </url>
+  <url>
+    <loc>https://drinkup.moscow/#/events/4189</loc>
+    <lastmod>2024-07-18</lastmod>
   </url>
 </urlset>

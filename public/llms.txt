@@ -1,0 +1,26 @@
+# Moscow DrinkUp
+> Неформальные барные айти-митапы в Москве: экспертные доклады за кружкой пива, по четвергам. Участие бесплатное, регистрация через Networkly.
+
+## Основные разделы
+- [Главная](https://drinkup.moscow/): о сообществе, ближайший дринкап, отзывы, организаторы
+- [Мероприятия](https://drinkup.moscow/#/events): список всех дринкапов с датами
+- [Площадкам](https://drinkup.moscow/#/venues): информация для баров и площадок
+- [Партнёрам](https://drinkup.moscow/#/partners): спонсорские пакеты и кейсы
+
+## Ключевые факты
+- Moscow DrinkUp — барные айти-митапы в Москве (ранее — часть beerjs.global)
+- Формат: доклады и общение за кружкой пива, по четвергам, несколько раз в год
+- Участие бесплатное; пиво и закуски — за счёт участников
+- Организаторы: Паша Коршиков (@SayPoj), Василий Корянов (@grindpride), Евгений Кучерявый (@e_kucheriavyi)
+- Телеграм-канал: @moscow_drinkup, чат: @drinkup_moscow
+- Регистрация: https://networkly.app/community/moscow_drinkup
+
+## Мероприятия
+- [Moscow DrinkUp #11](https://drinkup.moscow/#/events/6699): 27 августа 2026 г., регистрация — https://networkly.app/event/6699
+- [Moscow DrinkUp #10](https://drinkup.moscow/#/events/6376): 18 июня 2026 г., регистрация — https://networkly.app/event/6376
+- [Moscow DrinkUp #8](https://drinkup.moscow/#/events/5284): 21 августа 2025 г., регистрация — https://networkly.app/event/5284
+- [Moscow DrinkUp #7](https://drinkup.moscow/#/events/5125): 26 июня 2025 г., регистрация — https://networkly.app/event/5125
+- [Moscow DrinkUp #6](https://drinkup.moscow/#/events/4757): 6 марта 2025 г., регистрация — https://networkly.app/event/4757
+- [Moscow DrinkUp #5](https://drinkup.moscow/#/events/4603): 19 декабря 2024 г., регистрация — https://networkly.app/event/4603
+- [BeerJS Moscow DrinkUp #4](https://drinkup.moscow/#/events/4453): 24 октября 2024 г., регистрация — https://networkly.app/event/4453
+- [BeerJS Moscow DrinkUp #3](https://drinkup.moscow/#/events/4189): 18 июля 2024 г., регистрация — https://networkly.app/event/4189

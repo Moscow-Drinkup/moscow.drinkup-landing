@@ -3,6 +3,7 @@ import {ThemeProvider} from '@gravity-ui/uikit';
 import {PageConstructorProvider, Theme} from '@gravity-ui/page-constructor';
 import {HashRouter, Route, Routes, useLocation} from 'react-router-dom';
 import {TopNav} from './components/TopNav';
+import {Seo} from './components/Seo';
 import {Page} from './components/PageShell';
 import {contentHome} from './content/home';
 
@@ -76,6 +77,7 @@ export function App() {
       <PageConstructorProvider theme={Theme.Dark}>
         <HashRouter>
           <TopNav />
+          <Seo />
           <OrgAnchor />
           <AppFixes />
           <Suspense fallback={<div className="drinkup-page-loader" />}>

@@ -44,3 +44,8 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Ping IndexNow (Bing, Yandex)
+        run: |
+          curl -s -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d '{"host":"drinkup.moscow","key":"0b9166b8-ca99-4742-a1a6-27346a467371","keyLocation":"https://drinkup.moscow/0b9166b8-ca99-4742-a1a6-27346a467371.txt","urlList":["https://drinkup.moscow/","https://drinkup.moscow/#/events","https://drinkup.moscow/#/venues","https://drinkup.moscow/#/partners","https://drinkup.moscow/#/events/6699"]}'
