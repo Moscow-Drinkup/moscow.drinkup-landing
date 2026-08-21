@@ -1,5 +1,6 @@
 import {BlockType} from '@gravity-ui/page-constructor';
 import type {PageContent} from '@gravity-ui/page-constructor';
+import {nextEvent} from '../generated-events';
 import {
   footerBlock,
   galleryImages,
@@ -9,6 +10,9 @@ import {
   venueQuotes,
   TG_TARGET,
 } from './shared';
+
+// Регистрация ведёт на актуальное ближайшее событие из API Networkly
+const registrationUrl = nextEvent?.url ?? 'https://networkly.app/community/moscow_drinkup';
 
 /* ================= ГЛАВНАЯ ================= */
 export const contentHome: PageContent = {
@@ -25,7 +29,7 @@ export const contentHome: PageContent = {
       buttons: [
         {
           text: 'Зарегистрироваться',
-          url: 'https://networkly.app/event/6699',
+          url: registrationUrl,
           primary: true,
           extraProps: TG_TARGET,
         },

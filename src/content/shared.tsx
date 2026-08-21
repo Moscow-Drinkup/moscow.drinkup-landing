@@ -148,7 +148,8 @@ export const footerBlock = {
       {
         title: 'Участие',
         links: [
-          {text: 'Регистрация на дринкап', url: 'https://networkly.app/event/6699', ...TG_TARGET},
+          // Ведёт на сообщество в Networkly (список всех мероприятий), а не на конкретный митап
+          {text: 'Регистрация на дринкап', url: 'https://networkly.app/community/moscow_drinkup', ...TG_TARGET},
           {text: 'Поддержать на Boosty', url: 'https://boosty.to/beerjs_moscow_drinkup', ...TG_TARGET},
         ],
       },
