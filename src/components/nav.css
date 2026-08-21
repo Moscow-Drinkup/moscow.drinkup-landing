@@ -55,9 +55,87 @@
   color: var(--g-color-text-brand);
 }
 
-@media (max-width: 620px) {
-  .drinkup-nav-links a {
-    padding: 8px 8px;
-    font-size: 0.85rem;
+/* --- бургер (виден только на узких экранах) --- */
+.drinkup-nav-burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 42px;
+  height: 42px;
+  padding: 9px;
+  background: transparent;
+  border: 1px solid var(--g-color-line-generic);
+  border-radius: 10px;
+  cursor: pointer;
+}
+.drinkup-nav-burger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--g-color-text-primary);
+  border-radius: 2px;
+  transition: transform 0.2s, opacity 0.2s;
+}
+.drinkup-nav-burger--open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.drinkup-nav-burger--open span:nth-child(2) {
+  opacity: 0;
+}
+.drinkup-nav-burger--open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* --- полноэкранное мобильное меню --- */
+.drinkup-nav-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 190;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(11, 9, 7, 0.97);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+.drinkup-nav-overlay--open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.drinkup-nav-overlay-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 24px;
+}
+
+.drinkup-nav-overlay-link {
+  font-family: var(--g-font-family-sans);
+  font-weight: 600;
+  font-size: 1.9rem;
+  color: var(--g-color-text-secondary);
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  transition: color 0.15s, background 0.15s;
+}
+.drinkup-nav-overlay-link:hover,
+.drinkup-nav-overlay-link[aria-current='page'] {
+  color: var(--g-color-text-brand);
+  background: rgba(240, 240, 240, 0.05);
+}
+
+@media (max-width: 720px) {
+  .drinkup-nav-links {
+    display: none;
+  }
+  .drinkup-nav-burger {
+    display: flex;
   }
 }

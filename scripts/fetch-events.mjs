@@ -34,11 +34,13 @@ async function main() {
       .map((e) => {
         const num = (String(e.name ?? '').match(/#\d+/) || [''])[0];
         const postId = POST_BY_EVENT[e.id];
+        const coverPaths = e.cover?.paths ?? {};
         return {
           id: e.id,
           name: String(e.name ?? `Moscow DrinkUp ${num}`),
           num,
-          start: e.start_datetime ?? null,
+          start: e.startDatetime ?? e.start_datetime ?? null,
+          cover: coverPaths.to_webp ?? coverPaths.original ?? null,
           url: `https://networkly.app/event/${e.id}`,
           postId: postId ?? null,
           postUrl: postId ? `https://t.me/moscow_drinkup/${postId}` : null,

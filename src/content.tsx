@@ -1,6 +1,5 @@
-import {BlockType, SubBlockType} from '@gravity-ui/page-constructor';
+import {BlockType} from '@gravity-ui/page-constructor';
 import type {PageContent} from '@gravity-ui/page-constructor';
-import {NextEventInline} from './components/NextEventInline';
 import {events} from './generated-events';
 
 const TG_TARGET = {target: '_blank', rel: 'noopener'} as const;
@@ -26,35 +25,39 @@ const galleryImages = [
 /* ---------- отзывы: площадки ---------- */
 const venueQuotes = [
   {
-    type: SubBlockType.Quote,
+    type: 'review',
     text: '«Ни разу не прогадали! Прикольная тусовка, даже для тех, кто далёк от мира компьютерных технологий. Весёлые ребята под пивко выступали с докладами. Бар остался в хорошем плюсе.»',
     logo: asset('img/logos/freedom.png'),
     image: asset('img/gallery/meetup7-1.jpg'),
-    author: {firstName: 'Евгений', description: 'бар Freedom на флаконе'},
+    author: {firstName: 'Евгений', description: 'бар Freedom на Флаконе', url: 'https://freedombar.ru/'},
     theme: 'dark',
   },
   {
-    type: SubBlockType.Quote,
+    type: 'review',
     text: '«Если вы думаете, что айтишники скучные и душные, вы можете изменить своё мнение здесь. Доклады подавались в наполовину шуточном формате под пиво.»',
     logo: asset('img/logos/backyard.png'),
     image: asset('img/gallery/meetup7-2.jpg'),
-    author: {firstName: 'The Backyard Pub', description: 'Китай-город'},
+    author: {firstName: 'The Backyard Pub', description: 'Китай-город', url: 'https://vk.com/backyardpub'},
     theme: 'dark',
   },
   {
-    type: SubBlockType.Quote,
+    type: 'review',
     text: '«Очень весёлые ребята, интересные спикеры и, конечно же... ПИВОООО! Плюс ко всему и бар не остался в минусе!»',
     logo: asset('img/logos/stoycraft.png'),
     image: asset('img/gallery/meetup8-1.jpg'),
-    author: {firstName: 'Камиль', description: 'StøyCraft bar, Валовой'},
+    author: {
+      firstName: 'Камиль',
+      description: 'StøyCraft bar, Валовой',
+      url: 'https://yandex.ru/maps/org/stoy/156335782561/',
+    },
     theme: 'dark',
   },
   {
-    type: SubBlockType.Quote,
+    type: 'review',
     text: '«Третьего дня в аксиом пабе на Бауманской в цепкие лапы попало ПИИИИВО! Чудесные докладчицы, чудесные пацаны-девчонки, пиво и приколы. Супер круто, делаем дальше!»',
     logo: asset('img/logos/axiom.png'),
     image: asset('img/gallery/meetup10-1.jpg'),
-    author: {firstName: 'Axiom pub', description: 'Бауманская'},
+    author: {firstName: 'Axiom pub', description: 'Бауманская', url: 'https://axiom-pub.eatout.ru/'},
     theme: 'dark',
   },
 ];
@@ -62,7 +65,7 @@ const venueQuotes = [
 /* ---------- отзывы: партнёры ---------- */
 const partnerQuotes = [
   {
-    type: SubBlockType.Quote,
+    type: 'review',
     text: '«Лучший IT дринк-ап в Москве, уникальное сообщество и отличная организация. Мы были рады угостить участников мероприятия и планируем делать это регулярно.»',
     logo: asset('img/logos/junior.png'),
     image: asset('img/gallery/meetup8-2.jpg'),
@@ -70,11 +73,37 @@ const partnerQuotes = [
     theme: 'dark',
   },
   {
-    type: SubBlockType.Quote,
+    type: 'review',
     text: '«Коллеги отлично провели промо, поработали с программой и собрали классную тусовку. А мы были рады угостить гостей мероприятия.»',
     logo: asset('img/logos/raiffeisen.png'),
     image: asset('img/gallery/meetup10-2.jpg'),
-    author: {firstName: 'Аня', description: 'DevRel Райффайзенбанк'},
+    author: {firstName: 'Аня', description: 'DevRel Райффайзенбанк', url: 'https://www.raiffeisen.ru/'},
+    theme: 'dark',
+  },
+  {
+    type: 'review',
+    text: '«Конечно, изначально мы отнеслись с подозрением и настороженностью к IT-мероприятию, которое состоялось в баре. Но, как показала практика, это была отличная возможность для экспертов в IT собраться вместе, обменяться опытом и обсудить актуальные тенденции в сфере технологий. И мы были рады поддержать сообщество и стать партнёрами мероприятия. Бар стал отличным местом для такого рода встречи и, конечно, разнообразное меню напитков сделали встречу ещё более приятной. DrinkUp прошёл насыщенно: интересные доклады, живые обсуждения и возможность задать вопросы спикерам. Это отличный способ объединить профессионалов и создать платформу для обмена идеями в непринуждённой обстановке.»',
+    logo: asset('img/logos/2gis.png'),
+    image: asset('img/gallery/meetup8-3.jpg'),
+    author: {firstName: '2ГИС', description: 'партнёр мероприятия', url: 'https://2gis.ru'},
+    theme: 'dark',
+  },
+];
+
+/* ---------- отзывы: участники ---------- */
+const participantQuotes = [
+  {
+    type: 'review',
+    text: '«Такие камерные небольшие мероприятия, как DrinkUp, только на первый взгляд кажутся совершенно несопоставимыми с большими конференциями. В действительности же сплочённость комьюнити, неформальная обстановка и близость по духу (и по целям мероприятия) даёт фору любому большому официальному брату.»',
+    image: asset('img/gallery/meetup10-3.jpg'),
+    author: {firstName: 'Максим', description: 'участник'},
+    theme: 'dark',
+  },
+  {
+    type: 'review',
+    text: '«Необычный и интересный формат мероприятия, конечно. Харизматичные спикеры с нестандартными докладами и главный лозунг мероприятия ПИИИИВО — что может быть лучше? Всё понравилось, с удовольствием посещу ещё раз и даже пойду в спикеры!»',
+    image: asset('img/gallery/meetup7-4.jpg'),
+    author: {firstName: 'Илья', description: 'участник'},
     theme: 'dark',
   },
 ];
@@ -169,7 +198,6 @@ export const contentHome: PageContent = {
           primary: false,
           extraProps: TG_TARGET,
         },
-        <NextEventInline key="next" />,
       ],
       additionalInfo:
         'Участие бесплатное. Регистрация и анонсы — в сообществе на Networkly.',
@@ -179,6 +207,9 @@ export const contentHome: PageContent = {
       background: {color: '#0b0907'},
       theme: 'dark',
       verticalOffset: 'l',
+    },
+    {
+      type: 'nextEventCard',
     },
     {
       type: BlockType.InfoBlock,
@@ -206,6 +237,10 @@ export const contentHome: PageContent = {
             text: 'Мероприятия бесплатные — билеты не продаём, поэтому в поиске партнёров.',
           },
         ],
+        links: [
+          {text: 'Все мероприятия', url: '#/events'},
+          {text: 'Как стать партнёром', url: '#/partners'},
+        ],
       },
     },
     {
@@ -221,6 +256,11 @@ export const contentHome: PageContent = {
       type: BlockType.CardLayoutBlock,
       title: 'Отзывы партнёров',
       children: partnerQuotes,
+    },
+    {
+      type: BlockType.CardLayoutBlock,
+      title: 'Отзывы участников',
+      children: participantQuotes,
     },
     {
       type: 'team',
@@ -289,11 +329,12 @@ export const contentVenues: PageContent = {
           ],
           additionalInfo:
             '50–90 человек в среднем · ~150 регистраций на дринкап · 50–80 подтверждаем по вместимости площадки',
+          links: [{text: 'Наши мероприятия', url: '#/events'}],
         },
         {
           tabName: 'Что нам нужно',
           title: 'Требования к площадке',
-          text: 'Считаете, что ваш бар подходит? Напишите Паше: @SayPoj.',
+          text: 'Считаете, что ваш бар подходит? Напишите организаторам.',
           list: [
             {
               title: 'Тип заведения — бар',
@@ -316,7 +357,7 @@ export const contentVenues: PageContent = {
               text: 'Рады экрану, микрофонам, колонкам и микшеру. Но это необязательно — если площадка крутая, организуем сами.',
             },
           ],
-          links: [{text: 'Предложить площадку — @SayPoj', url: 'https://t.me/SayPoj', ...TG_TARGET}],
+          links: [{text: 'Напишите организаторам', url: '#/?orgs'}],
         },
       ],
     },
@@ -364,11 +405,15 @@ export const contentPartners: PageContent = {
             text: 'Зарезервируем места для ваших сотрудников.',
           },
         ],
-        links: [{text: 'Стать партнёром — @SayPoj', url: 'https://t.me/SayPoj', ...TG_TARGET}],
+        links: [
+          {text: 'Посмотреть мероприятия', url: '#/events'},
+          {text: 'Напишите организаторам', url: '#/?orgs'},
+        ],
       },
       rightContent: {
         title: 'Кейс «Пивка для рывка»',
         text: 'На дринкапе №4 мы опробовали спонсорский пакет поддержки мероприятия: на средства спонсоров организовали акцию — посетителей на баре ждало welcome-пиво.',
+        links: [{text: 'Страница дринкапа №4', url: '#/events/4453'}],
       },
     },
     {

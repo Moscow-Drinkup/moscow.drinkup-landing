@@ -1,5 +1,6 @@
 import {useCallback, useState} from 'react';
 import {Button, Modal} from '@gravity-ui/uikit';
+import {Link} from 'react-router-dom';
 import './gallery.css';
 
 export type GalleryImage = {src: string; alt?: string};
@@ -34,6 +35,10 @@ const GalleryBlock = ({images}: GalleryBlockProps) => {
           <img className="drinkup-gallery-img" src={img.src} alt={img.alt || ''} loading="lazy" />
         </button>
       ))}
+
+      <Link className="drinkup-gallery-more" to="/events">
+        Фотоотчёты с дринкапов — на страницах мероприятий →
+      </Link>
 
       <Modal open={index !== null} onClose={close} contentClassName="drinkup-lightbox">
         {index !== null && (

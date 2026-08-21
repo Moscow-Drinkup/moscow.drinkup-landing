@@ -1,0 +1,60 @@
+/* Карточка отзыва (кастомный саб-блок вместо Quote) */
+.drinkup-review {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 24px;
+  background: linear-gradient(180deg, #171309 0%, #120e0a 100%);
+  border: 1px solid var(--g-color-line-generic);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.drinkup-review-photo {
+  display: block;
+  width: calc(100% + 48px);
+  height: 132px;
+  margin: -24px -24px 0;
+  object-fit: cover;
+  filter: saturate(0.92) brightness(0.9);
+}
+
+.drinkup-review-logo {
+  display: block;
+  height: 34px;
+  max-width: 150px;
+  object-fit: contain;
+  margin: 16px 0 12px;
+}
+
+.drinkup-review-text {
+  color: var(--g-color-text-primary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.drinkup-review-author {
+  margin-top: auto;
+  border-top: 1px solid var(--g-color-line-generic);
+  padding-top: 14px;
+}
+
+.drinkup-review-name {
+  display: inline-block;
+  color: var(--g-color-text-primary);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+a.drinkup-review-name:hover {
+  color: var(--g-color-text-brand);
+}
+
+.drinkup-review-desc {
+  color: var(--g-color-text-secondary);
+  font-size: 0.85rem;
+  margin-top: 3px;
+}

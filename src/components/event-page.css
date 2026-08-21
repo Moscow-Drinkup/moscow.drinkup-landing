@@ -17,14 +17,36 @@
   gap: 16px;
 }
 
+/* Карточка = ссылка на страницу мероприятия */
 .drinkup-event-card {
-  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  background: var(--g-color-base-float);
+  border: 1px solid var(--g-color-line-generic);
+  border-radius: 14px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.drinkup-event-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(240, 144, 24, 0.45);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.4);
+}
+
+.drinkup-event-card-cover {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 1.25;
+  object-fit: cover;
+  background: #181309;
+}
+
+.drinkup-event-card-body {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  background: var(--g-color-base-float);
-  border-radius: 12px;
-  min-height: 130px;
+  padding: 18px 20px 20px;
 }
 
 .drinkup-event-num {
@@ -37,16 +59,6 @@
 .drinkup-event-date {
   color: var(--g-color-text-secondary);
   font-size: 0.9rem;
-}
-
-.drinkup-event-link {
-  margin-top: auto;
-  color: var(--g-color-text-brand);
-  font-weight: 600;
-  text-decoration: none;
-}
-.drinkup-event-link:hover {
-  text-decoration: underline;
 }
 
 @media (max-width: 1000px) {
@@ -74,6 +86,14 @@
 }
 .drinkup-event-back:hover {
   color: var(--g-color-text-primary);
+}
+
+.drinkup-event-cover {
+  display: block;
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid var(--g-color-line-generic);
+  margin-top: 24px;
 }
 
 .drinkup-event-title {

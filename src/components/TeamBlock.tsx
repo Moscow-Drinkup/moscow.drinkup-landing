@@ -15,7 +15,7 @@ export type TeamBlockProps = {
 
 const TeamBlock = ({title, members}: TeamBlockProps) => {
   return (
-    <div className="drinkup-team-section">
+    <div className="drinkup-team-section" id="team">
       {title && <h2 className="drinkup-team-title">{title}</h2>}
       <div className="drinkup-team">
         {members.map((m) => (

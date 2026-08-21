@@ -8,11 +8,12 @@ export const EventPage = ({event}: {event: EventItem}) => {
   const date = formatEventDate(event.start);
   return (
     <div className="drinkup-event-page">
-      <Link to="/" className="drinkup-event-back">
-        ← На главную
+      <Link to="/events" className="drinkup-event-back">
+        ← Все мероприятия
       </Link>
       <h1 className="drinkup-event-title">{event.name}</h1>
       {date && <div className="drinkup-event-date">{date}</div>}
+      {event.cover && <img className="drinkup-event-cover" src={event.cover} alt={event.name} />}
 
       <div className="drinkup-event-actions">
         <Button

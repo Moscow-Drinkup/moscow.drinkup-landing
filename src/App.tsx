@@ -1,9 +1,12 @@
+import {useEffect} from 'react';
 import {ThemeProvider} from '@gravity-ui/uikit';
 import {PageConstructor, PageConstructorProvider, Theme} from '@gravity-ui/page-constructor';
 import {HashRouter, Route, Routes} from 'react-router-dom';
 import GalleryBlock from './components/GalleryBlock';
 import TeamBlock from './components/TeamBlock';
 import EventsBlock from './components/EventsBlock';
+import NextEventCard from './components/NextEventCard';
+import ReviewQuote from './components/ReviewQuote';
 import {EventPage} from './components/EventPage';
 import {TopNav} from './components/TopNav';
 import {contentEvents, contentHome, contentPartners, contentVenues} from './content';
@@ -15,8 +18,33 @@ const custom = {
     gallery: GalleryBlock as unknown as React.ComponentType<any>,
     team: TeamBlock as unknown as React.ComponentType<any>,
     events: EventsBlock as unknown as React.ComponentType<any>,
+    nextEventCard: NextEventCard as unknown as React.ComponentType<any>,
+  },
+  subBlocks: {
+    review: ReviewQuote as unknown as React.ComponentType<any>,
   },
 };
+
+// Скролл к блоку «Организаторы» (#team) по ссылке вида #/?orgs
+function OrgAnchor() {
+  useEffect(() => {
+    let tries = 0;
+    const attempt = () => {
+      if (!window.location.hash.includes('orgs')) return;
+      const el = document.getElementById('team');
+      if (el) {
+        const y = el.getBoundingClientRect().top + window.scrollY - 72;
+        window.scrollTo({top: y, behavior: 'smooth'});
+      } else if (tries++ < 30) {
+        setTimeout(attempt, 100);
+      }
+    };
+    attempt();
+    window.addEventListener('hashchange', attempt);
+    return () => window.removeEventListener('hashchange', attempt);
+  }, []);
+  return null;
+}
 
 function Page({content}: {content: PageContent}) {
   return <PageConstructor content={content} custom={custom} />;
@@ -32,6 +60,7 @@ export function App() {
       <PageConstructorProvider theme={Theme.Dark}>
         <HashRouter>
           <TopNav />
+          <OrgAnchor />
           <Routes>
             <Route path="/" element={<Page content={contentHome} />} />
             <Route

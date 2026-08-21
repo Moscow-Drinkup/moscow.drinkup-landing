@@ -75,3 +75,11 @@ body {
 .drinkup-page--sub {
   padding-top: 64px;
 }
+
+/* Футер: фиксированный размер логотипа — чтобы не наезжал на контент футера */
+.pc-footer-block__logo-image {
+  width: 88px;
+  height: 88px;
+  border-radius: 16px;
+  border: 1px solid var(--g-color-line-generic);
+}

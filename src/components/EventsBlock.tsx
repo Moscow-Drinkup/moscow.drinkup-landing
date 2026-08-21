@@ -1,4 +1,3 @@
-import {Card} from '@gravity-ui/uikit';
 import {Link} from 'react-router-dom';
 import './event-page.css';
 
@@ -13,6 +12,7 @@ export type EventItem = {
   name: string;
   num: string;
   start: string | null;
+  cover: string | null;
   url: string;
   postId: number | null;
   postUrl: string | null;
@@ -36,15 +36,17 @@ const EventsBlock = ({items, title = 'Последние мероприятия'
       <h2 className="drinkup-events-title">{title}</h2>
       <div className="drinkup-events">
         {items.map((e) => (
-          <Card key={e.id} className="drinkup-event-card" view="outlined" type="container" size="m">
-            <div className="drinkup-event-num">{e.num || e.name}</div>
-            {formatEventDate(e.start) && (
-              <div className="drinkup-event-date">{formatEventDate(e.start)}</div>
+          <Link key={e.id} className="drinkup-event-card" to={`/events/${e.id}`}>
+            {e.cover && (
+              <img className="drinkup-event-card-cover" src={e.cover} alt={e.name} loading="lazy" />
             )}
-            <Link className="drinkup-event-link" to={`/events/${e.id}`}>
-              Страница мероприятия →
-            </Link>
-          </Card>
+            <div className="drinkup-event-card-body">
+              <div className="drinkup-event-num">{e.num || e.name}</div>
+              {formatEventDate(e.start) && (
+                <div className="drinkup-event-date">{formatEventDate(e.start)}</div>
+              )}
+            </div>
+          </Link>
         ))}
       </div>
     </div>
