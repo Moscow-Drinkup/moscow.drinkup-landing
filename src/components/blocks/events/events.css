@@ -1,3 +1,5 @@
+/* Стили списка мероприятий (карточки дринкапов) — блок EventsBlock */
+
 .drinkup-events-section {
   padding: 56px 0;
 }
@@ -70,51 +72,4 @@
   .drinkup-events {
     grid-template-columns: 1fr;
   }
-}
-
-/* ---------- страница мероприятия ---------- */
-.drinkup-event-page {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 48px 24px 80px;
-}
-
-.drinkup-event-back {
-  color: var(--g-color-text-secondary);
-  text-decoration: none;
-  font-size: 0.95rem;
-}
-.drinkup-event-back:hover {
-  color: var(--g-color-text-primary);
-}
-
-.drinkup-event-cover {
-  display: block;
-  width: 100%;
-  aspect-ratio: 3 / 1.25;
-  object-fit: cover;
-  border-radius: 16px;
-  border: 1px solid var(--g-color-line-generic);
-  margin-top: 24px;
-}
-
-.drinkup-event-title {
-  font-family: var(--g-font-family-sans);
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  font-weight: 600;
-  line-height: 1.1;
-  color: var(--g-color-text-primary);
-  margin: 24px 0 8px;
-}
-
-.drinkup-event-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin: 28px 0;
-}
-
-.drinkup-event-note {
-  color: var(--g-color-text-secondary);
-  max-width: 560px;
 }

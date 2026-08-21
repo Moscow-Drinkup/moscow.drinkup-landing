@@ -1,6 +1,6 @@
 import {useParams} from 'react-router-dom';
-import {EventPage} from '../components/EventPage';
-import {SubPage} from '../components/PageShell';
+import {EventPage} from './EventPage';
+import {SubPage} from '../components/layout/PageShell';
 import {events} from '../generated-events';
 
 export default function EventDetailPage() {

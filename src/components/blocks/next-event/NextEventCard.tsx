@@ -1,7 +1,7 @@
 import {Button} from '@gravity-ui/uikit';
 import {Link} from 'react-router-dom';
-import {nextEvent} from '../generated-events';
-import {formatEventDate} from './EventsBlock';
+import {nextEvent} from '../../../generated-events';
+import {formatEventDate} from '../events/EventsBlock';
 import './next-event-card.css';
 
 const TG_TARGET = {target: '_blank', rel: 'noopener noreferrer'} as const;

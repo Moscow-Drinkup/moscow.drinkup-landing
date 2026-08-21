@@ -1,5 +1,5 @@
 import {Link} from 'react-router-dom';
-import './event-page.css';
+import './events.css';
 
 const MONTHS = [
   'января', 'февраля', 'марта', 'апреля', 'мая', 'июня',

@@ -1,7 +1,7 @@
 import {useEffect} from 'react';
 import {useLocation} from 'react-router-dom';
 import {events} from '../generated-events';
-import {formatEventDate} from './EventsBlock';
+import {formatEventDate} from '../components/blocks/events/EventsBlock';
 
 type PageMeta = {title: string; description: string};
 

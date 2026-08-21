@@ -1,7 +1,7 @@
 import {Button} from '@gravity-ui/uikit';
 import {Link} from 'react-router-dom';
-import {formatEventDate} from './EventsBlock';
-import type {EventItem} from './EventsBlock';
+import {formatEventDate} from '../components/blocks/events/EventsBlock';
+import type {EventItem} from '../components/blocks/events/EventsBlock';
 import './event-page.css';
 
 export const EventPage = ({event}: {event: EventItem}) => {

@@ -2,16 +2,16 @@ import {lazy, Suspense, useEffect} from 'react';
 import {ThemeProvider} from '@gravity-ui/uikit';
 import {PageConstructorProvider, Theme} from '@gravity-ui/page-constructor';
 import {HashRouter, Route, Routes, useLocation} from 'react-router-dom';
-import {TopNav} from './components/TopNav';
-import {Seo} from './components/Seo';
-import {Page} from './components/PageShell';
-import {contentHome} from './content/home';
+import {TopNav} from '../components/layout/TopNav';
+import {Seo} from '../lib/seo';
+import {Page} from '../components/layout/PageShell';
+import {contentHome} from '../content/home';
 
 // Ленивые роуты: код под-страниц грузится отдельными чанками
-const VenuesPage = lazy(() => import('./pages/VenuesPage'));
-const PartnersPage = lazy(() => import('./pages/PartnersPage'));
-const EventsPage = lazy(() => import('./pages/EventsPage'));
-const EventDetailPage = lazy(() => import('./pages/EventDetailPage'));
+const VenuesPage = lazy(() => import('../pages/VenuesPage'));
+const PartnersPage = lazy(() => import('../pages/PartnersPage'));
+const EventsPage = lazy(() => import('../pages/EventsPage'));
+const EventDetailPage = lazy(() => import('../pages/EventDetailPage'));
 
 // Скролл к блоку «Организаторы» (#team) по ссылке вида #/?orgs
 function OrgAnchor() {

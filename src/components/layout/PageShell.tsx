@@ -1,10 +1,10 @@
 import {PageConstructor} from '@gravity-ui/page-constructor';
 import type {PageContent} from '@gravity-ui/page-constructor';
-import GalleryBlock from './GalleryBlock';
-import TeamBlock from './TeamBlock';
-import EventsBlock from './EventsBlock';
-import NextEventCard from './NextEventCard';
-import ReviewQuote from './ReviewQuote';
+import GalleryBlock from '../blocks/gallery/GalleryBlock';
+import TeamBlock from '../blocks/team/TeamBlock';
+import EventsBlock from '../blocks/events/EventsBlock';
+import NextEventCard from '../blocks/next-event/NextEventCard';
+import ReviewQuote from '../blocks/reviews/ReviewQuote';
 
 // Кастомные блоки и саб-блоки, зарегистрированные для PageConstructor
 export const custom = {
