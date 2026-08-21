@@ -68,6 +68,7 @@
   border: 1px solid var(--g-color-line-generic);
   border-radius: 10px;
   cursor: pointer;
+  font-family: inherit; /* Chrome по умолчанию задаёт кнопкам Arial */
 }
 .drinkup-nav-burger span {
   display: block;

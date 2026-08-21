@@ -38,9 +38,22 @@ body {
   --g-color-text-brand-heavy: #f2a53a;
   --g-color-text-brand-contrast: #1a1000;
 
-  /* типографика */
-  --g-font-family-sans: 'JetBrains Sans', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --g-font-family-monospace: 'JetBrains Mono', 'JetBrains Sans', monospace;
+  /* типографика: ТОЛЬКО JetBrains Sans / JetBrains Mono (без сторонних фолбэков).
+     !important — uikit инжектит свои переменные (Inter/Menlo) позже в бандле,
+     и без приоритета они перебивали бы наши. Родовые sans-serif/monospace —
+     категория фолбэка CSS на случай сбоя загрузки woff2 (font-display: swap). */
+  --g-font-family-sans: 'JetBrains Sans', sans-serif !important;
+  --g-font-family-monospace: 'JetBrains Mono', monospace !important;
+}
+
+/* Базовая типографика страницы — JetBrains Sans */
+body {
+  font-family: var(--g-font-family-sans);
+}
+
+/* Chrome по умолчанию задаёт кнопкам Arial — наследуем JetBrains Sans */
+button {
+  font-family: inherit;
 }
 
 /* Hero: затемнение фонового фото */
