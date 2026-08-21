@@ -1,0 +1,10 @@
+import {contentVenues} from '../content/venues';
+import {Page, SubPage} from '../components/PageShell';
+
+export default function VenuesPage() {
+  return (
+    <SubPage>
+      <Page content={contentVenues} />
+    </SubPage>
+  );
+}

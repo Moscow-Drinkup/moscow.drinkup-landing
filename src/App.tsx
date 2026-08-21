@@ -1,29 +1,16 @@
-import {useEffect} from 'react';
+import {lazy, Suspense, useEffect} from 'react';
 import {ThemeProvider} from '@gravity-ui/uikit';
-import {PageConstructor, PageConstructorProvider, Theme} from '@gravity-ui/page-constructor';
-import {HashRouter, Route, Routes} from 'react-router-dom';
-import GalleryBlock from './components/GalleryBlock';
-import TeamBlock from './components/TeamBlock';
-import EventsBlock from './components/EventsBlock';
-import NextEventCard from './components/NextEventCard';
-import ReviewQuote from './components/ReviewQuote';
-import {EventPage} from './components/EventPage';
+import {PageConstructorProvider, Theme} from '@gravity-ui/page-constructor';
+import {HashRouter, Route, Routes, useLocation} from 'react-router-dom';
 import {TopNav} from './components/TopNav';
-import {contentEvents, contentHome, contentPartners, contentVenues} from './content';
-import {events} from './generated-events';
-import type {PageContent} from '@gravity-ui/page-constructor';
+import {Page} from './components/PageShell';
+import {contentHome} from './content/home';
 
-const custom = {
-  blocks: {
-    gallery: GalleryBlock as unknown as React.ComponentType<any>,
-    team: TeamBlock as unknown as React.ComponentType<any>,
-    events: EventsBlock as unknown as React.ComponentType<any>,
-    nextEventCard: NextEventCard as unknown as React.ComponentType<any>,
-  },
-  subBlocks: {
-    review: ReviewQuote as unknown as React.ComponentType<any>,
-  },
-};
+// Ленивые роуты: код под-страниц грузится отдельными чанками
+const VenuesPage = lazy(() => import('./pages/VenuesPage'));
+const PartnersPage = lazy(() => import('./pages/PartnersPage'));
+const EventsPage = lazy(() => import('./pages/EventsPage'));
+const EventDetailPage = lazy(() => import('./pages/EventDetailPage'));
 
 // Скролл к блоку «Организаторы» (#team) по ссылке вида #/?orgs
 function OrgAnchor() {
@@ -34,7 +21,8 @@ function OrgAnchor() {
       const el = document.getElementById('team');
       if (el) {
         const y = el.getBoundingClientRect().top + window.scrollY - 72;
-        window.scrollTo({top: y, behavior: 'smooth'});
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        window.scrollTo({top: y, behavior: reduceMotion ? 'auto' : 'smooth'});
       } else if (tries++ < 30) {
         setTimeout(attempt, 100);
       }
@@ -46,13 +34,22 @@ function OrgAnchor() {
   return null;
 }
 
-function Page({content}: {content: PageContent}) {
-  return <PageConstructor content={content} custom={custom} />;
+// Доступность: цель для skip-link (main), корректный порядок заголовков в футере
+function AppFixes() {
+  const loc = useLocation();
+  useEffect(() => {
+    const main = document.querySelector('main');
+    if (main && !main.id) main.id = 'main';
+    // Заголовки колонок футера рендерятся как h6 — приводим к h2 (порядок заголовков)
+    document.querySelectorAll('h6.pc-footer-block__column-title').forEach((h) => {
+      const h2 = document.createElement('h2');
+      h2.className = h.className;
+      h2.textContent = h.textContent;
+      h.replaceWith(h2);
+    });
+  }, [loc]);
+  return null;
 }
-
-const SubPage = ({children}: {children: React.ReactNode}) => (
-  <div className="drinkup-page drinkup-page--sub">{children}</div>
-);
 
 export function App() {
   return (
@@ -61,54 +58,27 @@ export function App() {
         <HashRouter>
           <TopNav />
           <OrgAnchor />
-          <Routes>
-            <Route path="/" element={<Page content={contentHome} />} />
-            <Route
-              path="/venues"
-              element={
-                <SubPage>
-                  <Page content={contentVenues} />
-                </SubPage>
-              }
-            />
-            <Route
-              path="/partners"
-              element={
-                <SubPage>
-                  <Page content={contentPartners} />
-                </SubPage>
-              }
-            />
-            <Route
-              path="/events"
-              element={
-                <SubPage>
-                  <Page content={contentEvents} />
-                </SubPage>
-              }
-            />
-            {events.map((e) => (
+          <AppFixes />
+          <a className="drinkup-skip-link" href="#main">
+            К содержимому
+          </a>
+          <Suspense fallback={<div className="drinkup-page-loader" />}>
+            <Routes>
+              <Route path="/" element={<Page content={contentHome} />} />
+              <Route path="/venues" element={<VenuesPage />} />
+              <Route path="/partners" element={<PartnersPage />} />
+              <Route path="/events" element={<EventsPage />} />
+              <Route path="/events/:id" element={<EventDetailPage />} />
               <Route
-                key={e.id}
-                path={`/events/${e.id}`}
+                path="*"
                 element={
-                  <SubPage>
-                    <EventPage event={e} />
-                  </SubPage>
-                }
-              />
-            ))}
-            <Route
-              path="*"
-              element={
-                <SubPage>
                   <div style={{padding: '48px 24px', textAlign: 'center'}}>
                     Страница не найдена — <a href="#/">на главную</a>
                   </div>
-                </SubPage>
-              }
-            />
-          </Routes>
+                }
+              />
+            </Routes>
+          </Suspense>
         </HashRouter>
       </PageConstructorProvider>
     </ThemeProvider>

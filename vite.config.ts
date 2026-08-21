@@ -13,4 +13,14 @@ export default defineConfig({
       url: fileURLToPath(new URL('./src/shims/url.ts', import.meta.url)),
     },
   },
+  build: {
+    sourcemap: true,
+    rollupOptions: {
+      output: {
+        // Ручное разделение вендоров отключено: сплит uikit/pc/react на отдельные
+        // чанки ломает CJS-интероп (uikit: React.createContext undefined).
+        // Ленивые роуты (React.lazy) дают отдельные чанки под-страниц и так.
+      },
+    },
+  },
 });

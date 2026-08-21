@@ -22,7 +22,7 @@ export const ReviewQuote = ({text, logo, image, author}: ReviewQuoteProps) => {
   return (
     <div className="drinkup-review">
       {image && <img className="drinkup-review-photo" src={image} alt="" />}
-      {logo && <img className="drinkup-review-logo" src={logo} alt="" />}
+      {logo && <img className="drinkup-review-logo" src={logo} alt="" width={150} height={34} />}
       {text && <div className="drinkup-review-text">{text}</div>}
       {author && (
         <div className="drinkup-review-author">
