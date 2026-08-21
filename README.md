@@ -14,16 +14,17 @@
 
 ```
 src/
+  app/            # корень приложения: роутинг, провайдеры, ленивые роуты
+  theme/          # брендовые токены (тёмная тема, оранжевый #f09018) + шрифты
   content/        # контент страниц (home, venues, partners, events) + общий shared
-  components/     # кастомные блоки (gallery, team, events, nextEventCard, review) и сервисы
-  pages/          # ленивые обёртки маршрутов
-  theme.css       # брендовые токены (тёмная тема, оранжевый #f09018)
-  fonts.css       # @font-face JetBrains
+  components/
+    layout/       # каркас: TopNav, PageShell (Page/SubPage)
+    blocks/       # кастомные блоки page-constructor (gallery, team, events, next-event, reviews)
+  pages/          # страницы-маршруты (Venues, Partners, Events, EventDetail, EventPage)
+  lib/            # сервисы (Seo — per-route title/meta)
+  shims/          # браузерный шим Node-модуля url
 scripts/
   fetch-events.mjs   # данные из API Networkly → src/generated-* (gitignored) + sitemap/llms.txt
-  lighthouse-*.mjs   # локальные Lighthouse-аудиты
-  make-og-banner.py  # генерация og-баннера 1200×630
-  gzip-server.py     # локальный сервер с gzip для аудита
 ```
 
 ## Команды
