@@ -1,4 +1,5 @@
 import js from '@eslint/js';
+import effector from 'eslint-plugin-effector';
 import reactHooks from 'eslint-plugin-react-hooks';
 import prettier from 'eslint-config-prettier';
 import globals from 'globals';
@@ -16,6 +17,24 @@ export default tseslint.config(
     extends: [reactHooks.configs.flat['recommended-latest']],
     languageOptions: {
       globals: globals.browser,
+    },
+  },
+  {
+    // Effector — слой данных проекта. Часть правил плагина требует информации о типах,
+    // поэтому здесь включён typed linting; область — только исходники под src.
+    files: ['src/**/*.{ts,tsx}'],
+    extends: [
+      effector.flatConfigs.recommended,
+      // scope — fork-корректность (обязательно для SSR/SSG), react — биндинги effector-react.
+      // Пресеты future и patronum подключим, если понадобятся.
+      effector.flatConfigs.scope,
+      effector.flatConfigs.react,
+    ],
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
+      },
     },
   },
   {
