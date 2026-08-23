@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '@/app/layouts/BaseLayout.astro';
 import {SITE} from '@/shared/config';
+import {withBase} from '@/shared/lib';
 ---
 
 <BaseLayout
@@ -13,9 +14,9 @@ import {SITE} from '@/shared/config';
       Такой страницы нет — возможно, она переехала вместе с нами из старого формата ссылок.
     </p>
     <p class="not-found__links">
-      <a href="/">На главную</a>
+      <a href={withBase('/')}>На главную</a>
       <span aria-hidden="true">·</span>
-      <a href="/events">Все мероприятия</a>
+      <a href={withBase('/events')}>Все мероприятия</a>
     </p>
   </main>
 </BaseLayout>
