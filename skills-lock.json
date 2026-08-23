@@ -13,6 +13,18 @@
       "skillPath": "skills/dispatching-parallel-agents/SKILL.md",
       "computedHash": "b011107f17188e0b2898bb1856b5bac8b49537cc86e737c82126558a235bd62a"
     },
+    "effector-ecosystem": {
+      "source": "demark-pro/skills",
+      "sourceType": "github",
+      "skillPath": "skills/effector-ecosystem/SKILL.md",
+      "computedHash": "2f088768be646969c038d3bc46530c4278ebc823243770bb6d845f3968ae7ae9"
+    },
+    "effector-fsd": {
+      "source": "demark-pro/skills",
+      "sourceType": "github",
+      "skillPath": "skills/effector-fsd/SKILL.md",
+      "computedHash": "614a9a7de5024db3ac7ee2ba17dc38a0e55bbf7dedbebe029011fc4e297ef649"
+    },
     "executing-plans": {
       "source": "obra/superpowers",
       "sourceType": "github",
