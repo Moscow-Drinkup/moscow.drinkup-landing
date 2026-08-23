@@ -1,0 +1,30 @@
+# Хуки git. Установка после клонирования: pnpm lefthook install
+# (выполняется автоматически через скрипт prepare).
+
+pre-commit:
+  parallel: true
+  jobs:
+    - name: eslint
+      glob: '*.{js,mjs,ts,tsx,astro}'
+      run: pnpm exec eslint --fix --no-warn-ignored {staged_files}
+      stage_fixed: true
+
+    - name: stylelint
+      glob: '*.css'
+      run: pnpm exec stylelint --fix {staged_files}
+      stage_fixed: true
+
+    - name: prettier
+      glob: '*.{js,mjs,ts,tsx,astro,css,json,md,yml,yaml}'
+      run: pnpm exec prettier --write --ignore-unknown {staged_files}
+      stage_fixed: true
+
+# Долгие проверки — перед пушем, чтобы не замедлять коммиты
+pre-push:
+  parallel: true
+  jobs:
+    - name: typecheck
+      run: pnpm typecheck
+
+    - name: steiger
+      run: pnpm lint:fsd
