@@ -25,6 +25,18 @@
       "skillPath": "skills/effector-fsd/SKILL.md",
       "computedHash": "614a9a7de5024db3ac7ee2ba17dc38a0e55bbf7dedbebe029011fc4e297ef649"
     },
+    "effector-refetch": {
+      "source": "Olovyannikov/effector-refetch",
+      "sourceType": "github",
+      "skillPath": "skills/effector-refetch/SKILL.md",
+      "computedHash": "e3298d966a3dab9d3651f1fd71e6cd09c721805573c6efaa252c00d032c49f23"
+    },
+    "effector-router": {
+      "source": "Olovyannikov/effector-refetch",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/effector-router/SKILL.md",
+      "computedHash": "1d9079900477eeb0345dd1f8eda796416444b9e53365bd1f0cba9c75f1083e30"
+    },
     "executing-plans": {
       "source": "obra/superpowers",
       "sourceType": "github",
