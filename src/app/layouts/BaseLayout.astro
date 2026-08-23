@@ -1,6 +1,9 @@
 ---
 import {SITE} from '@/shared/config';
 import {isPreviewBuild, withBase} from '@/shared/lib';
+// Токены дизайн-системы: определяют --g-color-text-*, --g-color-base-* и прочее.
+// Наша тема переопределяет часть из них и потому подключается следом.
+import '@gravity-ui/uikit/styles/styles.css';
 import '@/app/styles/fonts.css';
 import '@/app/styles/theme.css';
 

@@ -2,12 +2,12 @@
 import SiteLayout from '@/app/layouts/SiteLayout.astro';
 import {getNextEvent} from '@/shared/api';
 import {LINKS} from '@/shared/config';
-import {participantReviews, partnerReviews, venueReviews} from '../model/reviews';
+import {participantReviews, partnerReviews, venueReviews} from '@/shared/content';
+import {Reviews} from '@/shared/ui';
 import {AboutSection, HeroSection} from './HomeBlocks';
 import Faq from './Faq.astro';
 import Gallery from './Gallery.astro';
 import NextEvent from './NextEvent.astro';
-import Reviews from './Reviews.astro';
 import Team from './Team.astro';
 
 // Запрос уходит на этапе сборки; при недоступности API берётся снапшот
