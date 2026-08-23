@@ -1,0 +1,124 @@
+---
+import type {Review} from '../model/reviews';
+import {EXTERNAL_LINK_ATTRS} from '@/shared/config';
+
+interface Props {
+  title: string;
+  id: string;
+  reviews: Review[];
+}
+
+const {title, id, reviews} = Astro.props;
+---
+
+<section class="reviews" aria-labelledby={id}>
+  <h2 class="reviews__title" id={id}>{title}</h2>
+
+  <ul class="reviews__list">
+    {
+      reviews.map((review) => (
+        <li class="reviews__card">
+          <img class="reviews__photo" src={review.photo} alt="" loading="lazy" />
+
+          <div class="reviews__body">
+            {review.logo && (
+              <img class="reviews__logo" src={review.logo} alt="" height="34" loading="lazy" />
+            )}
+
+            <blockquote class="reviews__text">«{review.text}»</blockquote>
+
+            <footer class="reviews__author">
+              {review.authorUrl ? (
+                <a class="reviews__name" href={review.authorUrl} {...EXTERNAL_LINK_ATTRS}>
+                  {review.author}
+                </a>
+              ) : (
+                <span class="reviews__name">{review.author}</span>
+              )}
+              <span class="reviews__description">{review.authorDescription}</span>
+            </footer>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<style>
+  .reviews {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px 72px;
+  }
+
+  .reviews__title {
+    margin: 0 0 32px;
+    font-size: clamp(28px, 5vw, 40px);
+    font-weight: 700;
+    color: var(--g-color-text-primary);
+  }
+
+  .reviews__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .reviews__card {
+    display: flex;
+    flex-direction: column;
+    background: #120e0a;
+    border: 1px solid var(--g-color-line-generic);
+    border-radius: 18px;
+    overflow: hidden;
+  }
+
+  .reviews__photo {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+  }
+
+  .reviews__body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px;
+  }
+
+  .reviews__logo {
+    align-self: flex-start;
+    max-width: 150px;
+    object-fit: contain;
+  }
+
+  .reviews__text {
+    flex: 1;
+    margin: 0;
+    color: var(--g-color-text-primary);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .reviews__author {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .reviews__name {
+    color: var(--g-color-text-brand);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .reviews__description {
+    color: var(--g-color-text-secondary);
+    font-size: 13px;
+  }
+</style>

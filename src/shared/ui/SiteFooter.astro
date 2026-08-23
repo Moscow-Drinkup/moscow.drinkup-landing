@@ -1,0 +1,141 @@
+---
+import {EXTERNAL_LINK_ATTRS, LINKS, SITE} from '@/shared/config';
+import {withBase} from '@/shared/lib';
+
+const columns = [
+  {
+    title: 'Сообщество',
+    links: [
+      {href: LINKS.telegramChannel, label: 'Канал @moscow_drinkup', external: true},
+      {href: LINKS.telegramChat, label: 'Чат @drinkup_moscow', external: true},
+    ],
+  },
+  {
+    title: 'Участие',
+    links: [
+      // Ссылка ведёт на сообщество со списком всех мероприятий, а не на конкретный митап
+      {href: LINKS.networkly, label: 'Регистрация на дринкап', external: true},
+      {href: LINKS.boosty, label: 'Поддержать на Boosty', external: true},
+    ],
+  },
+  {
+    title: 'Разделы',
+    links: [
+      {href: '/events', label: 'Мероприятия', external: false},
+      {href: '/venues', label: 'Площадкам', external: false},
+      {href: '/partners', label: 'Партнёрам', external: false},
+    ],
+  },
+];
+
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <img class="footer__logo" src={withBase(SITE.logo)} alt="" width="88" height="88" />
+      <p class="footer__disclaimer">
+        Начинали как часть международного объединения beerjs.global — продолжаем как Moscow DrinkUp.
+        Вход бесплатный, доклады экспертные, пиво своё.
+      </p>
+    </div>
+
+    <div class="footer__columns">
+      {
+        columns.map((column) => (
+          <nav class="footer__column" aria-label={column.title}>
+            <h2 class="footer__column-title">{column.title}</h2>
+            <ul class="footer__list">
+              {column.links.map((link) => (
+                <li>
+                  <a
+                    class="footer__link"
+                    href={link.external ? link.href : withBase(link.href)}
+                    {...(link.external ? EXTERNAL_LINK_ATTRS : {})}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        ))
+      }
+    </div>
+  </div>
+
+  <p class="footer__copyright">© {year} {SITE.name}</p>
+</footer>
+
+<style>
+  .footer {
+    padding: 56px 24px 32px;
+    border-top: 1px solid var(--g-color-line-generic);
+    background: #0b0907;
+  }
+
+  .footer__inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .footer__brand {
+    max-width: 420px;
+  }
+
+  .footer__logo {
+    border: 1px solid var(--g-color-line-generic);
+    border-radius: 16px;
+  }
+
+  .footer__disclaimer {
+    margin: 16px 0 0;
+    color: var(--g-color-text-secondary);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .footer__columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px;
+  }
+
+  .footer__column-title {
+    margin: 0 0 12px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--g-color-text-primary);
+  }
+
+  .footer__list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .footer__link {
+    color: var(--g-color-text-secondary);
+    font-size: 14px;
+    text-decoration: none;
+  }
+
+  .footer__link:hover {
+    color: var(--g-color-text-brand);
+  }
+
+  .footer__copyright {
+    max-width: 1200px;
+    margin: 40px auto 0;
+    color: var(--g-color-text-hint);
+    font-size: 13px;
+  }
+</style>

@@ -1,0 +1,29 @@
+---
+import SiteLayout from '@/app/layouts/SiteLayout.astro';
+import {getNextEvent} from '@/shared/api';
+import {LINKS} from '@/shared/config';
+import {participantReviews, partnerReviews, venueReviews} from '../model/reviews';
+import {aboutContent, heroContent} from '../model/page-content';
+import {HomeContent} from './HomeContent';
+import Faq from './Faq.astro';
+import Gallery from './Gallery.astro';
+import NextEvent from './NextEvent.astro';
+import Reviews from './Reviews.astro';
+import Team from './Team.astro';
+
+// Запрос уходит на этапе сборки; при недоступности API берётся снапшот
+const nextEvent = await getNextEvent();
+const registrationUrl = nextEvent?.url ?? LINKS.networkly;
+---
+
+<SiteLayout>
+  <HomeContent content={heroContent(registrationUrl)} />
+  <NextEvent event={nextEvent} />
+  <HomeContent content={aboutContent} />
+  <Faq />
+  <Gallery />
+  <Reviews title="Отзывы площадок" id="venue-reviews" reviews={venueReviews} />
+  <Reviews title="Отзывы партнёров" id="partner-reviews" reviews={partnerReviews} />
+  <Reviews title="Отзывы участников" id="participant-reviews" reviews={participantReviews} />
+  <Team />
+</SiteLayout>

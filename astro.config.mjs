@@ -16,6 +16,14 @@ export default defineConfig({
   integrations: [react(), sitemap()],
   vite: {
     resolve: {
+      // Пакеты Gravity UI импортируют CSS прямо из JS, а @gravity-ui/icons —
+      // соседние модули без расширения .js. При рендере на сервере эти файлы
+      // выполняет Node, который ни того, ни другого не понимает, поэтому
+      // отдаём пакеты Vite.
+      noExternal: [/^@gravity-ui\//],
+      // date-utils, наоборот, поставляется в CommonJS: под обработкой Vite он
+      // падает на `exports is not defined`, поэтому остаётся внешним
+      external: ['@gravity-ui/date-utils'],
       alias: {
         // page-constructor тянет свои стили через тильда-пути (наследие webpack)
         '~@gravity-ui/uikit': '@gravity-ui/uikit',

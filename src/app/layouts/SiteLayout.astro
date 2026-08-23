@@ -1,0 +1,33 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import {SiteFooter, SiteHeader} from '@/shared/ui';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+}
+
+const {title, description, ogImage, ogType} = Astro.props;
+---
+
+<BaseLayout title={title} description={description} ogImage={ogImage} ogType={ogType}>
+  <slot name="head" slot="head" />
+  <SiteHeader />
+  <main id="main" tabindex="-1">
+    <slot />
+  </main>
+  <SiteFooter />
+</BaseLayout>
+
+<style>
+  main {
+    /* Под фиксированной шапкой */
+    padding-top: 61px;
+  }
+
+  main:focus {
+    outline: none;
+  }
+</style>
