@@ -84,11 +84,6 @@ button {
   text-transform: uppercase;
 }
 
-/* Под-страницы (Площадкам / Партнёрам): отступ под фиксированной навигацией */
-.drinkup-page--sub {
-  padding-top: 64px;
-}
-
 /* Футер: фиксированный размер логотипа — чтобы не наезжал на контент футера */
 .pc-footer-block__logo-image {
   width: 88px;
@@ -102,35 +97,10 @@ button {
   margin: 0 0 12px;
 }
 
-/* Skip-link: ссылка «К содержимому» */
-.drinkup-skip-link {
-  position: fixed;
-  top: 8px;
-  left: 8px;
-  z-index: 300;
-  padding: 10px 16px;
-  background: #1a1206;
-  color: var(--g-color-text-primary);
-  border: 1px solid rgb(240 144 24 / 60%);
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: 600;
-  transform: translateY(-200%);
-  transition: transform 0.2s;
-}
-
-.drinkup-skip-link:focus {
-  transform: translateY(0);
-}
-
-/* Загрузчик ленивых роутов */
-.drinkup-page-loader {
-  min-height: 60vh;
-}
-
 /* Видимый фокус с клавиатуры */
 a:focus-visible,
 button:focus-visible,
+summary:focus-visible,
 [role='button']:focus-visible,
 [tabindex]:focus-visible {
   outline: 2px solid var(--g-color-text-brand);

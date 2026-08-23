@@ -8,12 +8,12 @@ import {withBase} from '@/shared/lib';
 
   <ul class="gallery__grid">
     {
-      galleryImages.map((image, index) => (
+      galleryImages.map((image) => (
         <li>
           <button
             type="button"
             class="gallery__item"
-            data-lightbox-open={index}
+            data-lightbox-open
             aria-label={`Открыть фото: ${image.alt}`}
           >
             <img src={image.src} alt={image.alt} loading="lazy" />
@@ -34,7 +34,7 @@ import {withBase} from '@/shared/lib';
     <button type="button" class="lightbox__button" data-lightbox-prev aria-label="Предыдущее фото">
       ←
     </button>
-    <span class="lightbox__counter" data-lightbox-counter></span>
+    <span class="lightbox__counter" data-lightbox-counter aria-live="polite"></span>
     <button type="button" class="lightbox__button" data-lightbox-next aria-label="Следующее фото">
       →
     </button>

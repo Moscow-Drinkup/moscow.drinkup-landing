@@ -10,7 +10,7 @@ pre-commit:
       stage_fixed: true
 
     - name: stylelint
-      glob: '*.css'
+      glob: '*.{css,astro}'
       run: pnpm exec stylelint --fix {staged_files}
       stage_fixed: true
 

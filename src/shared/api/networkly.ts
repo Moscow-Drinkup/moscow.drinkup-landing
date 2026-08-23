@@ -60,11 +60,16 @@ const toDrinkupEvent = (raw: NetworklyEvent): DrinkupEvent => {
   };
 };
 
-/** Только события с материалами в канале, свежие сверху. */
-const prepare = (events: DrinkupEvent[]): DrinkupEvent[] =>
-  events.filter((event) => event.postUrl !== null).sort((a, b) => b.id - a.id);
+/** Свежие сверху. Сортировка по дате, а не по id: митап могли перенести. */
+const byDateDesc = (events: DrinkupEvent[]): DrinkupEvent[] =>
+  [...events].sort((a, b) => {
+    const left = a.start ? Date.parse(a.start) : 0;
+    const right = b.start ? Date.parse(b.start) : 0;
+    return right - left;
+  });
 
-export const getEvents = async (): Promise<DrinkupEvent[]> => {
+/** Все мероприятия сообщества, включая ещё не прошедшие. */
+const fetchAll = async (): Promise<DrinkupEvent[]> => {
   try {
     const response = await fetch(API_URL, {signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS)});
     if (!response.ok) {
@@ -72,7 +77,7 @@ export const getEvents = async (): Promise<DrinkupEvent[]> => {
     }
 
     const data = (await response.json()) as {'hydra:member'?: NetworklyEvent[]};
-    const events = prepare((data['hydra:member'] ?? []).map(toDrinkupEvent));
+    const events = byDateDesc((data['hydra:member'] ?? []).map(toDrinkupEvent));
 
     if (events.length === 0) {
       throw new Error('пустой список мероприятий');
@@ -82,12 +87,33 @@ export const getEvents = async (): Promise<DrinkupEvent[]> => {
   } catch (error) {
     const reason = error instanceof Error ? error.message : String(error);
     console.warn(`[networkly] API недоступен (${reason}), используется снапшот из репозитория`);
-    return prepare(snapshot as DrinkupEvent[]);
+    return byDateDesc(snapshot as DrinkupEvent[]);
   }
 };
 
-/** Ближайший (самый свежий) дринкап или null, если список пуст. */
+/**
+ * Архив дринкапов для страницы мероприятий: только те, по которым есть пост
+ * с материалами в канале — иначе странице не на что ссылаться.
+ */
+export const getEvents = async (): Promise<DrinkupEvent[]> => {
+  const events = await fetchAll();
+  return events.filter((event) => event.postUrl !== null);
+};
+
+/**
+ * Ближайший предстоящий дринкап или null, если следующая дата ещё не объявлена.
+ *
+ * Считается по всем мероприятиям, а не по архиву: у только что анонсированного
+ * события поста с материалами ещё нет и быть не может. Прошедшие отсекаются по
+ * дате — иначе главная продолжала бы звать на состоявшийся митап.
+ */
 export const getNextEvent = async (): Promise<DrinkupEvent | null> => {
-  const events = await getEvents();
-  return events[0] ?? null;
+  const events = await fetchAll();
+  const now = Date.now();
+
+  const upcoming = events
+    .filter((event) => event.start !== null && Date.parse(event.start) >= now)
+    .sort((a, b) => Date.parse(a.start ?? '') - Date.parse(b.start ?? ''));
+
+  return upcoming[0] ?? null;
 };

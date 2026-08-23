@@ -3,8 +3,7 @@ import SiteLayout from '@/app/layouts/SiteLayout.astro';
 import {getNextEvent} from '@/shared/api';
 import {LINKS} from '@/shared/config';
 import {participantReviews, partnerReviews, venueReviews} from '../model/reviews';
-import {aboutContent, heroContent} from '../model/page-content';
-import {HomeContent} from './HomeContent';
+import {AboutSection, HeroSection} from './HomeBlocks';
 import Faq from './Faq.astro';
 import Gallery from './Gallery.astro';
 import NextEvent from './NextEvent.astro';
@@ -17,9 +16,9 @@ const registrationUrl = nextEvent?.url ?? LINKS.networkly;
 ---
 
 <SiteLayout>
-  <HomeContent content={heroContent(registrationUrl)} />
+  <HeroSection registrationUrl={registrationUrl} />
   <NextEvent event={nextEvent} />
-  <HomeContent content={aboutContent} />
+  <AboutSection />
   <Faq />
   <Gallery />
   <Reviews title="Отзывы площадок" id="venue-reviews" reviews={venueReviews} />

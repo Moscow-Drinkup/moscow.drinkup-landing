@@ -45,7 +45,7 @@ const year = new Date().getFullYear();
       {
         columns.map((column) => (
           <nav class="footer__column" aria-label={column.title}>
-            <h2 class="footer__column-title">{column.title}</h2>
+            <p class="footer__column-title">{column.title}</p>
             <ul class="footer__list">
               {column.links.map((link) => (
                 <li>
@@ -107,6 +107,7 @@ const year = new Date().getFullYear();
   }
 
   .footer__column-title {
+    /* Не заголовок в оутлайне: название колонки дублирует aria-label у nav */
     margin: 0 0 12px;
     font-size: 15px;
     font-weight: 600;

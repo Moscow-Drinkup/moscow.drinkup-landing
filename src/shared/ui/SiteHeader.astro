@@ -82,12 +82,19 @@ const isCurrent = (href: string) => {
   const menu = document.querySelector<HTMLElement>('[data-menu]');
 
   if (toggle && menu) {
+    // Содержимое под оверлеем: пока меню открыто, оно не должно быть
+    // доступно ни с клавиатуры, ни скринридеру
+    const background = document.querySelectorAll<HTMLElement>('main, footer');
+
     const setOpen = (open: boolean) => {
       toggle.setAttribute('aria-expanded', String(open));
       toggle.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
       menu.hidden = !open;
       // Фон под открытым меню не должен прокручиваться
       document.body.style.overflow = open ? 'hidden' : '';
+      background.forEach((element) => {
+        element.inert = open;
+      });
     };
 
     toggle.addEventListener('click', () => {
@@ -96,6 +103,15 @@ const isCurrent = (href: string) => {
 
     menu.addEventListener('click', (event) => {
       if (event.target instanceof HTMLAnchorElement) {
+        setOpen(false);
+      }
+    });
+
+    // На широком экране бургер скрыт: если окно растянули с открытым меню,
+    // оверлей нужно закрыть, иначе он останется висеть и заблокирует прокрутку
+    const desktop = window.matchMedia('(width > 720px)');
+    desktop.addEventListener('change', (event) => {
+      if (event.matches && !menu.hidden) {
         setOpen(false);
       }
     });

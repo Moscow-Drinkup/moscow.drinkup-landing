@@ -4,6 +4,7 @@ import {EXTERNAL_LINK_ATTRS} from '@/shared/config';
 
 interface Props {
   title: string;
+  /** Якорь секции, он же id заголовка для aria-labelledby. */
   id: string;
   reviews: Review[];
 }
@@ -11,8 +12,8 @@ interface Props {
 const {title, id, reviews} = Astro.props;
 ---
 
-<section class="reviews" aria-labelledby={id}>
-  <h2 class="reviews__title" id={id}>{title}</h2>
+<section class="reviews" id={id} aria-labelledby={`${id}-title`}>
+  <h2 class="reviews__title" id={`${id}-title`}>{title}</h2>
 
   <ul class="reviews__list">
     {

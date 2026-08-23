@@ -2,6 +2,13 @@
 export default {
   extends: ['stylelint-config-standard'],
   ignoreFiles: ['dist/**', 'node_modules/**', '.agents/**'],
+  overrides: [
+    {
+      // Основная масса стилей живёт в блоках <style> внутри компонентов Astro
+      files: ['**/*.astro'],
+      customSyntax: 'postcss-html',
+    },
+  ],
   rules: {
     // Свои классы — BEM в кебаб-кейсе (block__element--modifier). Сюда же попадают
     // классы Gravity UI, которые приходится перебивать в теме: page-constructor
