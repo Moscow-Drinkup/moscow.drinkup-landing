@@ -19,12 +19,15 @@ pre-commit:
       run: pnpm exec prettier --write --ignore-unknown {staged_files}
       stage_fixed: true
 
-# Долгие проверки — перед пушем, чтобы не замедлять коммиты
+    # Архитектуру FSD проверяем на каждом коммите: нарушение границ слоёв
+    # дешевле поймать сразу, чем разбирать его в готовой ветке.
+    # Steiger смотрит весь src целиком — списка staged-файлов ему не даём.
+    - name: steiger
+      glob: 'src/**/*'
+      run: pnpm lint:fsd
+
+# Типы считаются дольше остальных проверок — оставляем их перед пушем
 pre-push:
-  parallel: true
   jobs:
     - name: typecheck
       run: pnpm typecheck
-
-    - name: steiger
-      run: pnpm lint:fsd
