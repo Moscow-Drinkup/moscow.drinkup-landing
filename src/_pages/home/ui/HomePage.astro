@@ -1,28 +1,32 @@
 ---
 import SiteLayout from '@/app/layouts/SiteLayout.astro';
 import {getNextEvent} from '@/shared/api';
-import {LINKS} from '@/shared/config';
 import {participantReviews, partnerReviews, venueReviews} from '@/shared/content';
 import {Reviews} from '@/shared/ui';
-import {AboutSection, HeroSection} from './HomeBlocks';
+import {AboutSection} from './HomeBlocks';
+import Hero from './Hero.astro';
 import Faq from './Faq.astro';
 import Gallery from './Gallery.astro';
-import NextEvent from './NextEvent.astro';
 import Team from './Team.astro';
 
 // Запрос уходит на этапе сборки; при недоступности API берётся снапшот
 const nextEvent = await getNextEvent();
-const registrationUrl = nextEvent?.url ?? LINKS.networkly;
 ---
 
 <SiteLayout>
-  <HeroSection registrationUrl={registrationUrl} />
-  <NextEvent event={nextEvent} />
-  <AboutSection />
-  <Faq />
-  <Gallery />
-  <Reviews title="Отзывы площадок" id="venue-reviews" reviews={venueReviews} />
-  <Reviews title="Отзывы партнёров" id="partner-reviews" reviews={partnerReviews} />
-  <Reviews title="Отзывы участников" id="participant-reviews" reviews={participantReviews} />
-  <Team />
+  <Hero event={nextEvent} />
+
+  <div data-reveal><AboutSection /></div>
+  <div data-reveal><Faq /></div>
+  <div data-reveal><Gallery /></div>
+  <div data-reveal>
+    <Reviews title="Отзывы площадок" id="venue-reviews" reviews={venueReviews} />
+  </div>
+  <div data-reveal>
+    <Reviews title="Отзывы партнёров" id="partner-reviews" reviews={partnerReviews} />
+  </div>
+  <div data-reveal>
+    <Reviews title="Отзывы участников" id="participant-reviews" reviews={participantReviews} />
+  </div>
+  <div data-reveal><Team /></div>
 </SiteLayout>

@@ -119,3 +119,33 @@ summary:focus-visible,
     scroll-behavior: auto !important;
   }
 }
+
+/* ============================================================
+   Проявление секций при прокрутке
+   ------------------------------------------------------------
+   Собственная временная шкала прокрутки (animation-timeline: view)
+   работает без JavaScript. Там, где её нет, срабатывает @supports
+   и содержимое просто видно сразу — сценарий без анимации является
+   базовым, а не деградацией.
+   ============================================================ */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    [data-reveal] {
+      animation: reveal-in linear both;
+      animation-timeline: view();
+      animation-range: entry 8% cover 26%;
+    }
+  }
+}
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
