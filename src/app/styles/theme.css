@@ -26,14 +26,14 @@ body {
   --g-color-base-generic-accent: #171309;
   --g-color-base-float: #120e0a;
   --g-color-base-float-hover: #171309;
-  --g-color-line-generic: rgba(240, 240, 240, 0.12);
-  --g-color-line-generic-hover: rgba(240, 240, 240, 0.2);
+  --g-color-line-generic: rgb(240 240 240 / 12%);
+  --g-color-line-generic-hover: rgb(240 240 240 / 20%);
 
   /* бренд (акцент) */
   --g-color-base-brand: #f09018;
   --g-color-base-brand-hover: #f2a53a;
   --g-color-base-brand-active: #d9820e;
-  --g-color-line-brand: rgba(240, 144, 24, 0.6);
+  --g-color-line-brand: rgb(240 144 24 / 60%);
   --g-color-text-brand: #f09018;
   --g-color-text-brand-heavy: #f2a53a;
   --g-color-text-brand-contrast: #1a1000;
@@ -64,9 +64,9 @@ button {
   pointer-events: none;
   background: linear-gradient(
     180deg,
-    rgba(11, 9, 7, 0.88) 0%,
-    rgba(11, 9, 7, 0.55) 45%,
-    rgba(11, 9, 7, 0.95) 100%
+    rgb(11 9 7 / 88%) 0%,
+    rgb(11 9 7 / 55%) 45%,
+    rgb(11 9 7 / 95%) 100%
   );
 }
 
@@ -111,13 +111,14 @@ button {
   padding: 10px 16px;
   background: #1a1206;
   color: var(--g-color-text-primary);
-  border: 1px solid rgba(240, 144, 24, 0.6);
+  border: 1px solid rgb(240 144 24 / 60%);
   border-radius: 10px;
   text-decoration: none;
   font-weight: 600;
   transform: translateY(-200%);
   transition: transform 0.2s;
 }
+
 .drinkup-skip-link:focus {
   transform: translateY(0);
 }

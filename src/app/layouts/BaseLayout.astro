@@ -1,0 +1,80 @@
+---
+import {SITE} from '@/shared/config';
+import '@/app/styles/fonts.css';
+import '@/app/styles/theme.css';
+
+interface Props {
+  /** Заголовок страницы. Полностью заменяет title, шаблон не применяется. */
+  title?: string;
+  description?: string;
+  /** Абсолютный или относительный путь к картинке для Open Graph. */
+  ogImage?: string;
+  /** Тип страницы для Open Graph: website для разделов, article для событий. */
+  ogType?: 'website' | 'article';
+}
+
+const {
+  title = SITE.title,
+  description = SITE.description,
+  ogImage = SITE.ogImage,
+  ogType = 'website',
+} = Astro.props;
+
+// Astro.site задан в astro.config.mjs, поэтому URL всегда абсолютные
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImageUrl = new URL(ogImage, Astro.site);
+---
+
+<!doctype html>
+<html lang={SITE.lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content={SITE.themeColor} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <link rel="icon" type="image/png" href={SITE.logo} />
+    <link rel="apple-touch-icon" href={SITE.logo} />
+
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:locale" content={SITE.locale} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={SITE.title} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <link
+      rel="preload"
+      href="/fonts/JetBrainsSans-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/JetBrainsSans-SemiBold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <slot name="head" />
+  </head>
+  <body class="g-root g-root_theme_dark">
+    <slot />
+  </body>
+</html>

@@ -1,4 +1,5 @@
 import js from '@eslint/js';
+import astro from 'eslint-plugin-astro';
 import effector from 'eslint-plugin-effector';
 import reactHooks from 'eslint-plugin-react-hooks';
 import prettier from 'eslint-config-prettier';
@@ -7,10 +8,11 @@ import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
   {
-    ignores: ['dist', 'node_modules', '.agents', 'src/generated-*'],
+    ignores: ['dist', 'node_modules', '.agents', '.astro'],
   },
   js.configs.recommended,
   tseslint.configs.recommended,
+  astro.configs.recommended,
   {
     files: ['**/*.{ts,tsx}'],
     // configs.flat — вариант для flat config; configs['recommended-latest'] ещё в формате eslintrc

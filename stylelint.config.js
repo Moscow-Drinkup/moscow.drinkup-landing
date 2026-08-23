@@ -3,8 +3,13 @@ export default {
   extends: ['stylelint-config-standard'],
   ignoreFiles: ['dist/**', 'node_modules/**', '.agents/**'],
   rules: {
-    // Свои классы в кебаб-кейсе с префиксом drinkup-, токены дизайн-системы — с --g-
-    'selector-class-pattern': '^[a-z][a-z0-9]*(-[a-z0-9]+)*(--?[a-z0-9]+(-[a-z0-9]+)*)*$',
+    // Свои классы — BEM в кебаб-кейсе (block__element--modifier). Сюда же попадают
+    // классы Gravity UI, которые приходится перебивать в теме: page-constructor
+    // использует `pc-block__element`, uikit — `g-root_theme_dark` через подчёркивание.
+    'selector-class-pattern': [
+      '^[a-z][a-z0-9]*(-[a-z0-9]+)*(__[a-z0-9]+(-[a-z0-9]+)*)?((--|_)[a-z0-9]+(-[a-z0-9]+)*)*$',
+      {resolveNestedSelectors: true},
+    ],
     'custom-property-pattern': null,
     // page-constructor и uikit требуют перебивать свои стили
     'declaration-no-important': null,
