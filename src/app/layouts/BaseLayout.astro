@@ -23,7 +23,9 @@ const {
 
 // Astro.site задан в astro.config.mjs, поэтому URL всегда абсолютные
 const canonical = new URL(Astro.url.pathname, Astro.site);
-const ogImageUrl = new URL(withBase(ogImage), Astro.site);
+// Картинка может быть как локальной (тогда нужен base), так и внешней —
+// например обложкой события с CDN Networkly
+const ogImageUrl = new URL(/^https?:\/\//.test(ogImage) ? ogImage : withBase(ogImage), Astro.site);
 
 // Превью пул-реквестов лежат на том же домене — закрываем их от индексации,
 // чтобы не плодить дубли боевых страниц в выдаче

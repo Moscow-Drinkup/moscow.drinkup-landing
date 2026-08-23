@@ -3,7 +3,7 @@
     "id": 6699,
     "name": "Moscow DrinkUp #11",
     "num": "#11",
-    "start": "2026-08-27T19:00:00",
+    "start": "2026-08-27T19:00:00+03:00",
     "cover": "https://cdn.networkly.app/covers/cache/to_webp/screenshot-2026-08-11-at-09-20-11-drinkup-constructor-6a7abf35e24b0554725771.png",
     "url": "https://networkly.app/event/6699",
     "postUrl": "https://t.me/moscow_drinkup/145"
@@ -12,7 +12,7 @@
     "id": 6376,
     "name": "Moscow DrinkUp #10",
     "num": "#10",
-    "start": "2026-06-18T19:00:00",
+    "start": "2026-06-18T19:00:00+03:00",
     "cover": "https://cdn.networkly.app/covers/cache/to_webp/networkly-1-6a26dbbd03829458010930.png",
     "url": "https://networkly.app/event/6376",
     "postUrl": "https://t.me/moscow_drinkup/140"
@@ -21,7 +21,7 @@
     "id": 5284,
     "name": "Moscow DrinkUp #8",
     "num": "#8",
-    "start": "2025-08-21T19:00:00",
+    "start": "2025-08-21T19:00:00+03:00",
     "cover": "https://cdn.networkly.app/covers/cache/to_webp/networkly-2-6891f4e8a2b24960815369.png",
     "url": "https://networkly.app/event/5284",
     "postUrl": "https://t.me/moscow_drinkup/124"
@@ -30,7 +30,7 @@
     "id": 5125,
     "name": "Moscow DrinkUp #7",
     "num": "#7",
-    "start": "2025-06-26T19:00:00",
+    "start": "2025-06-26T19:00:00+03:00",
     "cover": "https://cdn.networkly.app/covers/cache/to_webp/networkly-2-684855188fcf9187444859.png",
     "url": "https://networkly.app/event/5125",
     "postUrl": "https://t.me/moscow_drinkup/110"
@@ -39,7 +39,7 @@
     "id": 4757,
     "name": "Moscow DrinkUp #6",
     "num": "#6",
-    "start": "2025-03-06T19:00:00",
+    "start": "2025-03-06T19:00:00+03:00",
     "cover": "https://cdn.networkly.app/covers/cache/to_webp/tg-image-2530577392-67b32fb832eab089473411.png",
     "url": "https://networkly.app/event/4757",
     "postUrl": "https://t.me/moscow_drinkup/97"
@@ -48,7 +48,7 @@
     "id": 4603,
     "name": "Moscow DrinkUp #5",
     "num": "#5",
-    "start": "2024-12-19T19:00:00",
+    "start": "2024-12-19T19:00:00+03:00",
     "cover": "https://cdn.networkly.app/covers/cache/to_webp/container-675054d6b2803450844943.png",
     "url": "https://networkly.app/event/4603",
     "postUrl": "https://t.me/moscow_drinkup/78"
@@ -57,7 +57,7 @@
     "id": 4453,
     "name": "BeerJS Moscow DrinkUp #4",
     "num": "#4",
-    "start": "2024-10-24T19:00:00",
+    "start": "2024-10-24T19:00:00+03:00",
     "cover": "https://cdn.networkly.app/covers/cache/to_webp/frame-11-6707a11505b5c064647561.png",
     "url": "https://networkly.app/event/4453",
     "postUrl": "https://t.me/moscow_drinkup/58"
@@ -66,7 +66,7 @@
     "id": 4189,
     "name": "BeerJS Moscow DrinkUp #3",
     "num": "#3",
-    "start": "2024-07-18T19:00:00",
+    "start": "2024-07-18T19:00:00+03:00",
     "cover": "https://cdn.networkly.app/covers/cache/to_webp/frame-9-6682cff6e9751951862554.png",
     "url": "https://networkly.app/event/4189",
     "postUrl": "https://t.me/moscow_drinkup/36"

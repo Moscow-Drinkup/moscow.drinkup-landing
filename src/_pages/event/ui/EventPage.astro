@@ -1,0 +1,141 @@
+---
+import SiteLayout from '@/app/layouts/SiteLayout.astro';
+import type {DrinkupEvent} from '@/shared/api';
+import {EXTERNAL_LINK_ATTRS} from '@/shared/config';
+import {formatEventDate, toIsoDate, withBase} from '@/shared/lib';
+
+interface Props {
+  event: DrinkupEvent;
+}
+
+const {event} = Astro.props;
+const date = formatEventDate(event.start);
+const isoDate = toIsoDate(event.start);
+
+const title = `${event.name}${date ? `, ${date}` : ''} — барный айти-митап в Москве`;
+const description = `${event.name} — бесплатный барный айти-митап в Москве${
+  date ? `, ${date}` : ''
+}. Экспертные доклады за кружкой пива. Регистрация открыта.`;
+---
+
+<SiteLayout
+  title={title}
+  description={description}
+  ogImage={event.cover ?? undefined}
+  ogType="article"
+>
+  <article class="event">
+    <a class="event__back" href={withBase('/events')}>← Все мероприятия</a>
+
+    <h1 class="event__title">{event.name}</h1>
+    {
+      date && (
+        <time class="event__date" datetime={isoDate}>
+          {date}
+        </time>
+      )
+    }
+
+    {event.cover && <img class="event__cover" src={event.cover} alt="" width="1200" height="675" />}
+
+    <div class="event__actions">
+      <a class="event__cta" href={event.url} {...EXTERNAL_LINK_ATTRS}>Страница на Networkly</a>
+      {
+        event.postUrl && (
+          <a class="event__secondary" href={event.postUrl} {...EXTERNAL_LINK_ATTRS}>
+            Фото и материалы в канале
+          </a>
+        )
+      }
+    </div>
+
+    <p class="event__note">
+      Регистрация, доклады и детали — на странице мероприятия на Networkly. Фото и отчётные
+      материалы публикуем в телеграм-канале.
+    </p>
+  </article>
+</SiteLayout>
+
+<style>
+  .event {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 48px 24px 96px;
+  }
+
+  .event__back {
+    display: inline-block;
+    margin-bottom: 24px;
+    color: var(--g-color-text-secondary);
+    text-decoration: none;
+  }
+
+  .event__back:hover {
+    color: var(--g-color-text-brand);
+  }
+
+  .event__title {
+    margin: 0 0 12px;
+    font-size: clamp(32px, 6vw, 48px);
+    font-weight: 700;
+    color: var(--g-color-text-primary);
+  }
+
+  .event__date {
+    display: block;
+    margin-bottom: 32px;
+    color: var(--g-color-text-brand);
+    font-family: var(--g-font-family-monospace);
+  }
+
+  .event__cover {
+    display: block;
+    width: 100%;
+    height: auto;
+    /* Пропорция известна заранее — исключаем сдвиг вёрстки при загрузке */
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border: 1px solid var(--g-color-line-generic);
+    border-radius: 18px;
+  }
+
+  .event__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 32px 0 24px;
+  }
+
+  .event__cta,
+  .event__secondary {
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .event__cta {
+    background: var(--g-color-base-brand);
+    color: var(--g-color-text-brand-contrast);
+  }
+
+  .event__cta:hover {
+    background: var(--g-color-base-brand-hover);
+  }
+
+  .event__secondary {
+    border: 1px solid var(--g-color-line-generic);
+    color: var(--g-color-text-primary);
+  }
+
+  .event__secondary:hover {
+    border-color: var(--g-color-line-brand);
+    color: var(--g-color-text-brand);
+  }
+
+  .event__note {
+    margin: 0;
+    color: var(--g-color-text-secondary);
+    line-height: 1.6;
+  }
+</style>

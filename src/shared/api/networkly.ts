@@ -31,6 +31,20 @@ interface NetworklyEvent {
   cover?: {paths?: {to_webp?: string; original?: string}};
 }
 
+/**
+ * Networkly отдаёт время без часового пояса («2026-08-27T19:00:00»), имея
+ * в виду московское. Без явного смещения Date истолковал бы строку по зоне
+ * машины: локально и на сборщике в UTC получились бы разные моменты времени.
+ */
+const withMoscowOffset = (value: string | null | undefined): string | null => {
+  if (!value) {
+    return null;
+  }
+
+  const hasTimezone = /(?:Z|[+-]\d{2}:?\d{2})$/.test(value);
+  return hasTimezone ? value : `${value}+03:00`;
+};
+
 const toDrinkupEvent = (raw: NetworklyEvent): DrinkupEvent => {
   const postId = POST_BY_EVENT[raw.id];
   const coverPaths = raw.cover?.paths ?? {};
@@ -39,7 +53,7 @@ const toDrinkupEvent = (raw: NetworklyEvent): DrinkupEvent => {
     id: raw.id,
     name: String(raw.name ?? 'Moscow DrinkUp'),
     num: (String(raw.name ?? '').match(/#\d+/) ?? [''])[0],
-    start: raw.startDatetime ?? null,
+    start: withMoscowOffset(raw.startDatetime),
     cover: coverPaths.to_webp ?? coverPaths.original ?? null,
     url: `https://networkly.app/event/${raw.id}`,
     postUrl: postId ? `https://t.me/moscow_drinkup/${postId}` : null,
