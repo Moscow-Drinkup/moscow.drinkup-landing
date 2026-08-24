@@ -10,7 +10,10 @@
       "backgroundImage": "/img/gallery/meetup10-1.webp",
       "where": "бар в центре Москвы — адрес придёт после регистрации",
       "entrance": "бесплатно · пиво своё, доклады наши",
-      "pastLabel": "Прошедшие дринкапы →"
+      "pastLabel": "Прошедшие дринкапы →",
+      "indent": {
+        "top": "0"
+      }
     },
     {
       "type": "info-block",
@@ -38,8 +41,14 @@
           }
         ],
         "links": [
-          {"text": "Все мероприятия", "url": "/events"},
-          {"text": "Как стать партнёром", "url": "/partners"}
+          {
+            "text": "Все мероприятия",
+            "url": "/events"
+          },
+          {
+            "text": "Как стать партнёром",
+            "url": "/partners"
+          }
         ]
       }
     },
@@ -78,19 +87,54 @@
       "title": "Как это выглядит",
       "moreLabel": "Фотоотчёты с дринкапов — на страницах мероприятий →",
       "images": [
-        {"src": "/img/gallery/meetup7-1.webp", "alt": "Дринкап №7: участники в баре"},
-        {"src": "/img/gallery/meetup7-2.webp", "alt": "Дринкап №7: общение за кружкой пива"},
-        {"src": "/img/gallery/meetup8-1.webp", "alt": "Дринкап №8: гости мероприятия"},
-        {"src": "/img/gallery/meetup10-1.webp", "alt": "Дринкап №10: зал бара"},
-        {"src": "/img/gallery/meetup7-3.webp", "alt": "Дринкап №7: разговоры"},
-        {"src": "/img/gallery/meetup8-2.webp", "alt": "Дринкап №8: участники общаются"},
-        {"src": "/img/gallery/meetup10-2.webp", "alt": "Дринкап №10: гости слушают доклад"},
-        {"src": "/img/gallery/meetup7-4.webp", "alt": "Дринкап №7: атмосфера вечера"},
-        {"src": "/img/gallery/meetup8-3.webp", "alt": "Дринкап №8: выступление спикера"},
-        {"src": "/img/gallery/meetup10-3.webp", "alt": "Дринкап №10: фото на память"}
+        {
+          "src": "/img/gallery/meetup7-1.webp",
+          "alt": "Дринкап №7: участники в баре"
+        },
+        {
+          "src": "/img/gallery/meetup7-2.webp",
+          "alt": "Дринкап №7: общение за кружкой пива"
+        },
+        {
+          "src": "/img/gallery/meetup8-1.webp",
+          "alt": "Дринкап №8: гости мероприятия"
+        },
+        {
+          "src": "/img/gallery/meetup10-1.webp",
+          "alt": "Дринкап №10: зал бара"
+        },
+        {
+          "src": "/img/gallery/meetup7-3.webp",
+          "alt": "Дринкап №7: разговоры"
+        },
+        {
+          "src": "/img/gallery/meetup8-2.webp",
+          "alt": "Дринкап №8: участники общаются"
+        },
+        {
+          "src": "/img/gallery/meetup10-2.webp",
+          "alt": "Дринкап №10: гости слушают доклад"
+        },
+        {
+          "src": "/img/gallery/meetup7-4.webp",
+          "alt": "Дринкап №7: атмосфера вечера"
+        },
+        {
+          "src": "/img/gallery/meetup8-3.webp",
+          "alt": "Дринкап №8: выступление спикера"
+        },
+        {
+          "src": "/img/gallery/meetup10-3.webp",
+          "alt": "Дринкап №10: фото на память"
+        }
       ]
     },
-    {"type": "reviews", "title": "Отзывы площадок", "set": "venues", "anchor": "venue-reviews"},
+    {
+      "type": "reviews",
+      "title": "Отзывы площадок",
+      "set": "venues",
+      "anchor": "venue-reviews"
+    },
     {
       "type": "reviews",
       "title": "Отзывы партнёров",
