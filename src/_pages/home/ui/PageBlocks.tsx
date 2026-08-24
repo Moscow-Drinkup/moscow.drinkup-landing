@@ -1,6 +1,8 @@
-import {PageConstructor, PageConstructorProvider, Theme} from '@gravity-ui/page-constructor';
 import type {CustomConfig, PageContent} from '@gravity-ui/page-constructor';
+import {PageConstructor, PageConstructorProvider, Theme} from '@gravity-ui/page-constructor';
+
 import type {DrinkupEvent} from '@/shared/api';
+
 import FaqBlock from './blocks/FaqBlock';
 import GalleryBlock from './blocks/GalleryBlock';
 import HeroBillboard from './blocks/HeroBillboard';

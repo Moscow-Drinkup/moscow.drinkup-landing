@@ -1,7 +1,8 @@
 ---
-import {EventPage} from '@/_pages/event';
-import {getEvents, getNextEvent} from '@/shared/api';
 import type {DrinkupEvent} from '@/shared/api';
+import {getEvents, getNextEvent} from '@/shared/api';
+
+import {EventPage} from '@/_pages/event';
 
 // Страницы всех мероприятий генерируются на этапе сборки
 export async function getStaticPaths() {

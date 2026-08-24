@@ -1,9 +1,9 @@
-export {withBase, isPreviewBuild} from './url';
 export {formatEventDate, formatEventDateFull, toIsoDate} from './date';
 export {
-  organizationSchema,
-  websiteSchema,
+  breadcrumbsSchema,
   eventSchema,
   faqSchema,
-  breadcrumbsSchema,
+  organizationSchema,
+  websiteSchema,
 } from './schema';
+export {isPreviewBuild, withBase} from './url';

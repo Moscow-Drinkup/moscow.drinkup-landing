@@ -1,5 +1,6 @@
 import {EXTERNAL_LINK_ATTRS} from '@/shared/config';
 import {withBase} from '@/shared/lib';
+
 import './team.css';
 
 export interface TeamBlockProps {

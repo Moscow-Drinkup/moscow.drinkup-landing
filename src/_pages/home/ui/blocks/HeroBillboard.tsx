@@ -1,6 +1,7 @@
+import type {DrinkupEvent} from '@/shared/api';
 import {EXTERNAL_LINK_ATTRS, LINKS} from '@/shared/config';
 import {formatEventDate, toIsoDate, withBase} from '@/shared/lib';
-import type {DrinkupEvent} from '@/shared/api';
+
 import './hero.css';
 
 export interface HeroBillboardProps {

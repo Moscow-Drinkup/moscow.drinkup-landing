@@ -1,4 +1,5 @@
 import type {APIRoute} from 'astro';
+
 import {getEvents, getNextEvent} from '@/shared/api';
 import {LINKS, SITE} from '@/shared/config';
 import {formatEventDate, formatEventDateFull} from '@/shared/lib';

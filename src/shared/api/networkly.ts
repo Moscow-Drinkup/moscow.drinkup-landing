@@ -1,5 +1,5 @@
-import type {DrinkupEvent} from './types';
 import snapshot from './events-snapshot.json';
+import type {DrinkupEvent} from './types';
 
 /**
  * Мероприятия сообщества из API Networkly.

@@ -1,2 +1,2 @@
-export {venueReviews, partnerReviews, participantReviews} from './reviews';
 export type {Review} from './reviews';
+export {participantReviews, partnerReviews, venueReviews} from './reviews';

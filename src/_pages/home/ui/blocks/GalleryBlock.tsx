@@ -1,4 +1,5 @@
 import {withBase} from '@/shared/lib';
+
 import './gallery.css';
 
 export interface GalleryBlockProps {

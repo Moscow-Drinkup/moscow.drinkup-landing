@@ -1,9 +1,10 @@
 ---
-import {SiteLayout} from '@/shared/ui';
 import {getEvents} from '@/shared/api';
 import {EXTERNAL_LINK_ATTRS, LINKS} from '@/shared/config';
-import EventCard from './EventCard.astro';
 import {breadcrumbsSchema, organizationSchema} from '@/shared/lib';
+import {SiteLayout} from '@/shared/ui';
+
+import EventCard from './EventCard.astro';
 
 const events = await getEvents();
 const [upcoming] = events;

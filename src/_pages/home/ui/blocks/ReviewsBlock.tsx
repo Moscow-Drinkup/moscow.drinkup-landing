@@ -1,6 +1,7 @@
 import {EXTERNAL_LINK_ATTRS} from '@/shared/config';
-import {participantReviews, partnerReviews, venueReviews} from '@/shared/content';
 import type {Review} from '@/shared/content';
+import {participantReviews, partnerReviews, venueReviews} from '@/shared/content';
+
 import './reviews.css';
 
 /** Наборы отзывов доступны из JSON по имени, а не копированием текстов. */
