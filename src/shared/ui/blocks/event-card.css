@@ -40,7 +40,7 @@
 .event-card__badge {
   align-self: flex-start;
   margin: 0;
-  padding: 4px 10px;
+  padding: 3px 9px;
   background: rgb(240 144 24 / 14%);
   border-radius: var(--radius-pill);
   color: var(--g-color-text-brand);
@@ -53,7 +53,7 @@
 .event-card__num {
   margin: 0;
   color: var(--g-color-text-primary);
-  font-size: var(--text-l);
+  font-size: var(--text-lead);
   font-weight: 700;
 }
 

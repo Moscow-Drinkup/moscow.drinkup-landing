@@ -62,9 +62,17 @@ body {
   --text-caption: 13px;
   --text-s: 15px;
   --text-m: 17px;
+  --text-lead: 20px;
   --text-l: clamp(24px, 4vw, 32px);
   --text-xl: clamp(28px, 5vw, 40px);
-  --text-page-title: clamp(36px, 7vw, 56px);
+  --text-page-title: clamp(32px, 6vw, 48px);
+}
+
+/* Горизонтальные поля страницы задаёт контейнер сетки PageConstructor.
+   Его собственные 16px подтягиваем до нашего шага, чтобы блоки
+   не добавляли поля поверх контейнерных. */
+.container-fluid {
+  padding-inline: 24px;
 }
 
 /* Базовая типографика страницы — JetBrains Sans */
