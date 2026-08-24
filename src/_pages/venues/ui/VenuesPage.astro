@@ -1,14 +1,10 @@
 ---
-import {venueReviews} from '@/shared/content';
-import {breadcrumbsSchema, organizationSchema, withBase} from '@/shared/lib';
-import {Reviews, SiteLayout, Tabs} from '@/shared/ui';
+import type {PageContent} from '@gravity-ui/page-constructor';
 
-import {audience, audienceSummary, offer, requirements, tabs} from '../model/content';
-import FactList from './FactList.astro';
+import {breadcrumbsSchema, organizationSchema} from '@/shared/lib';
+import {PageBlocks, SiteLayout} from '@/shared/ui';
 
-const title = 'Площадкам — Moscow DrinkUp | барные айти-митапы';
-const description =
-  'Провести барный айти-митап у себя: формат сотрудничества с барами и площадками Москвы. Полный зал в четверг — это про нас.';
+import content from '../../../../content/venues.json';
 
 const schemas = [
   organizationSchema(),
@@ -17,97 +13,12 @@ const schemas = [
     {name: 'Площадкам', path: '/venues'},
   ]),
 ];
+
+const title = 'Площадкам — Moscow DrinkUp | барные айти-митапы';
+const description =
+  'Провести барный айти-митап у себя: формат сотрудничества с барами и площадками Москвы. Полный зал в четверг — это про нас.';
 ---
 
 <SiteLayout title={title} description={description} schemas={schemas}>
-  <section class="venues">
-    <header class="venues__header">
-      <p class="venues__overtitle">Для баров и площадок</p>
-      <h1 class="venues__title">Площадкам</h1>
-      <p class="venues__description">
-        Мы не продаём билеты и у нас нет бюджетов — поэтому мы в поиске партнёров. Если ваш бар
-        подходит, напишите нам.
-      </p>
-    </header>
-
-    <h2 class="venues__subtitle">Формат сотрудничества</h2>
-    <p class="venues__lead">Полный зал в четверг — это про нас. Что мы приносим и что нам нужно.</p>
-
-    <Tabs name="venues" items={tabs}>
-      <FactList
-        slot="offer"
-        title="Полный зал в четверг"
-        text="Собственная аудитория и известность в IT-сообществах обеспечивают полную заполненность бара в день мероприятия."
-        facts={offer}
-        summary={audienceSummary}
-        cta={{href: withBase('/events'), label: 'Наши мероприятия →'}}
-      />
-
-      <FactList
-        slot="requirements"
-        title="Требования к площадке"
-        text="Считаете, что ваш бар подходит? Напишите организаторам."
-        facts={requirements}
-        cta={{href: withBase('/#team'), label: 'Написать организаторам →'}}
-      />
-
-      <FactList
-        slot="audience"
-        title="IT-специалисты всех направлений"
-        text="Наши участники — разработчики, деврелы, аналитики, тестировщики и другие IT-специалисты, которым близка неформальная атмосфера. Дринкап популярен: собираем около 150 регистраций, подтверждаем участие по вместимости площадки."
-        facts={audience}
-        summary={audienceSummary}
-      />
-    </Tabs>
-  </section>
-
-  <Reviews title="Отзывы площадок" id="venue-reviews" reviews={venueReviews} />
+  <PageBlocks content={content as PageContent} />
 </SiteLayout>
-
-<style>
-  .venues {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 72px 24px 48px;
-  }
-
-  .venues__header {
-    max-width: 720px;
-    margin-bottom: 56px;
-  }
-
-  .venues__overtitle {
-    margin: 0 0 12px;
-    color: var(--g-color-text-brand);
-    font-family: var(--g-font-family-monospace);
-    font-size: 13px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .venues__title {
-    margin: 0 0 16px;
-    font-size: clamp(36px, 7vw, 56px);
-    font-weight: 700;
-    color: var(--g-color-text-primary);
-  }
-
-  .venues__description {
-    margin: 0;
-    color: var(--g-color-text-secondary);
-    font-size: 17px;
-    line-height: 1.6;
-  }
-
-  .venues__subtitle {
-    margin: 0 0 8px;
-    font-size: clamp(28px, 5vw, 40px);
-    font-weight: 700;
-    color: var(--g-color-text-primary);
-  }
-
-  .venues__lead {
-    margin: 0 0 32px;
-    color: var(--g-color-text-secondary);
-  }
-</style>

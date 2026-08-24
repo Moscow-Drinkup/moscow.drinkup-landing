@@ -1,52 +1,10 @@
 ---
-import {partnerReviews} from '@/shared/content';
-import {breadcrumbsSchema, organizationSchema, withBase} from '@/shared/lib';
-import {Reviews, SiteLayout} from '@/shared/ui';
+import type {PageContent} from '@gravity-ui/page-constructor';
 
-import InfoSplit from './InfoSplit.astro';
+import {breadcrumbsSchema, organizationSchema} from '@/shared/lib';
+import {PageBlocks, SiteLayout} from '@/shared/ui';
 
-const title = 'Партнёрам — Moscow DrinkUp | барные айти-митапы';
-const description =
-  'Спонсорские пакеты Moscow DrinkUp: глубокое касание IT-аудитории в неформальной обстановке. Кейс «Пивка для рывка» и условия партнёрства.';
-
-const sponsorship = {
-  points: [
-    {
-      title: 'Активности с брендом',
-      text: 'Проведём совместные активности с упоминанием вашего бренда.',
-    },
-    {
-      title: 'Спикеры',
-      text: 'Пригласим интересных спикеров из Москвы и других городов.',
-    },
-    {
-      title: 'Места для сотрудников',
-      text: 'Зарезервируем места для ваших сотрудников.',
-    },
-  ],
-  links: [
-    {href: withBase('/events'), label: 'Посмотреть мероприятия →'},
-    {href: withBase('/#team'), label: 'Написать организаторам →'},
-  ],
-};
-
-const audience = {
-  points: [
-    {
-      title: 'До 100 человек в среднем',
-      text: 'Ограничены вместимостью площадки, а не количеством желающих.',
-    },
-    {
-      title: 'Около 150 регистраций',
-      text: 'Подтверждаем участие по вместимости — 50–80 человек на дринкапе.',
-    },
-    {
-      title: 'Экспертные доклады',
-      text: 'Спикеры — эксперты в своих областях с глубокими техническими докладами, поданными в неформальном формате.',
-    },
-  ],
-  links: [{href: withBase('/events'), label: 'Посмотреть мероприятия →'}],
-};
+import content from '../../../../content/partners.json';
 
 const schemas = [
   organizationSchema(),
@@ -55,85 +13,12 @@ const schemas = [
     {name: 'Партнёрам', path: '/partners'},
   ]),
 ];
+
+const title = 'Партнёрам — Moscow DrinkUp | барные айти-митапы';
+const description =
+  'Спонсорские пакеты Moscow DrinkUp: глубокое касание IT-аудитории в неформальной обстановке. Кейс «Пивка для рывка» и условия партнёрства.';
 ---
 
 <SiteLayout title={title} description={description} schemas={schemas}>
-  <section class="partners">
-    <header class="partners__header">
-      <p class="partners__overtitle">Для партнёров</p>
-      <h1 class="partners__title">Партнёрам</h1>
-      <p class="partners__description">
-        Спонсорские активности на дринкапах обеспечивают глубокое касание аудитории и формируют
-        приятные ассоциации с брендами.
-      </p>
-    </header>
-  </section>
-
-  <div data-reveal>
-    <InfoSplit
-      id="sponsorship"
-      title="Спонсорство дринкапа"
-      text="Благодаря дружественной атмосфере дринкапов спонсорские активности обеспечивают глубокое касание аудитории и формируют приятные ассоциации с брендами. Мы готовы к сотрудничеству в удобном для вас формате — финансовом (закрытие чека мероприятия) или нефинансовом (площадка, оборудование и так далее)."
-      points={sponsorship.points}
-      links={sponsorship.links}
-      aside={{
-        title: 'Кейс «Пивка для рывка»',
-        text: 'На дринкапе №4 мы опробовали спонсорский пакет поддержки мероприятия: на средства спонсоров организовали акцию — посетителей на баре ждало welcome-пиво.',
-        links: [{href: withBase('/events/4453'), label: 'Страница дринкапа №4 →'}],
-      }}
-    />
-  </div>
-
-  <div data-reveal>
-    <InfoSplit
-      id="partners-audience"
-      title="Кто участники дринкапов"
-      text="Дринкапы собирают IT-специалистов всех направлений: разработчиков, деврелов, аналитиков, тестировщиков. Мероприятия закрытые — локация сообщается только подтверждённым участникам, поэтому аудитория своя и вовлечённая."
-      points={audience.points}
-      links={audience.links}
-      aside={{
-        title: 'Почему это работает',
-        text: 'Формат афтепати × митапа даёт глубокое касание аудитории: участники слушают доклады и общаются в одном пространстве, без разделения на «сцену» и «после». Неформальная обстановка и близость по духу формируют приятные ассоциации с брендом.',
-      }}
-    />
-  </div>
-
-  <div data-reveal>
-    <Reviews title="Отзывы партнёров" id="partner-reviews" reviews={partnerReviews} />
-  </div>
+  <PageBlocks content={content as PageContent} />
 </SiteLayout>
-
-<style>
-  .partners {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 72px 24px 48px;
-  }
-
-  .partners__header {
-    max-width: 720px;
-  }
-
-  .partners__overtitle {
-    margin: 0 0 12px;
-    color: var(--g-color-text-brand);
-    font-family: var(--g-font-family-monospace);
-    font-size: 13px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .partners__title {
-    margin: 0 0 16px;
-    font-size: clamp(36px, 7vw, 56px);
-    font-weight: 700;
-    color: var(--g-color-text-primary);
-  }
-
-  .partners__description {
-    margin: 0;
-    color: var(--g-color-text-secondary);
-    font-size: 17px;
-    line-height: 1.6;
-  }
-</style>

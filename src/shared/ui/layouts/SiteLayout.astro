@@ -37,6 +37,45 @@ const {title, description, ogImage, ogType, schemas} = Astro.props;
     main.tabIndex = -1;
   }
 
+  // Вкладки по рекомендациям ARIA Authoring Practices: стрелки, Home и End
+  document.querySelectorAll<HTMLElement>('[data-tabs]').forEach((root) => {
+    const tabs = Array.from(root.querySelectorAll<HTMLButtonElement>('[role="tab"]'));
+    const panels = Array.from(root.querySelectorAll<HTMLElement>('[role="tabpanel"]'));
+
+    const select = (index: number, moveFocus = true) => {
+      tabs.forEach((tab, i) => {
+        const selected = i === index;
+        tab.setAttribute('aria-selected', String(selected));
+        tab.tabIndex = selected ? 0 : -1;
+        panels[i]?.toggleAttribute('data-inactive', !selected);
+      });
+
+      if (moveFocus) {
+        tabs[index]?.focus();
+      }
+    };
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => select(index, false));
+
+      tab.addEventListener('keydown', (event) => {
+        const lastIndex = tabs.length - 1;
+        const moves: Record<string, number> = {
+          ArrowRight: index === lastIndex ? 0 : index + 1,
+          ArrowLeft: index === 0 ? lastIndex : index - 1,
+          Home: 0,
+          End: lastIndex,
+        };
+
+        const next = moves[event.key];
+        if (next !== undefined) {
+          event.preventDefault();
+          select(next);
+        }
+      });
+    });
+  });
+
   const dialog = document.querySelector<HTMLDialogElement>('[data-lightbox]');
   const image = document.querySelector<HTMLImageElement>('[data-lightbox-image]');
   const counter = document.querySelector<HTMLElement>('[data-lightbox-counter]');

@@ -1,0 +1,63 @@
+.event-card {
+  display: flex;
+}
+
+.event-card__link {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  background: #120e0a;
+  border: 1px solid var(--g-color-line-generic);
+  border-radius: 18px;
+  overflow: hidden;
+  text-decoration: none;
+  transition:
+    border-color 0.2s,
+    transform 0.2s;
+}
+
+.event-card__link:hover {
+  border-color: var(--g-color-line-brand);
+  transform: translateY(-2px);
+}
+
+.event-card__cover {
+  display: block;
+  width: 100%;
+
+  /* Пропорция задана заранее, чтобы карточки не прыгали при загрузке обложек */
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.event-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 20px;
+}
+
+.event-card__badge {
+  align-self: flex-start;
+  margin: 0;
+  padding: 4px 10px;
+  background: rgb(240 144 24 / 14%);
+  border-radius: 999px;
+  color: var(--g-color-text-brand);
+  font-family: var(--g-font-family-monospace);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.event-card__num {
+  margin: 0;
+  color: var(--g-color-text-primary);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.event-card__date {
+  color: var(--g-color-text-secondary);
+  font-size: 14px;
+}

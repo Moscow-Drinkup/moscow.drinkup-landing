@@ -1,14 +1,13 @@
 ---
-import {getEvents} from '@/shared/api';
-import {EXTERNAL_LINK_ATTRS, LINKS} from '@/shared/config';
+import type {PageContent} from '@gravity-ui/page-constructor';
+
+import {getEvents, getNextEvent} from '@/shared/api';
 import {breadcrumbsSchema, organizationSchema} from '@/shared/lib';
-import {SiteLayout} from '@/shared/ui';
+import {PageBlocks, SiteLayout} from '@/shared/ui';
 
-import EventCard from './EventCard.astro';
+import content from '../../../../content/events.json';
 
-const events = await getEvents();
-const [upcoming] = events;
-
+const [events, nextEvent] = await Promise.all([getEvents(), getNextEvent()]);
 const schemas = [
   organizationSchema(),
   breadcrumbsSchema([
@@ -23,92 +22,5 @@ const description =
 ---
 
 <SiteLayout title={title} description={description} schemas={schemas}>
-  <section class="events">
-    <header class="events__header">
-      <p class="events__overtitle">Для участников</p>
-      <h1 class="events__title">Мероприятия</h1>
-      <p class="events__description">
-        Барные айти-митапы Moscow DrinkUp: нумерованные дринкапы по четвергам. Дата следующего
-        дринкапа появляется здесь, как только её объявляют в сообществе на Networkly.
-      </p>
-      <a class="events__cta" href={LINKS.networkly} {...EXTERNAL_LINK_ATTRS}>
-        Сообщество на Networkly →
-      </a>
-    </header>
-
-    {
-      events.length > 0 ? (
-        <ul class="events__list">
-          {events.map((event) => (
-            <EventCard event={event} upcoming={event.id === upcoming?.id} />
-          ))}
-        </ul>
-      ) : (
-        <p class="events__empty">
-          Список мероприятий временно недоступен — актуальные анонсы всегда есть в сообществе на
-          Networkly.
-        </p>
-      )
-    }
-  </section>
+  <PageBlocks content={content as PageContent} data={{events, nextEvent}} />
 </SiteLayout>
-
-<style>
-  .events {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 72px 24px;
-  }
-
-  .events__header {
-    max-width: 720px;
-    margin-bottom: 48px;
-  }
-
-  .events__overtitle {
-    margin: 0 0 12px;
-    color: var(--g-color-text-brand);
-    font-family: var(--g-font-family-monospace);
-    font-size: 13px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .events__title {
-    margin: 0 0 16px;
-    font-size: clamp(36px, 7vw, 56px);
-    font-weight: 700;
-    color: var(--g-color-text-primary);
-  }
-
-  .events__description {
-    margin: 0;
-    color: var(--g-color-text-secondary);
-    font-size: 17px;
-    line-height: 1.6;
-  }
-
-  .events__cta {
-    display: inline-block;
-    margin-top: 20px;
-    color: var(--g-color-text-brand);
-    text-decoration: none;
-  }
-
-  .events__cta:hover {
-    text-decoration: underline;
-  }
-
-  .events__list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .events__empty {
-    color: var(--g-color-text-secondary);
-  }
-</style>
