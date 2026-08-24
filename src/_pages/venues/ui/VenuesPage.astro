@@ -1,16 +1,24 @@
 ---
 import {venueReviews} from '@/shared/content';
 import {Reviews, SiteLayout, Tabs} from '@/shared/ui';
-import {withBase} from '@/shared/lib';
+import {breadcrumbsSchema, organizationSchema, withBase} from '@/shared/lib';
 import {audience, audienceSummary, offer, requirements, tabs} from '../model/content';
 import FactList from './FactList.astro';
 
 const title = 'Площадкам — Moscow DrinkUp | барные айти-митапы';
 const description =
   'Провести барный айти-митап у себя: формат сотрудничества с барами и площадками Москвы. Полный зал в четверг — это про нас.';
+
+const schemas = [
+  organizationSchema(),
+  breadcrumbsSchema([
+    {name: 'Главная', path: '/'},
+    {name: 'Площадкам', path: '/venues'},
+  ]),
+];
 ---
 
-<SiteLayout title={title} description={description}>
+<SiteLayout title={title} description={description} schemas={schemas}>
   <section class="venues">
     <header class="venues__header">
       <p class="venues__overtitle">Для баров и площадок</p>

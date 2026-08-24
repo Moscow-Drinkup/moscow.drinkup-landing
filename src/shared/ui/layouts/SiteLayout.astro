@@ -7,12 +7,19 @@ interface Props {
   description?: string;
   ogImage?: string;
   ogType?: 'website' | 'article';
+  schemas?: unknown[];
 }
 
-const {title, description, ogImage, ogType} = Astro.props;
+const {title, description, ogImage, ogType, schemas} = Astro.props;
 ---
 
-<BaseLayout title={title} description={description} ogImage={ogImage} ogType={ogType}>
+<BaseLayout
+  title={title}
+  description={description}
+  ogImage={ogImage}
+  ogType={ogType}
+  schemas={schemas}
+>
   <slot name="head" slot="head" />
   <SiteHeader />
   <main id="main" tabindex="-1">

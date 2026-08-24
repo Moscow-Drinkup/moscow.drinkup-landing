@@ -1,7 +1,7 @@
 ---
 import {partnerReviews} from '@/shared/content';
 import {Reviews, SiteLayout} from '@/shared/ui';
-import {withBase} from '@/shared/lib';
+import {breadcrumbsSchema, organizationSchema, withBase} from '@/shared/lib';
 import InfoSplit from './InfoSplit.astro';
 
 const title = 'Партнёрам — Moscow DrinkUp | барные айти-митапы';
@@ -46,9 +46,17 @@ const audience = {
   ],
   links: [{href: withBase('/events'), label: 'Посмотреть мероприятия →'}],
 };
+
+const schemas = [
+  organizationSchema(),
+  breadcrumbsSchema([
+    {name: 'Главная', path: '/'},
+    {name: 'Партнёрам', path: '/partners'},
+  ]),
+];
 ---
 
-<SiteLayout title={title} description={description}>
+<SiteLayout title={title} description={description} schemas={schemas}>
   <section class="partners">
     <header class="partners__header">
       <p class="partners__overtitle">Для партнёров</p>

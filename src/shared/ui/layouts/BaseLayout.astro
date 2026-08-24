@@ -14,6 +14,8 @@ interface Props {
   ogImage?: string;
   /** Тип страницы для Open Graph: website для разделов, article для событий. */
   ogType?: 'website' | 'article';
+  /** Блоки разметки schema.org, попадают в head отдельными script-тегами. */
+  schemas?: unknown[];
 }
 
 const {
@@ -21,6 +23,7 @@ const {
   description = SITE.description,
   ogImage = SITE.ogImage,
   ogType = 'website',
+  schemas = [],
 } = Astro.props;
 
 // Astro.site задан в astro.config.mjs, поэтому URL всегда абсолютные
@@ -80,6 +83,14 @@ const robots = isPreviewBuild() ? 'noindex, nofollow' : 'index, follow, max-imag
       type="font/woff2"
       crossorigin
     />
+
+    {
+      // Разметку не отдаём в превью: там страницы закрыты от индексации
+      !isPreviewBuild() &&
+        schemas.map((schema) => (
+          <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+        ))
+    }
 
     <slot name="head" />
   </head>

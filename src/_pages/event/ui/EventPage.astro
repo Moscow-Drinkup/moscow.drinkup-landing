@@ -2,15 +2,26 @@
 import {SiteLayout} from '@/shared/ui';
 import type {DrinkupEvent} from '@/shared/api';
 import {EXTERNAL_LINK_ATTRS} from '@/shared/config';
-import {formatEventDate, toIsoDate, withBase} from '@/shared/lib';
+import {breadcrumbsSchema, eventSchema, formatEventDate, toIsoDate, withBase} from '@/shared/lib';
 
 interface Props {
   event: DrinkupEvent;
+  /** Предстоящему событию в разметке добавляются сведения о регистрации. */
+  upcoming?: boolean;
 }
 
-const {event} = Astro.props;
+const {event, upcoming = false} = Astro.props;
 const date = formatEventDate(event.start);
 const isoDate = toIsoDate(event.start);
+
+const schemas = [
+  eventSchema(event, {upcoming}),
+  breadcrumbsSchema([
+    {name: 'Главная', path: '/'},
+    {name: 'Мероприятия', path: '/events'},
+    {name: event.name, path: `/events/${event.id}`},
+  ]),
+];
 
 const title = `${event.name}${date ? `, ${date}` : ''} — барный айти-митап в Москве`;
 const description = `${event.name} — бесплатный барный айти-митап в Москве${
@@ -23,6 +34,7 @@ const description = `${event.name} — бесплатный барный айт�
   description={description}
   ogImage={event.cover ?? undefined}
   ogType="article"
+  schemas={schemas}
 >
   <article class="event">
     <a class="event__back" href={withBase('/events')}>← Все мероприятия</a>

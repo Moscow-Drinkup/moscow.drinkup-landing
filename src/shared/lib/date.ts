@@ -40,6 +40,19 @@ export const formatEventDate = (start: string | null): string => {
   return weekday ? `${day} ${month}, ${weekday}` : `${day} ${month}`;
 };
 
+const fullFormatter = new Intl.DateTimeFormat('ru-RU', {
+  timeZone: MOSCOW_TIME_ZONE,
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+
+/** Дата с годом — «6 марта 2026 года». Нужна там, где событие давно прошло. */
+export const formatEventDateFull = (start: string | null): string => {
+  const date = parse(start);
+  return date ? fullFormatter.format(date) : '';
+};
+
 /** Момент времени в ISO 8601 — для атрибута datetime и разметки schema.org. */
 export const toIsoDate = (start: string | null): string | null =>
   parse(start)?.toISOString() ?? null;

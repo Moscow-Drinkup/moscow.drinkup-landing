@@ -3,16 +3,25 @@ import {SiteLayout} from '@/shared/ui';
 import {getEvents} from '@/shared/api';
 import {EXTERNAL_LINK_ATTRS, LINKS} from '@/shared/config';
 import EventCard from './EventCard.astro';
+import {breadcrumbsSchema, organizationSchema} from '@/shared/lib';
 
 const events = await getEvents();
 const [upcoming] = events;
+
+const schemas = [
+  organizationSchema(),
+  breadcrumbsSchema([
+    {name: 'Главная', path: '/'},
+    {name: 'Мероприятия', path: '/events'},
+  ]),
+];
 
 const title = 'Мероприятия — Moscow DrinkUp | барные айти-митапы в Москве';
 const description =
   'Все дринкапы Moscow DrinkUp: даты, площадки и регистрация. Ближайший барный айти-митап в Москве — бесплатно, по четвергам.';
 ---
 
-<SiteLayout title={title} description={description}>
+<SiteLayout title={title} description={description} schemas={schemas}>
   <section class="events">
     <header class="events__header">
       <p class="events__overtitle">Для участников</p>
