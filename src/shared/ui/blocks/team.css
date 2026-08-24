@@ -6,7 +6,7 @@
 
 .team__title {
   margin: 0 0 32px;
-  font-size: clamp(28px, 5vw, 40px);
+  font-size: var(--text-xl);
   font-weight: 700;
   color: var(--g-color-text-primary);
 }
@@ -25,9 +25,9 @@
   flex-direction: column;
   gap: 8px;
   padding: 24px;
-  background: #120e0a;
+  background: var(--g-color-base-generic);
   border: 1px solid var(--g-color-line-generic);
-  border-radius: 18px;
+  border-radius: var(--radius-m);
 }
 
 .team__photo {
@@ -37,7 +37,7 @@
 
 .team__name {
   margin: 8px 0 0;
-  font-size: 18px;
+  font-size: var(--text-m);
   font-weight: 600;
   color: var(--g-color-text-primary);
 }
@@ -46,13 +46,13 @@
   flex: 1;
   margin: 0;
   color: var(--g-color-text-secondary);
-  font-size: 14px;
+  font-size: var(--text-s);
   line-height: 1.5;
 }
 
 .team__telegram {
   color: var(--g-color-text-brand);
   font-family: var(--g-font-family-monospace);
-  font-size: 14px;
+  font-size: var(--text-s);
   text-decoration: none;
 }

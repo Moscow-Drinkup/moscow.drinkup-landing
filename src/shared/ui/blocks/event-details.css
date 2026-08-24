@@ -17,7 +17,7 @@
 
 .event__title {
   margin: 0 0 12px;
-  font-size: clamp(32px, 6vw, 48px);
+  font-size: var(--text-page-title);
   font-weight: 700;
   color: var(--g-color-text-primary);
 }
@@ -38,7 +38,7 @@
   aspect-ratio: 16 / 9;
   object-fit: cover;
   border: 1px solid var(--g-color-line-generic);
-  border-radius: 18px;
+  border-radius: var(--radius-m);
 }
 
 .event__actions {
@@ -51,7 +51,7 @@
 .event__cta,
 .event__secondary {
   padding: 12px 24px;
-  border-radius: 12px;
+  border-radius: var(--radius-s);
   font-weight: 600;
   text-decoration: none;
 }

@@ -58,7 +58,7 @@
   margin: 0 0 20px;
   color: var(--g-color-text-brand);
   font-family: var(--g-font-family-monospace);
-  font-size: 13px;
+  font-size: var(--text-caption);
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -129,7 +129,7 @@
 .hero__term {
   color: var(--g-color-text-hint);
   font-family: var(--g-font-family-monospace);
-  font-size: 12px;
+  font-size: var(--text-caption);
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -151,7 +151,7 @@
 .hero__cta {
   padding: 15px 32px;
   background: var(--g-color-base-brand);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   color: var(--g-color-text-brand-contrast);
   font-weight: 600;
   text-decoration: none;

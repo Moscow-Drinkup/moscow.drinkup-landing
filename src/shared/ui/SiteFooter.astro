@@ -72,7 +72,7 @@ const year = new Date().getFullYear();
   .footer {
     padding: 56px 24px 32px;
     border-top: 1px solid var(--g-color-line-generic);
-    background: #0b0907;
+    background: var(--g-color-base-background);
   }
 
   .footer__inner {
@@ -90,13 +90,13 @@ const year = new Date().getFullYear();
 
   .footer__logo {
     border: 1px solid var(--g-color-line-generic);
-    border-radius: 16px;
+    border-radius: var(--radius-m);
   }
 
   .footer__disclaimer {
     margin: 16px 0 0;
     color: var(--g-color-text-secondary);
-    font-size: 14px;
+    font-size: var(--text-s);
     line-height: 1.5;
   }
 
@@ -109,7 +109,7 @@ const year = new Date().getFullYear();
   .footer__column-title {
     /* Не заголовок в оутлайне: название колонки дублирует aria-label у nav */
     margin: 0 0 12px;
-    font-size: 15px;
+    font-size: var(--text-s);
     font-weight: 600;
     color: var(--g-color-text-primary);
   }
@@ -125,7 +125,7 @@ const year = new Date().getFullYear();
 
   .footer__link {
     color: var(--g-color-text-secondary);
-    font-size: 14px;
+    font-size: var(--text-s);
     text-decoration: none;
   }
 
@@ -137,6 +137,6 @@ const year = new Date().getFullYear();
     max-width: 1200px;
     margin: 40px auto 0;
     color: var(--g-color-text-hint);
-    font-size: 13px;
+    font-size: var(--text-caption);
   }
 </style>

@@ -1,6 +1,6 @@
 .facts__title {
   margin: 0 0 12px;
-  font-size: clamp(24px, 4vw, 32px);
+  font-size: var(--text-l);
   font-weight: 700;
   color: var(--g-color-text-primary);
 }
@@ -14,18 +14,30 @@
 
 .facts__list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 16px;
+  gap: 0;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
+/* Строки данных: название слева, пояснение справа */
 .facts__item {
-  padding: 20px;
-  background: #120e0a;
-  border: 1px solid var(--g-color-line-generic);
-  border-radius: 16px;
+  display: grid;
+  grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+  gap: 8px 32px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--g-color-line-generic);
+}
+
+.facts__item:first-child {
+  border-top: 1px solid var(--g-color-line-generic);
+}
+
+@media (width <= 720px) {
+  .facts__item {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
 }
 
 .facts__item-title {
@@ -37,7 +49,7 @@
 .facts__item-text {
   margin: 0;
   color: var(--g-color-text-secondary);
-  font-size: 15px;
+  font-size: var(--text-s);
   line-height: 1.5;
 }
 
@@ -45,7 +57,7 @@
   margin: 24px 0 0;
   color: var(--g-color-text-hint);
   font-family: var(--g-font-family-monospace);
-  font-size: 14px;
+  font-size: var(--text-s);
 }
 
 .facts__cta {

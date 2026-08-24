@@ -6,7 +6,7 @@
 
 .gallery__title {
   margin: 0 0 32px;
-  font-size: clamp(28px, 5vw, 40px);
+  font-size: var(--text-xl);
   font-weight: 700;
   color: var(--g-color-text-primary);
 }
@@ -26,7 +26,7 @@
   padding: 0;
   background: none;
   border: 1px solid var(--g-color-line-generic);
-  border-radius: 14px;
+  border-radius: var(--radius-m);
   overflow: hidden;
   cursor: pointer;
 }
@@ -55,9 +55,9 @@
   max-width: min(1100px, 92vw);
   max-height: 92vh;
   padding: 0;
-  background: #120e0a;
+  background: var(--g-color-base-generic);
   border: 1px solid var(--g-color-line-generic);
-  border-radius: 16px;
+  border-radius: var(--radius-m);
   color: var(--g-color-text-primary);
 }
 
@@ -86,9 +86,9 @@
   min-height: 44px;
   background: none;
   border: 1px solid var(--g-color-line-generic);
-  border-radius: 10px;
+  border-radius: var(--radius-s);
   color: var(--g-color-text-primary);
-  font-size: 18px;
+  font-size: var(--text-m);
   cursor: pointer;
 }
 

@@ -6,9 +6,9 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  background: #120e0a;
+  background: var(--g-color-base-generic);
   border: 1px solid var(--g-color-line-generic);
-  border-radius: 18px;
+  border-radius: var(--radius-m);
   overflow: hidden;
   text-decoration: none;
   transition:
@@ -42,10 +42,10 @@
   margin: 0;
   padding: 4px 10px;
   background: rgb(240 144 24 / 14%);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   color: var(--g-color-text-brand);
   font-family: var(--g-font-family-monospace);
-  font-size: 12px;
+  font-size: var(--text-caption);
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
@@ -53,11 +53,11 @@
 .event-card__num {
   margin: 0;
   color: var(--g-color-text-primary);
-  font-size: 22px;
+  font-size: var(--text-l);
   font-weight: 700;
 }
 
 .event-card__date {
   color: var(--g-color-text-secondary);
-  font-size: 14px;
+  font-size: var(--text-s);
 }

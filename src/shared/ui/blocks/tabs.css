@@ -9,10 +9,10 @@
   padding: 12px 20px;
   background: none;
   border: 1px solid var(--g-color-line-generic);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   color: var(--g-color-text-secondary);
   font-family: inherit;
-  font-size: 15px;
+  font-size: var(--text-s);
   font-weight: 600;
   cursor: pointer;
   transition:
@@ -39,5 +39,5 @@
 .tabs__panel:focus-visible {
   outline: 2px solid var(--g-color-text-brand);
   outline-offset: 4px;
-  border-radius: 8px;
+  border-radius: var(--radius-s);
 }

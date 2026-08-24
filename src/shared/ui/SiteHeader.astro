@@ -132,10 +132,10 @@ const isCurrent = (href: string) => {
     left: 8px;
     z-index: 300;
     padding: 10px 16px;
-    background: #1a1206;
+    background: var(--color-surface-warm);
     color: var(--g-color-text-primary);
     border: 1px solid var(--g-color-line-brand);
-    border-radius: 10px;
+    border-radius: var(--radius-s);
     font-weight: 600;
     text-decoration: none;
     transform: translateY(-200%);
@@ -175,7 +175,7 @@ const isCurrent = (href: string) => {
   }
 
   .header__logo img {
-    border-radius: 8px;
+    border-radius: var(--radius-s);
   }
 
   .header__links {
@@ -189,7 +189,7 @@ const isCurrent = (href: string) => {
   .header__link {
     display: block;
     padding: 8px 14px;
-    border-radius: 10px;
+    border-radius: var(--radius-s);
     color: var(--g-color-text-secondary);
     text-decoration: none;
     transition:
@@ -213,7 +213,7 @@ const isCurrent = (href: string) => {
     padding: 10px;
     background: none;
     border: 1px solid var(--g-color-line-generic);
-    border-radius: 10px;
+    border-radius: var(--radius-s);
     cursor: pointer;
   }
 
@@ -252,7 +252,7 @@ const isCurrent = (href: string) => {
   .mobile-menu__link {
     display: block;
     padding: 12px 24px;
-    border-radius: 12px;
+    border-radius: var(--radius-s);
     color: var(--g-color-text-secondary);
     font-size: 1.9rem;
     font-weight: 600;

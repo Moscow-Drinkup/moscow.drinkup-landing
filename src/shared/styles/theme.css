@@ -24,6 +24,9 @@ body {
   --g-color-base-generic: #120e0a;
   --g-color-base-generic-hover: #171309;
   --g-color-base-generic-accent: #171309;
+
+  /* тёплая подложка крупных секций */
+  --color-surface-warm: #1a1206;
   --g-color-base-float: #120e0a;
   --g-color-base-float-hover: #171309;
   --g-color-line-generic: rgb(240 240 240 / 12%);
@@ -46,6 +49,24 @@ body {
   --g-font-family-monospace: 'JetBrains Mono', monospace !important;
 }
 
+/* Форма и масштаб. Значения задаются здесь, чтобы блоки не заводили
+   собственные: до этого в стилях набралось двенадцать разных скруглений
+   и дюжина размеров шрифта. */
+:root {
+  --radius-s: 10px;
+  --radius-m: 16px;
+  --radius-l: 24px;
+  --radius-pill: 999px;
+
+  /* шкала: подпись, мелкий текст, основной, подзаголовок, заголовок секции */
+  --text-caption: 13px;
+  --text-s: 15px;
+  --text-m: 17px;
+  --text-l: clamp(24px, 4vw, 32px);
+  --text-xl: clamp(28px, 5vw, 40px);
+  --text-page-title: clamp(36px, 7vw, 56px);
+}
+
 /* Базовая типографика страницы — JetBrains Sans */
 body {
   font-family: var(--g-font-family-sans);
@@ -59,47 +80,6 @@ body {
 /* Chrome по умолчанию задаёт кнопкам Arial — наследуем JetBrains Sans */
 button {
   font-family: inherit;
-}
-
-/* Hero: затемнение фонового фото */
-.pc-hero-block__background::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(
-    180deg,
-    rgb(11 9 7 / 88%) 0%,
-    rgb(11 9 7 / 55%) 45%,
-    rgb(11 9 7 / 95%) 100%
-  );
-}
-
-/* Акцент «DrinkUp» в заголовке hero (custom span в Title) */
-.pc-title-item__custom {
-  color: var(--g-color-text-brand);
-  font-family: var(--g-font-family-monospace);
-  font-weight: 800;
-}
-
-/* Оvertitle hero — моноширинный лейбл */
-.pc-hero-block__content-overtitle {
-  font-family: var(--g-font-family-monospace);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-/* Футер: фиксированный размер логотипа — чтобы не наезжал на контент футера */
-.pc-footer-block__logo-image {
-  width: 88px;
-  height: 88px;
-  border-radius: 16px;
-  border: 1px solid var(--g-color-line-generic);
-}
-
-/* Заголовки колонок футера (после нормализации h6 -> h2) */
-.pc-footer-block__column-title {
-  margin: 0 0 12px;
 }
 
 /* Видимый фокус с клавиатуры */
