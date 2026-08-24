@@ -22,15 +22,79 @@ const {title, description, ogImage, ogType, schemas} = Astro.props;
 >
   <slot name="head" slot="head" />
   <SiteHeader />
-  <main id="main" tabindex="-1">
-    <slot />
-  </main>
+  <slot />
   <SiteFooter />
 </BaseLayout>
 
-<style>
+<script>
+  // Каркас страницы: цель для ссылки «К содержимому» и поведение лайтбокса.
+  // Скрипты живут здесь, а не в блоках, чтобы разметку можно было рендерить
+  // на этапе сборки и не отправлять в браузер React.
+  const main = document.querySelector('main');
+  if (main) {
+    main.id = 'main';
+    main.tabIndex = -1;
+  }
+
+  const dialog = document.querySelector<HTMLDialogElement>('[data-lightbox]');
+  const image = document.querySelector<HTMLImageElement>('[data-lightbox-image]');
+  const counter = document.querySelector<HTMLElement>('[data-lightbox-counter]');
+  const triggers = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-lightbox-open]'));
+
+  if (dialog && image && counter && triggers.length > 0) {
+    const photos = triggers.map((trigger) => {
+      const img = trigger.querySelector('img');
+      return {src: img?.src ?? '', alt: img?.alt ?? ''};
+    });
+
+    let current = 0;
+
+    const show = (index: number) => {
+      current = (index + photos.length) % photos.length;
+      image.src = photos[current].src;
+      image.alt = photos[current].alt;
+      counter.textContent = `${current + 1} / ${photos.length}`;
+    };
+
+    triggers.forEach((trigger, index) => {
+      trigger.addEventListener('click', () => {
+        show(index);
+        dialog.showModal();
+      });
+    });
+
+    document
+      .querySelector('[data-lightbox-prev]')
+      ?.addEventListener('click', () => show(current - 1));
+    document
+      .querySelector('[data-lightbox-next]')
+      ?.addEventListener('click', () => show(current + 1));
+    document
+      .querySelector('[data-lightbox-close]')
+      ?.addEventListener('click', () => dialog.close());
+
+    // Клик по подложке за пределами картинки закрывает просмотр
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) {
+        dialog.close();
+      }
+    });
+
+    dialog.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowLeft') {
+        show(current - 1);
+      }
+      if (event.key === 'ArrowRight') {
+        show(current + 1);
+      }
+    });
+  }
+</script>
+
+<style is:global>
+  /* PageConstructor рендерит собственный main — отступ под фиксированной шапкой
+     задаём ему, а не своей обёртке */
   main {
-    /* Под фиксированной шапкой */
     padding-top: 61px;
   }
 

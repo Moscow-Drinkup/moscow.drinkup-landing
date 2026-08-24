@@ -1,35 +1,21 @@
 ---
+import {SiteLayout} from '@/shared/ui';
 import {getNextEvent} from '@/shared/api';
-import {participantReviews, partnerReviews, venueReviews} from '@/shared/content';
-import {Reviews, SiteLayout} from '@/shared/ui';
 import {faqSchema, organizationSchema, websiteSchema} from '@/shared/lib';
-import {faqItems} from '../model/content';
-import {AboutSection} from './HomeBlocks';
-import Hero from './Hero.astro';
-import Faq from './Faq.astro';
-import Gallery from './Gallery.astro';
-import Team from './Team.astro';
+import type {PageContent} from '@gravity-ui/page-constructor';
+import content from '../../../../content/home.json';
+import {PageBlocks} from './PageBlocks';
 
 // Запрос уходит на этапе сборки; при недоступности API берётся снапшот
 const nextEvent = await getNextEvent();
+
+// Вопросы для разметки берём из того же файла, что и блок на странице
+const faqBlock = content.blocks.find((block) => block.type === 'faq');
+const faqItems = (faqBlock?.items ?? []) as {question: string; answer: string}[];
 
 const schemas = [organizationSchema(), websiteSchema(), faqSchema(faqItems)];
 ---
 
 <SiteLayout schemas={schemas}>
-  <Hero event={nextEvent} />
-
-  <div data-reveal><AboutSection /></div>
-  <div data-reveal><Faq /></div>
-  <div data-reveal><Gallery /></div>
-  <div data-reveal>
-    <Reviews title="Отзывы площадок" id="venue-reviews" reviews={venueReviews} />
-  </div>
-  <div data-reveal>
-    <Reviews title="Отзывы партнёров" id="partner-reviews" reviews={partnerReviews} />
-  </div>
-  <div data-reveal>
-    <Reviews title="Отзывы участников" id="participant-reviews" reviews={participantReviews} />
-  </div>
-  <div data-reveal><Team /></div>
+  <PageBlocks content={content as PageContent} event={nextEvent} />
 </SiteLayout>

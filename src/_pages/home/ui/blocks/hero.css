@@ -1,0 +1,215 @@
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: min(88vh, 900px);
+  padding: 96px 24px 72px;
+  overflow: hidden;
+}
+
+.hero__backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero__backdrop img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  /* Фото уходит в фон: цвет бренда остаётся ведущим */
+  filter: grayscale(0.6) contrast(1.05);
+  opacity: 0.28;
+}
+
+.hero__backdrop::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgb(11 9 7 / 92%) 0%,
+    rgb(11 9 7 / 62%) 42%,
+    rgb(11 9 7 / 98%) 100%
+  );
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero__overtitle {
+  margin: 0 0 20px;
+  color: var(--g-color-text-brand);
+  font-family: var(--g-font-family-monospace);
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero__title {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.3em;
+  margin: 0 0 24px;
+  font-size: clamp(44px, 9vw, 104px);
+  font-weight: 300;
+  line-height: 0.94;
+  letter-spacing: -0.02em;
+  color: var(--g-color-text-primary);
+}
+
+.hero__title-accent {
+  font-family: var(--g-font-family-monospace);
+  font-weight: 800;
+  color: var(--g-color-text-brand);
+}
+
+.hero__lead {
+  max-width: 46ch;
+  margin: 0 0 48px;
+  color: var(--g-color-text-secondary);
+  font-size: clamp(16px, 2vw, 19px);
+  line-height: 1.6;
+}
+
+/* Афиша: номер дринкапа как графический якорь, строки — как расписание */
+.hero__bill {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  align-items: center;
+  padding: 28px 0;
+  border-top: 1px solid var(--g-color-line-brand);
+  border-bottom: 1px solid var(--g-color-line-brand);
+}
+
+.hero__num {
+  margin: 0;
+  font-family: var(--g-font-family-monospace);
+  font-size: clamp(64px, 13vw, 132px);
+  font-weight: 800;
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--g-color-text-brand);
+}
+
+.hero__rows {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  min-width: min(100%, 320px);
+  flex: 1;
+}
+
+.hero__row {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 16px;
+  align-items: baseline;
+}
+
+.hero__term {
+  color: var(--g-color-text-hint);
+  font-family: var(--g-font-family-monospace);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero__value {
+  margin: 0;
+  color: var(--g-color-text-primary);
+  font-size: clamp(15px, 1.6vw, 17px);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.hero__cta {
+  padding: 15px 32px;
+  background: var(--g-color-base-brand);
+  border-radius: 999px;
+  color: var(--g-color-text-brand-contrast);
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+
+.hero__cta:hover {
+  background: var(--g-color-base-brand-hover);
+  transform: translateY(-2px);
+}
+
+.hero__link {
+  color: var(--g-color-text-secondary);
+  text-decoration: none;
+}
+
+.hero__link:hover {
+  color: var(--g-color-text-brand);
+}
+
+/* Появление: строки афиши собираются одна за другой */
+@media (prefers-reduced-motion: no-preference) {
+  .hero__overtitle,
+  .hero__title,
+  .hero__lead,
+  .hero__bill,
+  .hero__actions {
+    animation: hero-in 0.7s cubic-bezier(0.2, 0.7, 0.3, 1) backwards;
+    animation-delay: calc(var(--step, 0) * 90ms);
+  }
+
+  .hero__overtitle {
+    --step: 1;
+  }
+
+  .hero__title {
+    --step: 2;
+  }
+
+  .hero__lead {
+    --step: 3;
+  }
+
+  .hero__bill {
+    --step: 4;
+  }
+
+  .hero__actions {
+    --step: 5;
+  }
+}
+
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+@media (width <= 720px) {
+  .hero {
+    min-height: auto;
+    padding-top: 72px;
+  }
+
+  .hero__row {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+}
