@@ -1,0 +1,26 @@
+---
+import type {PageContent} from '@gravity-ui/page-constructor';
+
+import {getEvents, getNextEvent} from '@/shared/api';
+import {breadcrumbsSchema, organizationSchema} from '@/shared/lib';
+import {PageBlocks, SiteLayout} from '@/shared/ui';
+
+import content from '../../../../content/events.json';
+
+const [events, nextEvent] = await Promise.all([getEvents(), getNextEvent()]);
+const schemas = [
+  organizationSchema(),
+  breadcrumbsSchema([
+    {name: 'Главная', path: '/'},
+    {name: 'Мероприятия', path: '/events'},
+  ]),
+];
+
+const title = 'Мероприятия — Moscow DrinkUp | барные айти-митапы в Москве';
+const description =
+  'Все дринкапы Moscow DrinkUp: даты, площадки и регистрация. Ближайший барный айти-митап в Москве — бесплатно, по четвергам.';
+---
+
+<SiteLayout title={title} description={description} schemas={schemas}>
+  <PageBlocks content={content as PageContent} data={{events, nextEvent}} />
+</SiteLayout>

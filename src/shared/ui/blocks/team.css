@@ -1,0 +1,58 @@
+.team {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.team__title {
+  margin: 0 0 32px;
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--g-color-text-primary);
+}
+
+.team__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.team__card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
+  background: var(--g-color-base-generic);
+  border: 1px solid var(--g-color-line-generic);
+  border-radius: var(--radius-m);
+}
+
+.team__photo {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.team__name {
+  margin: 8px 0 0;
+  font-size: var(--text-m);
+  font-weight: 600;
+  color: var(--g-color-text-primary);
+}
+
+.team__role {
+  flex: 1;
+  margin: 0;
+  color: var(--g-color-text-secondary);
+  font-size: var(--text-s);
+  line-height: 1.5;
+}
+
+.team__telegram {
+  color: var(--g-color-text-brand);
+  font-family: var(--g-font-family-monospace);
+  font-size: var(--text-s);
+  text-decoration: none;
+}

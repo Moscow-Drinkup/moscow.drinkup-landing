@@ -1,0 +1,24 @@
+---
+import type {PageContent} from '@gravity-ui/page-constructor';
+
+import {breadcrumbsSchema, organizationSchema} from '@/shared/lib';
+import {PageBlocks, SiteLayout} from '@/shared/ui';
+
+import content from '../../../../content/partners.json';
+
+const schemas = [
+  organizationSchema(),
+  breadcrumbsSchema([
+    {name: 'Главная', path: '/'},
+    {name: 'Партнёрам', path: '/partners'},
+  ]),
+];
+
+const title = 'Партнёрам — Moscow DrinkUp | барные айти-митапы';
+const description =
+  'Спонсорские пакеты Moscow DrinkUp: глубокое касание IT-аудитории в неформальной обстановке. Кейс «Пивка для рывка» и условия партнёрства.';
+---
+
+<SiteLayout title={title} description={description} schemas={schemas}>
+  <PageBlocks content={content as PageContent} />
+</SiteLayout>

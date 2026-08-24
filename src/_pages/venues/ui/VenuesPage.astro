@@ -1,0 +1,24 @@
+---
+import type {PageContent} from '@gravity-ui/page-constructor';
+
+import {breadcrumbsSchema, organizationSchema} from '@/shared/lib';
+import {PageBlocks, SiteLayout} from '@/shared/ui';
+
+import content from '../../../../content/venues.json';
+
+const schemas = [
+  organizationSchema(),
+  breadcrumbsSchema([
+    {name: 'Главная', path: '/'},
+    {name: 'Площадкам', path: '/venues'},
+  ]),
+];
+
+const title = 'Площадкам — Moscow DrinkUp | барные айти-митапы';
+const description =
+  'Провести барный айти-митап у себя: формат сотрудничества с барами и площадками Москвы. Полный зал в четверг — это про нас.';
+---
+
+<SiteLayout title={title} description={description} schemas={schemas}>
+  <PageBlocks content={content as PageContent} />
+</SiteLayout>

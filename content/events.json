@@ -1,0 +1,28 @@
+{
+  "$comment": "Контент страницы мероприятий. Сам список дринкапов приходит из API на этапе сборки — в блоке events-grid задаются только подписи.",
+  "blocks": [
+    {
+      "type": "page-header",
+      "overtitle": "Для участников",
+      "title": "Мероприятия",
+      "description": "Барные айти-митапы Moscow DrinkUp: нумерованные дринкапы по четвергам. Дата следующего дринкапа появляется здесь, как только её объявляют в сообществе на Networkly.",
+      "cta": {
+        "href": "https://networkly.app/community/moscow_drinkup",
+        "label": "Сообщество на Networkly →",
+        "external": true
+      },
+      "indent": {
+        "top": "l",
+        "bottom": "0"
+      }
+    },
+    {
+      "type": "events-grid",
+      "upcomingLabel": "Ближайший",
+      "emptyText": "Список мероприятий временно недоступен — актуальные анонсы всегда есть в сообществе на Networkly.",
+      "indent": {
+        "bottom": "xl"
+      }
+    }
+  ]
+}

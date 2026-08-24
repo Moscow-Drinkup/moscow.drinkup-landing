@@ -1,0 +1,277 @@
+---
+import {SITE} from '@/shared/config';
+import {withBase} from '@/shared/lib';
+
+const links = [
+  {href: '/', label: 'Главная'},
+  {href: '/events', label: 'Мероприятия'},
+  {href: '/venues', label: 'Площадкам'},
+  {href: '/partners', label: 'Партнёрам'},
+];
+
+// Текущий раздел подсвечивается в навигации. Astro.url.pathname приходит
+// с учётом base, поэтому сравниваем уже готовые ссылки.
+const current = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isCurrent = (href: string) => {
+  const target = withBase(href).replace(/\/$/, '') || '/';
+  return target === current;
+};
+---
+
+<a class="skip-link" href="#main">К содержимому</a>
+
+<header class="header">
+  <nav class="header__inner" aria-label="Основная навигация">
+    <a class="header__logo" href={withBase('/')}>
+      <img src={withBase(SITE.logo)} alt="" width="36" height="36" />
+      <span>{SITE.name}</span>
+    </a>
+
+    <ul class="header__links">
+      {
+        links.map((link) => (
+          <li>
+            <a
+              href={withBase(link.href)}
+              class="header__link"
+              aria-current={isCurrent(link.href) ? 'page' : undefined}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <button
+      type="button"
+      class="header__burger"
+      aria-label="Открыть меню"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      data-menu-toggle
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" hidden data-menu>
+  <ul class="mobile-menu__links">
+    {
+      links.map((link) => (
+        <li>
+          <a
+            href={withBase(link.href)}
+            class="mobile-menu__link"
+            aria-current={isCurrent(link.href) ? 'page' : undefined}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<script>
+  // Мобильное меню: без фреймворка — состояние держится в атрибутах.
+  const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+  const menu = document.querySelector<HTMLElement>('[data-menu]');
+
+  if (toggle && menu) {
+    // Содержимое под оверлеем: пока меню открыто, оно не должно быть
+    // доступно ни с клавиатуры, ни скринридеру
+    const background = document.querySelectorAll<HTMLElement>('main, footer');
+
+    const setOpen = (open: boolean) => {
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
+      menu.hidden = !open;
+      // Фон под открытым меню не должен прокручиваться
+      document.body.style.overflow = open ? 'hidden' : '';
+      background.forEach((element) => {
+        element.inert = open;
+      });
+    };
+
+    toggle.addEventListener('click', () => {
+      setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+    });
+
+    menu.addEventListener('click', (event) => {
+      if (event.target instanceof HTMLAnchorElement) {
+        setOpen(false);
+      }
+    });
+
+    // На широком экране бургер скрыт: если окно растянули с открытым меню,
+    // оверлей нужно закрыть, иначе он останется висеть и заблокирует прокрутку
+    const desktop = window.matchMedia('(width > 720px)');
+    desktop.addEventListener('change', (event) => {
+      if (event.matches && !menu.hidden) {
+        setOpen(false);
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !menu.hidden) {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+  }
+</script>
+
+<style>
+  .skip-link {
+    position: fixed;
+    top: 8px;
+    left: 8px;
+    z-index: 300;
+    padding: 10px 16px;
+    background: var(--color-surface-warm);
+    color: var(--g-color-text-primary);
+    border: 1px solid var(--g-color-line-brand);
+    border-radius: var(--radius-s);
+    font-weight: 600;
+    text-decoration: none;
+    transform: translateY(-200%);
+    transition: transform 0.2s;
+  }
+
+  .skip-link:focus {
+    transform: translateY(0);
+  }
+
+  .header {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 200;
+    background: rgb(11 9 7 / 82%);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--g-color-line-generic);
+  }
+
+  .header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px 24px;
+  }
+
+  .header__logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--g-color-text-primary);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .header__logo img {
+    border-radius: var(--radius-s);
+  }
+
+  .header__links {
+    display: flex;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .header__link {
+    display: block;
+    padding: 8px 14px;
+    border-radius: var(--radius-s);
+    color: var(--g-color-text-secondary);
+    text-decoration: none;
+    transition:
+      color 0.15s,
+      background 0.15s;
+  }
+
+  .header__link:hover,
+  .header__link[aria-current='page'] {
+    color: var(--g-color-text-brand);
+    background: rgb(240 240 240 / 5%);
+  }
+
+  .header__burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    background: none;
+    border: 1px solid var(--g-color-line-generic);
+    border-radius: var(--radius-s);
+    cursor: pointer;
+  }
+
+  .header__burger span {
+    display: block;
+    height: 2px;
+    background: var(--g-color-text-primary);
+    border-radius: 2px;
+  }
+
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 190;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(11 9 7 / 97%);
+    backdrop-filter: blur(16px);
+  }
+
+  .mobile-menu[hidden] {
+    display: none;
+  }
+
+  .mobile-menu__links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0;
+    padding: 24px;
+    list-style: none;
+    text-align: center;
+  }
+
+  .mobile-menu__link {
+    display: block;
+    padding: 12px 24px;
+    border-radius: var(--radius-s);
+    color: var(--g-color-text-secondary);
+    font-size: 1.9rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .mobile-menu__link:hover,
+  .mobile-menu__link[aria-current='page'] {
+    color: var(--g-color-text-brand);
+    background: rgb(240 240 240 / 5%);
+  }
+
+  @media (width <= 720px) {
+    .header__links {
+      display: none;
+    }
+
+    .header__burger {
+      display: flex;
+    }
+  }
+</style>

@@ -1,7 +1,10 @@
 node_modules
 dist
 *.tsbuildinfo
-src/generated-events.ts
-src/generated-event.ts
-src/generated-jsonld.json
 .DS_Store
+
+# Симлинки на .agents/skills, генерируются `npx skills experimental_install`
+.claude/skills
+
+# Служебные файлы Astro (типы, кеш)
+.astro

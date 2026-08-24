@@ -1,0 +1,72 @@
+.facts__title {
+  margin: 0 0 16px;
+  font-size: var(--text-l);
+  font-weight: 700;
+  color: var(--g-color-text-primary);
+}
+
+.facts__text {
+  max-width: 720px;
+  margin: 0 0 32px;
+  color: var(--g-color-text-secondary);
+  line-height: 1.6;
+}
+
+.facts__list {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Строки данных: название слева, пояснение справа */
+.facts__item {
+  display: grid;
+  grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+  gap: 8px 32px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--g-color-line-generic);
+}
+
+.facts__item:first-child {
+  border-top: 1px solid var(--g-color-line-generic);
+}
+
+@media (width <= 720px) {
+  .facts__item {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
+
+.facts__item-title {
+  margin: 0 0 8px;
+  color: var(--g-color-text-brand);
+  font-weight: 600;
+}
+
+.facts__item-text {
+  margin: 0;
+  color: var(--g-color-text-secondary);
+  font-size: var(--text-s);
+  line-height: 1.5;
+}
+
+.facts__summary {
+  margin: 24px 0 0;
+  color: var(--g-color-text-hint);
+  font-family: var(--g-font-family-monospace);
+  font-size: var(--text-s);
+}
+
+.facts__cta {
+  display: inline-block;
+  margin-top: 24px;
+  color: var(--g-color-text-brand);
+  text-decoration: none;
+}
+
+.facts__cta:hover {
+  text-decoration: underline;
+}

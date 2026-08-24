@@ -1,0 +1,33 @@
+# Хуки git. Установка после клонирования: pnpm lefthook install
+# (выполняется автоматически через скрипт prepare).
+
+pre-commit:
+  parallel: true
+  jobs:
+    - name: eslint
+      glob: '*.{js,mjs,ts,tsx,astro}'
+      run: pnpm exec eslint --fix --no-warn-ignored {staged_files}
+      stage_fixed: true
+
+    - name: stylelint
+      glob: '*.{css,astro}'
+      run: pnpm exec stylelint --fix {staged_files}
+      stage_fixed: true
+
+    - name: prettier
+      glob: '*.{js,mjs,ts,tsx,astro,css,json,md,yml,yaml}'
+      run: pnpm exec prettier --write --ignore-unknown {staged_files}
+      stage_fixed: true
+
+    # Архитектуру FSD проверяем на каждом коммите: нарушение границ слоёв
+    # дешевле поймать сразу, чем разбирать его в готовой ветке.
+    # Steiger смотрит весь src целиком — списка staged-файлов ему не даём.
+    - name: steiger
+      glob: 'src/**/*'
+      run: pnpm lint:fsd
+
+# Типы считаются дольше остальных проверок — оставляем их перед пушем
+pre-push:
+  jobs:
+    - name: typecheck
+      run: pnpm typecheck

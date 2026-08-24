@@ -1,0 +1,8 @@
+node_modules
+dist
+pnpm-lock.yaml
+# Скиллы агентов — внешний код, форматируется апстримом
+.agents
+.claude
+public/fonts
+src/generated-*

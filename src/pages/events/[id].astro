@@ -1,0 +1,20 @@
+---
+import type {DrinkupEvent} from '@/shared/api';
+import {getEvents, getNextEvent} from '@/shared/api';
+
+import {EventPage} from '@/_pages/event';
+
+// Страницы всех мероприятий генерируются на этапе сборки
+export async function getStaticPaths() {
+  const [events, nextEvent] = await Promise.all([getEvents(), getNextEvent()]);
+
+  return events.map((event) => ({
+    params: {id: String(event.id)},
+    props: {event, upcoming: event.id === nextEvent?.id},
+  }));
+}
+
+const {event, upcoming} = Astro.props as {event: DrinkupEvent; upcoming: boolean};
+---
+
+<EventPage event={event} upcoming={upcoming} />

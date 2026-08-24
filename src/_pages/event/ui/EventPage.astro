@@ -1,0 +1,42 @@
+---
+import type {PageContent} from '@gravity-ui/page-constructor';
+
+import type {DrinkupEvent} from '@/shared/api';
+import {breadcrumbsSchema, eventSchema, formatEventDate} from '@/shared/lib';
+import {PageBlocks, SiteLayout} from '@/shared/ui';
+
+import content from '../../../../content/event.json';
+
+interface Props {
+  event: DrinkupEvent;
+  /** Предстоящему событию в разметке добавляются сведения о регистрации. */
+  upcoming?: boolean;
+}
+
+const {event, upcoming = false} = Astro.props;
+const date = formatEventDate(event.start);
+
+const schemas = [
+  eventSchema(event, {upcoming}),
+  breadcrumbsSchema([
+    {name: 'Главная', path: '/'},
+    {name: 'Мероприятия', path: '/events'},
+    {name: event.name, path: `/events/${event.id}`},
+  ]),
+];
+
+const title = `${event.name}${date ? `, ${date}` : ''} — барный айти-митап в Москве`;
+const description = `${event.name} — бесплатный барный айти-митап в Москве${
+  date ? `, ${date}` : ''
+}. Экспертные доклады за кружкой пива. Регистрация открыта.`;
+---
+
+<SiteLayout
+  title={title}
+  description={description}
+  ogImage={event.cover ?? undefined}
+  ogType="article"
+  schemas={schemas}
+>
+  <PageBlocks content={content as PageContent} data={{event}} />
+</SiteLayout>

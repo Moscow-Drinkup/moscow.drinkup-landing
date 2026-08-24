@@ -26,4 +26,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://drinkup.moscow/sitemap.xml
+Sitemap: https://drinkup.moscow/sitemap-index.xml

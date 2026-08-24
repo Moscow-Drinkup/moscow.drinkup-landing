@@ -1,0 +1,167 @@
+/* ============================================================
+   Брендовые токены поверх дизайн-системы Gravity UI (uikit)
+   Палитра из Figma (BeerJS): чёрный фон + оранжевый #f09018
+   Типографика: JetBrains Sans / JetBrains Mono
+   ============================================================ */
+
+html,
+body {
+  margin: 0;
+  background: #0b0907;
+}
+
+/* Стандартный reset для приложений на Gravity UI (page-constructor ожидает border-box) */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.g-root_theme_dark {
+  /* фон */
+  --g-color-base-background: #0b0907;
+  --g-color-base-background-hover: #100d09;
+  --g-color-base-generic: #120e0a;
+  --g-color-base-generic-hover: #171309;
+  --g-color-base-generic-accent: #171309;
+
+  /* тёплая подложка крупных секций */
+  --color-surface-warm: #1a1206;
+  --g-color-base-float: #120e0a;
+  --g-color-base-float-hover: #171309;
+  --g-color-line-generic: rgb(240 240 240 / 12%);
+  --g-color-line-generic-hover: rgb(240 240 240 / 20%);
+
+  /* бренд (акцент) */
+  --g-color-base-brand: #f09018;
+  --g-color-base-brand-hover: #f2a53a;
+  --g-color-base-brand-active: #d9820e;
+  --g-color-line-brand: rgb(240 144 24 / 60%);
+  --g-color-text-brand: #f09018;
+  --g-color-text-brand-heavy: #f2a53a;
+  --g-color-text-brand-contrast: #1a1000;
+
+  /* типографика: ТОЛЬКО JetBrains Sans / JetBrains Mono (без сторонних фолбэков).
+     !important — uikit инжектит свои переменные (Inter/Menlo) позже в бандле,
+     и без приоритета они перебивали бы наши. Родовые sans-serif/monospace —
+     категория фолбэка CSS на случай сбоя загрузки woff2 (font-display: swap). */
+  --g-font-family-sans: 'JetBrains Sans', sans-serif !important;
+  --g-font-family-monospace: 'JetBrains Mono', monospace !important;
+}
+
+/* Форма и масштаб. Значения задаются здесь, чтобы блоки не заводили
+   собственные: до этого в стилях набралось двенадцать разных скруглений
+   и дюжина размеров шрифта. */
+:root {
+  --radius-s: 10px;
+  --radius-m: 16px;
+  --radius-l: 24px;
+  --radius-pill: 999px;
+
+  /* шкала: подпись, мелкий текст, основной, подзаголовок, заголовок секции */
+  --text-caption: 13px;
+  --text-s: 15px;
+  --text-m: 17px;
+  --text-lead: 20px;
+  --text-l: clamp(24px, 4vw, 32px);
+  --text-xl: clamp(28px, 5vw, 40px);
+  --text-page-title: clamp(32px, 6vw, 48px);
+}
+
+/* Горизонтальные поля страницы задаёт контейнер сетки PageConstructor.
+   Его собственные 16px подтягиваем до нашего шага, чтобы блоки
+   не добавляли поля поверх контейнерных. */
+.container-fluid {
+  padding-inline: 24px;
+}
+
+/* Базовая типографика страницы — JetBrains Sans */
+body {
+  font-family: var(--g-font-family-sans);
+
+  /* Полноширинные блоки считают ширину от вьюпорта — горизонтальную
+     прокрутку при этом отсекаем. clip, а не hidden: не создаёт контекст
+     прокрутки и не ломает position: sticky */
+  overflow-x: clip;
+}
+
+/* Заголовки: у крупного кегля строка по умолчанию разрежена, из-за чего
+   отступы вокруг зрительно пропадают. Задаём высоту строки один раз,
+   блоки отвечают только за размер и отступ снизу. */
+h1,
+h2,
+h3 {
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+h1 {
+  line-height: 1.08;
+}
+
+/* Chrome по умолчанию задаёт кнопкам Arial — наследуем JetBrains Sans */
+button {
+  font-family: inherit;
+}
+
+/* Видимый фокус с клавиатуры */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+[role='button']:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--g-color-text-brand);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Уважение к prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================
+   Проявление секций при прокрутке
+   ------------------------------------------------------------
+   Собственная временная шкала прокрутки (animation-timeline: view)
+   работает без JavaScript. Там, где её нет, срабатывает @supports
+   и содержимое просто видно сразу — сценарий без анимации является
+   базовым, а не деградацией.
+   ============================================================ */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    /* Каждый блок страницы PageConstructor оборачивает в pc-constructor-block,
+       поэтому проявление вешается на обёртку — отдельные метки в разметке
+       не нужны. Первый экран исключён: у него своя анимация появления. */
+    .pc-constructor-block:not(.pc-constructor-block_type_hero-billboard) {
+      /* Свойства перечислены по отдельности: собранные в сокращённую запись
+         animation вместе с временной шкалой они понимаются не всеми
+         браузерами, поддерживающими сами шкалы прокрутки */
+      animation-name: reveal-in;
+      animation-duration: auto;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: view();
+      animation-range: entry 8% cover 26%;
+    }
+  }
+}
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
