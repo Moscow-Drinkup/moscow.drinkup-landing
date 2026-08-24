@@ -1,3 +1,14 @@
+/* PageConstructor кладёт каждый блок в контейнер сетки с полями по краям.
+   Афише это мешает: фон должен идти от края до края. Цепляемся за класс
+   типа блока — он образован от нашего имени hero-billboard и меняется
+   только вместе с ним. */
+.pc-constructor-block_type_hero-billboard {
+  width: 100vw;
+  max-width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  padding-inline: 0;
+}
+
 .hero {
   position: relative;
   display: flex;

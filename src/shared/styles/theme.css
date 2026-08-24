@@ -49,6 +49,11 @@ body {
 /* Базовая типографика страницы — JetBrains Sans */
 body {
   font-family: var(--g-font-family-sans);
+
+  /* Полноширинные блоки считают ширину от вьюпорта — горизонтальную
+     прокрутку при этом отсекаем. clip, а не hidden: не создаёт контекст
+     прокрутки и не ломает position: sticky */
+  overflow-x: clip;
 }
 
 /* Chrome по умолчанию задаёт кнопкам Arial — наследуем JetBrains Sans */
