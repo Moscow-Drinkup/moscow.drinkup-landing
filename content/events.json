@@ -10,12 +10,19 @@
         "href": "https://networkly.app/community/moscow_drinkup",
         "label": "Сообщество на Networkly →",
         "external": true
+      },
+      "indent": {
+        "top": "l",
+        "bottom": "0"
       }
     },
     {
       "type": "events-grid",
       "upcomingLabel": "Ближайший",
-      "emptyText": "Список мероприятий временно недоступен — актуальные анонсы всегда есть в сообществе на Networkly."
+      "emptyText": "Список мероприятий временно недоступен — актуальные анонсы всегда есть в сообществе на Networkly.",
+      "indent": {
+        "bottom": "xl"
+      }
     }
   ]
 }

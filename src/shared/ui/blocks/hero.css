@@ -224,3 +224,29 @@
     gap: 2px;
   }
 }
+
+/* Фотография за афишей отстаёт от прокрутки — первый экран уходит вглубь,
+   а не сдвигается целиком. Масштаб чуть больше единицы, чтобы при сдвиге
+   не оголялись края. Шкала прокрутки работает без скриптов. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: scroll()) {
+    .hero__backdrop img {
+      animation-name: hero-parallax;
+      animation-duration: auto;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: scroll();
+      animation-range: 0 90vh;
+    }
+  }
+}
+
+@keyframes hero-parallax {
+  from {
+    transform: scale(1.06) translateY(0);
+  }
+
+  to {
+    transform: scale(1.06) translateY(8%);
+  }
+}

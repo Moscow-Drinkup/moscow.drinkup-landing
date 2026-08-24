@@ -12,7 +12,8 @@
       "entrance": "бесплатно · пиво своё, доклады наши",
       "pastLabel": "Прошедшие дринкапы →",
       "indent": {
-        "top": "0"
+        "top": "0",
+        "bottom": "xl"
       }
     },
     {
@@ -169,7 +170,10 @@
           "telegram": "@e_kucheriavyi",
           "photo": "/img/team/evgeny.webp"
         }
-      ]
+      ],
+      "indent": {
+        "bottom": "xl"
+      }
     }
   ]
 }

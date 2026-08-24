@@ -135,6 +135,8 @@ const {title, description, ogImage, ogType, schemas} = Astro.props;
   /* PageConstructor рендерит собственный main — отступ под фиксированной шапкой
      задаём ему, а не своей обёртке */
   main {
+    /* высота фиксированной шапки; вертикальный ритм ниже задают
+       отступы блоков PageConstructor */
     padding-top: 61px;
   }
 

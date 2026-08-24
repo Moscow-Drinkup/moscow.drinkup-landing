@@ -1,7 +1,7 @@
 .gallery {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 24px 72px;
+  padding: 0 24px;
 }
 
 .gallery__title {

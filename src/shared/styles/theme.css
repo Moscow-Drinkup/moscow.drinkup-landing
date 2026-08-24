@@ -115,8 +115,17 @@ summary:focus-visible,
    ============================================================ */
 @media (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
-    [data-reveal] {
-      animation: reveal-in linear both;
+    /* Каждый блок страницы PageConstructor оборачивает в pc-constructor-block,
+       поэтому проявление вешается на обёртку — отдельные метки в разметке
+       не нужны. Первый экран исключён: у него своя анимация появления. */
+    .pc-constructor-block:not(.pc-constructor-block_type_hero-billboard) {
+      /* Свойства перечислены по отдельности: собранные в сокращённую запись
+         animation вместе с временной шкалой они понимаются не всеми
+         браузерами, поддерживающими сами шкалы прокрутки */
+      animation-name: reveal-in;
+      animation-duration: auto;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
       animation-timeline: view();
       animation-range: entry 8% cover 26%;
     }

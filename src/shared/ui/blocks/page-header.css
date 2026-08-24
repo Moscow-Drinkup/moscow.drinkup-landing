@@ -1,7 +1,7 @@
 .page-header {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 72px 24px 0;
+  padding: 0 24px;
 }
 
 .page-header__inner {
@@ -45,7 +45,7 @@
 .events-grid {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 48px 24px 72px;
+  padding: 0 24px;
 }
 
 .events-grid__list {
