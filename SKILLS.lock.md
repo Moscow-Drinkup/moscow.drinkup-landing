@@ -8,6 +8,7 @@
 
 | Скилл | Источник | Для чего используется |
 |---|---|---|
+| `gravity-ui` | официальный, `github.com/gravity-ui/skills` (установка: `npx skills add gravity-ui/skills`; в Hermes — симлинк через ~/.agents) | Экосистема Gravity UI: выбор правильного пакета, актуальные API по установленной версии, иконки, ThemeProvider, `--g-*` токены; каталог — `gravity-ui.com/llms.txt` |
 | `gravity-ui-page-constructor` | самописный (создан для этого проекта) | Все правки на Gravity UI: блоки, тема, грабли page-constructor |
 | `seo` | addyosmani/web-quality-skills (хаб) | Техническое SEO: meta, canonical, структурированные данные, чек-листы |
 | `seo-geo` | agricidaniel/claude-seo (хаб) | GEO: видимость в AI-поиске (ChatGPT/Perplexity), llms.txt, AI-краулеры |
